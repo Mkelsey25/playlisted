@@ -6,12 +6,11 @@ PlayListed is a full stack project that uses Express, MySQL, Sequelize and Handl
 TBD. \
 **How solved:** \
 TBD. \
-**Technical approach:** MySQL is used as the backend to manage users, songs, and playlists leveraging the Sequelize ORM and implemented with the MVC design pattern.  Handlebars and static pages are used for UI/UX on CSS3 and HTML5 in combination with Bootstrap.  An api is available to perform CRUD operations against the users, songs and playlists from the front-end via AJAX requests.  Passport is used for user authentication.
+**Technical approach:** \
+MySQL is used as the backend to manage users, songs, and playlists leveraging the Sequelize ORM and implemented with the MVC design pattern.  Handlebars and static pages are used for UI/UX on CSS3 and HTML5 in combination with Bootstrap.  An api is available to perform CRUD operations against the users, songs and playlists from the front-end via AJAX requests.  Passport is used for user authentication.
 
 ## Getting Started
  
-Clone the repository locally.
-
 ### Prerequisites
 
 Node, NPM and a command line tool such as GitBash.
@@ -34,7 +33,7 @@ $ npm install body-parser --save
 $ npm install passport --save
 
 ```
-Create a .env file at the root of the project and populate with connection info.
+Create an .env file at the root of the project and populate with connection info.
 
 ```
 # Heroku keys
