@@ -1,13 +1,12 @@
 # Playlisted
 
-PlayListed is .... TBD 
-
+PlayListed is a full stack project that uses Express, MySQL, Sequelize and Handlebars to create a recommended playlist of songs based on user preferences such as mood, energy, and genre.
 
 **Problem it solves:** \
-TBD.\
+TBD. \
 **How solved:** \
-TBD.\
-**Technical approach:** This is a full stack project that uses MySQL, Sequelize and Handlebars to create a playlist of songs based on user preferences.
+TBD. \
+**Technical approach:** MySQL is used as the backend to manage users, songs, and playlists leveraging the Sequelize ORM and implemented with the MVC design pattern.  Handlebars and static pages are used for UI/UX on CSS3 and HTML5 in combination with Bootstrap.  An api is available to perform CRUD operations against the users, songs and playlists from the front-end via AJAX requests.  Passport is used for user authentication.
 
 ## Getting Started
  
@@ -15,11 +14,13 @@ Clone the repository locally.
 
 ### Prerequisites
 
-TBD
+Node, NPM and a command line tool such as GitBash.
 
 ### Installing
 
-To get a development environment up and running, clone the repository locally.
+To get a development environment up and running, clone the repository locally. \
+
+From the command line, execute the below to setup the project:
 
 ```
 
@@ -33,6 +34,26 @@ $ npm install body-parser --save
 $ npm install passport --save
 
 ```
+Create a .env file at the root of the project and populate with connection info.
+
+```
+# Heroku keys
+
+HEROKU_USERNAME=
+HEROKU_PASSWORD=
+HEROKU_DATABASE=
+HEROKU_HOST=
+HEROKU_PORT=3306
+
+# Local DB
+
+DB_DEV_USERNAME="ENTER_DB_USER_NAME_HERE"
+DB_DEV_PASSWORD="ENTER_PASSWORD_HERE"
+DB_DEV_DATABASE="ENTER_DB_NAME_HERE"
+DB_DEV_HOST="127.0.0.1"
+DB_DEV_PORT=3306
+
+```
 
 ## Running tests
 
@@ -44,7 +65,7 @@ The project is deployed to Heroku pages at TBD
 
 ## Built With
 
-MySql, Sequelize, JQuery, HTML5, CSS3, Bootstrap, Font Awesome, Passport
+Express, MySql, Sequelize, JQuery, HTML5, CSS3, Bootstrap, Font Awesome, Passport
 
 ## Contributing
 
@@ -56,7 +77,7 @@ This is version 0.1
 
 ## Authors
 
-* **Jenni Coleman** - *Design, Routes and Handlebars*
+* **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize (basic), AJAX calls (samples) and Handlebars*
 
 ## License
 
