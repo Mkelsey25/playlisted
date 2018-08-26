@@ -1,65 +1,24 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
+// wait to attach handlers until the DOM is fully loaded
 $(function() {
 
-    // TODO
-    //document.getElementById("TBD").focus();
+    ///////////////////////////////
+    // Make AJAX requests
+    ///////////////////////////////
 
-    // update the user
-    $(".change-user").on("click", function(event) {
-        var id = $(this).data("id");
-        var newName = $(this).data("newUser");
-        var newPassword = $(this).data("newPassword");
-
-        // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
-        var newObjectState = {
-            user_name: newName,
-            user_password: newPassword
-        };
-
-        // Send the PUT request.
-        $.ajax("/api/users/" + id, {
-            type: "PUT",
-            data: newObjectState
-        }).then(
-        function() {
-            console.log("changed state to", newObjectState);
-            // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-    });
-
-    // delete the user
-    $(".delete-user").on("click", function(event) {
-        var id = $(this).data("id");
-
-        // Send the DELETE request.
-        $.ajax("/api/users/" + id, {
-            type: "DELETE"
-        }).then(
-        function() {
-            console.log("deleted user", id);
-            // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-    });
-
-    //////////////////////////////////////////////////////////////////////////////
-    // can do this here or as form submit on the page as an alternate method ...
-    //////////////////////////////////////////////////////////////////////////////
-
+    /////////////////////
     // create the user
-    $(".create-user-form").on("submit", function(event) {
+    /////////////////////
+    $("#form-new-user").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        console.log("on post submit");
-
         var newUser = {
-            user_name: 'TEST', //$("#TBD").val().trim(),            TODO
-            user_password: 'TEST' //$("#TBD").val().trim()
+            user_name: $("#form-new-user [name=user_name]").val().trim(),
+            user_password: $("#form-new-user [name=user_password]").val().trim()
         };
+
+        console.log("Ajax request: create user");
+        console.log(newUser);
 
         // Send the POST request.
         $.ajax("/api/users", {
@@ -69,6 +28,56 @@ $(function() {
         function() {
             console.log("created new user");
             // Reload the page to get the updated user list
+            location.reload();
+        }
+        );
+    });
+
+    /////////////////////
+    // update the user
+    /////////////////////
+    $("#form-update-user").on("submit", function(event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var id = $("[name=id]").val().trim();
+
+        // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
+        var UserData = {
+            user_name: $("#form-update-user [name=name]").val().trim(),
+            user_password: $("#form-update-user [name=password]").val().trim()
+        };
+
+        console.log("Ajax request: update user");
+        console.log(UserData);
+
+        // Send the PUT request.
+        $.ajax("/api/users/" + id, {
+            type: "PUT",
+            data: UserData
+        }).then(
+        function() {
+            console.log("Updated id: ", id);
+            // Reload the page to get the updated list
+            location.reload();
+        }
+        );
+    });
+
+    /////////////////////
+    // delete the user
+    /////////////////////
+    $(".delete-user").on("click", function(event) {
+        var id = $(this).data("id");
+
+        // Send the DELETE request.
+        $.ajax("/api/users/" + id, {
+            type: "DELETE"
+        }).then(
+        function() {
+            console.log("deleted user", id);
+            
+            // Reload the page to get the updated list
             location.reload();
         }
         );

@@ -10,20 +10,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(50),
             allowNull: false,
             validate: {
-                len: {
-                    args: [1,50],
-                    msg: "String length is not in range"
-               }
+                len: { args: [1,50], msg: "String length is not in range" }
             }
         },
         user_password: {
             type: DataTypes.STRING(50),
             allowNull: true,
             validate: {
-                len: {
-                    args: [1,50],
-                    msg: "String length is not in range"
-               }
+                len: { args: [1,50], msg: "String length is not in range" }
             }
         },
         createdAt: {

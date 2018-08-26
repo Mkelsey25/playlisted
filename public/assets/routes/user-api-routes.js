@@ -12,11 +12,14 @@ var db = require("./../../../models");
 /////////////////
 module.exports = function(app) {
 
-  // GET route for getting all of the users
+  /////////////////////////////////////////////
+  // GET route for getting ALL of the users
+  /////////////////////////////////////////////
   app.get("/api/users", function(req, res) {
     var query = {};
 
-    console.log("in all users get route");
+    console.log("route: all users");
+    console.log(JSON.stringify(req.body));
 
     if (req.query.song_id) {
       query.UserId = req.query.user_id;
@@ -25,8 +28,7 @@ module.exports = function(app) {
     db.Users.findAll({
       where: query
     }).then(function(dbResult) {
-      // send as JSON
-      // res.json(dbResult);
+      // res.json(dbResult);          // send as json
 
       // send to handlebars
       var hbsObject = {
@@ -36,59 +38,98 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for retrieving a single user
+  /////////////////////////////////////////////
+  // GET route for retrieving ONE user
+  /////////////////////////////////////////////
   app.get("/api/users/:id", function(req, res) {
 
-    console.log("in a users get route");
+    console.log("route: specific user");
+    console.log(JSON.stringify(req.body));
 
-    db.Users.findOne({
+    db.Users.findAll({
       where: {
         user_id: req.params.id
       }
     }).then(function(dbResult) {
-      // send to JSON
-      // res.json(dbResult);
+      // res.json(dbResult);          // send as json
 
       // send to handlebars
-      var hbsObject = {
-        users: dbResult
+      var hbsUser = {
+        user: dbResult
       };
-      console.log(dbResult);
-      res.render("index", hbsObject);
+      // console.log(dbResult);
+      res.render("index", hbsUser);
     });
   });
 
-  // POST route for saving new user
+  /////////////////////////////////////////////
+  // POST route for CREATE a new user
+  /////////////////////////////////////////////
   app.post("/api/users", function(req, res) {
+
+    console.log("route: create user");
+    console.log(JSON.stringify(req.body));
+
     db.Users.create(req.body).then(function(dbResult) {
       console.log("User created.");
 
-      res.json(dbResult);
+      res.json(dbResult);          // send as json
     });
   });
 
+  /////////////////////////////////////////////
   // DELETE route for deleting a user
+  /////////////////////////////////////////////
   app.delete("/api/users/:id", function(req, res) {
+    
+    console.log("route: delete a user");
+    console.log(JSON.stringify(req.body));
+    
     db.Users.destroy({
       where: {
-        user_id: req.params.id
+        user_id: req.params.id        //req.body.id if send in body
       }
     }).then(function(dbResult) {
-      res.json(dbResult);
+      console.log("after the deletion of user");
+
+      res.json(dbResult);          // send as json
     });
   });
 
-  // PUT route for updating
-  app.put("/api/users/", function(req, res) {
+  /////////////////////////////////////////////
+  // PUT route for UPDATE
+  /////////////////////////////////////////////
+  app.put("/api/users/:id", function(req, res) {
+
+    console.log("route: update user");
+    console.log(JSON.stringify(req.body));
+
+    // var id;
+    // if (req.params.id) {
+    //   id = req.params.id
+    // } else {
+    //   id = req.body.id
+    // }
+
+    var id = (req.params.id) ? req.params.id : req.body.id;
 
     db.Users.update(
-      req.body,
+      {
+        user_name: req.body.user_name,
+        user_password: req.body.user_password
+      },
       {
         where: {
-          user_id: req.body.id
+          user_id: id
         }
       }).then(function(dbResult) {
         res.json(dbResult);
     });
   });
 };
+
+
+  /////////////////////////////////////////////////////////////////////
+  // res.status(404)        // HTTP status 404: NotFound
+  // .send('Not found')
+  /////////////////////////////////////////////////////////////////////

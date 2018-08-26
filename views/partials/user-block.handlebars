@@ -1,23 +1,23 @@
 <li>
 	<div class="flex-wrapper">
 		<span id="user-item" class="flex-item">
-			{{user_id}}. {{user_name}}
+			{{user_id}}. {{user_name}}, 
 		</span>
-		<span id="create-date-item" class="flex-item">
-			{{createdAt}}
+		<span id="password-item" class="flex-item">
+			{{user_password}}
 		</span>
-		<span id="modify-date-item" class="flex-item">
-			{{updatedAt}}
-		</span>
-
-		<div id="btns" class="flex-item">
-			<button class="change-user-name" data-id="{{user_name}}" data-newName="TBD">
-				Change Name
-			</button>
-
-			<button class="delete-user" data-id="{{this.user_id}}">Delete</button>
+		<div>
+			<span id="create-date-item" class="flex-item">
+				Create Date: {{createdAt}}
+			</span>
+			<span id="modify-date-item" class="flex-item">
+				Update Date: {{updatedAt}}
+			</span>
 		</div>
 
+		<div id="btns" class="flex-item">
+			<button class="delete-user" data-id="{{this.user_id}}">Delete</button>
+		</div>
 	</div>
 </li>
 	

@@ -1,7 +1,5 @@
-<div id="main" class="wrapper">
 
   <header class="header">
-    <!--img src="TBD" alt="Playlist"/-->
     <h1>Playlisted</h1>
   </header>
 
@@ -16,15 +14,42 @@
   </div>
   {{/if}}
 
-  {{#if playlist}}
-  <div class="playlist-content">
-    <h2>Playlists</h2>
+  {{#if user}}
+  <div class="user-content-single">
+    <h2>User</h2>
     <ul>
-      {{#each playlist}}
-        {{> playlists/playlist-block}}
+      {{#each user}}
+        {{> user-block}}
       {{/each}}
     </ul>
   </div>
   {{/if}}
 
-</div>
+<h2>Create User</h2>
+<!--form id="form-new-user" method="POST" action="/api/users" class="create-user-form"-->
+<form id="form-new-user">
+  <input type="text" name="user_name" placeholder="Name...">
+  <input type="text" name="user_password" placeholder="Password...">
+  <button type="submit">Submit</button>
+</form>
+
+<h2>Update User</h2>
+<form id="form-update-user">
+  <input type="text" name="id" placeholder="Id...">
+  <input type="text" name="name" placeholder="Name...">
+  <input type="text" name="password" placeholder="Password...">
+	<button type="submit">Update</button>
+</form>
+
+
+
+  {{#if playlist}}
+  <div class="playlist-content">
+    <h2>Playlists</h2>
+    <ul>
+      {{#each playlist}}
+        {{> playlist-block}}
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
