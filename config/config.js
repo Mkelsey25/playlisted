@@ -1,5 +1,5 @@
 const dotenv = require('dotenv').config();
-// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })      TODO
+// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })      TODO (to keep from showing error in Heroku log)
 // if (process.env.NODE_ENV !== 'production') {
 //   require('dotenv').load();
 // }
