@@ -1,4 +1,8 @@
 require('dotenv').config();
+// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  TODO
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').load();
+//   }
 
 //////////////////////////
 // dependencies
@@ -48,11 +52,12 @@ app.use(routes);
 //////////////////////////////////////////////
 // ***IMPORTANT***
 // use this for DEV while schema is in flux
+// set force=true to override schema
 //////////////////////////////////////////////
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: true})
+        db.sequelize.sync({force: false})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
