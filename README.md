@@ -17,7 +17,7 @@ Node, NPM and a command line tool such as GitBash.
 
 ### Installing
 
-To get a development environment up and running, clone the repository locally. \
+To get a development environment up and running, clone the repository locally.
 
 From the command line, execute the below to setup the project:
 
