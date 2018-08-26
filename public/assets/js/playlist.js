@@ -4,24 +4,29 @@ $(function() {
     // TODO
     // document.getElementById("TBD").focus();
 
+    // update playlist
     $(".change-playlist").on("click", function(event) {
+
+        // playlist
         var id = $(this).data("id");
         var newName = $(this).data("newPlaylistName");
 
-        var newObjectState = {
-            playlist_name: newName
+        //TODO only update the playlist name if it changes... eval something fron the UI to determine
+
+        var newPlaylistState = {
+            playlist_name: newName,
         };
 
-        // Send the PUT request.
+        // Send the PUT request to add the playlist
         $.ajax("/api/playlists/" + id, {
             type: "PUT",
-            data: newObjectState
+            data: newPlaylistState
         }).then(
-        function() {
-            console.log("changed state to", newName);
-            // Reload the page to get the updated list
-            location.reload();
-        }
+            function() {
+                console.log("changed state to", newPlaylistState);
+                // Reload the page to get the updated list
+                location.reload();
+            }
         );
     });
 
@@ -44,6 +49,8 @@ $(function() {
     //////////////////////////////////////////////////////////////////////////////
     // can do this here or as form submit on the page as an alternate method ...
     //////////////////////////////////////////////////////////////////////////////
+
+    //create playlist
     $(".create-playlist-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();

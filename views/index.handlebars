@@ -5,6 +5,17 @@
     <h1>Playlisted</h1>
   </header>
 
+  {{#if users}}
+  <div class="user-content">
+    <h2>Users</h2>
+    <ul>
+      {{#each users}}
+        {{> user-block}}
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+
   {{#if playlist}}
   <div class="playlist-content">
     <h2>Playlists</h2>
