@@ -76,7 +76,7 @@ This is version 0.1
 
 ## Authors
 
-* **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize (basic), AJAX calls (samples) and Handlebars*
+* **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize (basic), AJAX calls (songs, users, playlists) and Handlebars*
 
 ## License
 
