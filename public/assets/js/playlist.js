@@ -48,7 +48,7 @@ $(function() {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        console.log("on post submit");
+        console.log("on post submit playlist");
 
         var newPlaylistInfo = {
             playlist_name: 'TEST'   //$("#TBD").val().trim()        TODO

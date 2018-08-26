@@ -59,7 +59,7 @@ $(function() {
         };
 
         // Send the POST request.
-        $.ajax("/api/playlists", {
+        $.ajax("/api/users", {
             type: "POST",
             data: newUser
         }).then(
