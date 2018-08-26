@@ -1,0 +1,23 @@
+<li>
+	<div class="flex-wrapper">
+		<span id="playlist-item" class="flex-item">
+			{{playlist_id}}. {{playlist_name}}
+		</span>
+		<span id="create-date-item" class="flex-item">
+			{{create_date}}
+		</span>
+		<span id="modify-date-item" class="flex-item">
+			{{modify_date}}
+		</span>
+
+		<div id="btns" class="flex-item">
+			<button class="change-playlist-name" data-id="{{playlist_id}}" data-newName="TBD">
+				Devour It!
+			</button>
+
+			<button class="delete-playlist" data-id="{{this.playlist_id}}">Delete</button>
+		</div>
+
+	</div>
+</li>
+	

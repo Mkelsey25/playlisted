@@ -7,12 +7,11 @@ PlayListed is .... TBD
 TBD.\
 **How solved:** \
 TBD.\
-**Technical approach:** TBD.
+**Technical approach:** This is a full stack project that uses MySQL, Sequelize and Handlebars to create a playlist of songs based on user preferences.
 
 ## Getting Started
  
- All references use a CDN.
- This is a Firebase and JavaScript/JQuery project that uses Bootstrap 4.1 with Bootswatch.  Clone the repository locally. Create a Firebase database and update the code to point to this instance.
+Clone the repository locally.
 
 ### Prerequisites
 
@@ -23,9 +22,16 @@ TBD
 To get a development environment up and running, clone the repository locally.
 
 ```
-TODO
 
-npm install ...
+$ npm install path --save
+$ npm install sequelize --save
+$ npm install mysql2 --save
+$ npm install express --save
+$ npm install express-handlebars --save
+$ npm install dotenv --save
+$ npm install body-parser --save
+$ npm install passport --save
+
 ```
 
 ## Running tests
