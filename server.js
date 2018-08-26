@@ -1,4 +1,8 @@
 require('dotenv').config();
+// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  TODO
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').load();
+//   }
 
 //////////////////////////
 // dependencies
