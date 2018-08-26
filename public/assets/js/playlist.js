@@ -44,7 +44,7 @@ $(function() {
     //////////////////////////////////////////////////////////////////////////////
     // can do this here or as form submit on the page as an alternate method ...
     //////////////////////////////////////////////////////////////////////////////
-    $(".create-form").on("submit", function(event) {
+    $(".create-playlist-form").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
