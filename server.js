@@ -44,6 +44,11 @@ app.use(routes);
 // syncing our sequelize models and then start listening for requests
 // use 'force: true' in sync call to override schema definition
 ////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////
+// ***IMPORTANT***
+// use this for DEV while schema is in flux
+//////////////////////////////////////////////
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
@@ -56,5 +61,14 @@ db.sequelize
                 console.log("App now listening at localhost: " + app.get('port'));
             });
     });
-
 });
+
+///////////////////////////////
+// use this for QA and PROD
+///////////////////////////////
+// db.sequelize.sync({})
+//     .then(function() {
+//         app.listen(app.get('port'), function() {
+//             console.log("App now listening at localhost: " + app.get('port'));
+//         });
+//     });

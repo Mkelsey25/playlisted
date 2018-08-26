@@ -1,7 +1,10 @@
-# Ignore file named `README-example.txt`
-# README-example.txt
+# Ignore the below files and folders
 
-# Ignore folder named output, temp or sandbox
+# Ignore folders
 output/
 temp/
 sandbox/
+node_modules/
+
+# Ignore files
+*.env
