@@ -1,6 +1,6 @@
 .jumbotron {
   background-color:transparent !important; 
-  color: white;
+  color: #f8f1e5;
   font-family: 'Rubik', sans-serif;
   font-size: 50px;
 }
@@ -15,5 +15,19 @@ html{
   color: #f9ba32;
 }
 label {
-  color: white;
+  color: #f8f1e5;
+}
+.userQuestion{
+  color: #f9ba32;
+  font-size: 32px;
+}
+.userAnswer{
+  color:#f8f1e5;
+}
+.slogan{
+  color: #f9ba32;
+  font-size: 26px;
+}
+.word{
+
 }
