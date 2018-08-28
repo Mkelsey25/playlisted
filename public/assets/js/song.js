@@ -1,39 +1,75 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
+// wait to attach handlers until the DOM is fully loaded
 $(function() {
 
-    // TODO
-    //document.getElementById("TBD").focus();
+    ///////////////////////////////
+    // Make AJAX requests
+    ///////////////////////////////
 
-    // update the song
-    $(".change-song").on("click", function(event) {
-        var id = $(this).data("id");
-        var newSongTitle = $(this).data("newSongTitle");
-        var newArtistName = $(this).data("newArtistName");
-        var newDateReleased = $(this).data("newDateReleased");
-        var newGenre = $(this).data("newGenre");
+    /////////////////////
+    // create the song
+    /////////////////////
+    $("#form-new-song").on("submit", function(event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
 
-        // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
-        var newObjectState = {
-            song_title: newSongTitle,
-            artist_name: newArtistName,
-            date_released: newDateReleased,
-            genre: newGenre
+        var newSong = {
+            song_title: $("#form-new-song [name=song_title]").val().trim(),
+            artist_name: $("#form-new-song [name=artist_name]").val().trim(),
+            date_released: $("#form-new-song [name=date_released]").val().trim(),
+            genre: $("#form-new-song [name=genre]").val().trim()
         };
+
+        console.log("Ajax request: create song");
+        console.log(newSong);
+
+        // Send the POST request.
+        $.ajax("/api/songs", {
+            type: "POST",
+            data: newSong
+        }).then(
+        function() {
+            console.log("created new song");
+            // Reload the page to get the updated song list
+            location.reload();
+        }
+        );
+    });
+
+    /////////////////////
+    // update the song
+    /////////////////////
+    $("#form-update-song").on("submit", function(event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var id = $("[name=song_id]").val().trim();
+
+        var SongData = {
+            song_title: $("#form-update-song [name=song_title]").val().trim(),
+            artist_name: $("#form-update-song [name=artist_name]").val().trim(),
+            date_released: $("#form-update-song [name=date_released]").val().trim(),
+            genre: $("#form-update-song [name=genre]").val().trim()
+        };
+
+        console.log("Ajax request: update song");
+        console.log(SongData);
 
         // Send the PUT request.
         $.ajax("/api/songs/" + id, {
             type: "PUT",
-            data: newObjectState
+            data: SongData
         }).then(
         function() {
-            console.log("changed state to", newObjectState);
+            console.log("Updated id: ", id);
             // Reload the page to get the updated list
             location.reload();
         }
         );
     });
 
+    /////////////////////
     // delete the song
+    /////////////////////
     $(".delete-song").on("click", function(event) {
         var id = $(this).data("id");
 
@@ -43,38 +79,8 @@ $(function() {
         }).then(
         function() {
             console.log("deleted song", id);
+            
             // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-    });
-
-    //////////////////////////////////////////////////////////////////////////////
-    // can do this here or as form submit on the page as an alternate method ...
-    //////////////////////////////////////////////////////////////////////////////
-    
-    // create the song
-    $(".create-song-form").on("submit", function(event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-
-        console.log("on post submit");
-
-        var newSong = {
-            song_title: 'TEST', //$("#TBD").val().trim(),            TODO
-            artist_name: 'TEST', //$("#TBD").val().trim(),            TODO
-            date_released: 'TEST', //$("#TBD").val().trim(),            TODO
-            genre: 'TEST' //$("#TBD").val().trim()
-        };
-
-        // Send the POST request.
-        $.ajax("/api/songs", {
-            type: "POST",
-            data: newSong
-        }).then(
-        function() {
-            console.log("created new song");
-            // Reload the page to get the updated user list
             location.reload();
         }
         );

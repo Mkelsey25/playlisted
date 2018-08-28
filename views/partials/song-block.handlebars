@@ -1,0 +1,29 @@
+<li>
+	<div class="flex-wrapper">
+		<span id="user-item" class="flex-item">
+			{{song_id}}. {{song_title}}, 
+		</span>
+		<span id="artist-name-item" class="flex-item">
+			{{artist_name}}
+		</span>
+		<span id="date-released-item" class="flex-item">
+			{{date_released}}
+		</span>
+		<span id="genre-item" class="flex-item">
+			{{genre}}
+		</span>
+		<div>
+			<span id="create-date-item" class="flex-item">
+				Create Date: {{createdAt}}
+			</span>
+			<span id="modify-date-item" class="flex-item">
+				Update Date: {{updatedAt}}
+			</span>
+		</div>
+
+		<div id="btns" class="flex-item">
+			<button class="delete-song" data-id="{{this.song_id}}">Delete</button>
+		</div>
+	</div>
+</li>
+	
