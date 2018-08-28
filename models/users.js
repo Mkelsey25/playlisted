@@ -1,3 +1,4 @@
+//Use the sequelize constructor to design a model for each User and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
     var User = sequelize.define("Users", {
@@ -10,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(50),
             allowNull: false,
             validate: {
+                //user_name length must be within 1-50 characters
                 len: { args: [1,50], msg: "String length is not in range" }
             }
         },
