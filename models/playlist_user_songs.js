@@ -10,14 +10,15 @@ module.exports = function(sequelize, DataTypes) {
         //Should this be a foreign key?
         playlist_id: {
             type: DataTypes.BIGINT,
-            primaryKey: true,
-            autoIncrement: true,
+            allowNull: false,
         },
         user_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
         },
         song_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE(3), 
@@ -35,5 +36,6 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   //TODO Test
-  Users.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
-  Songs.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
+  //Depracated
+  //Users.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
+  //Songs.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});

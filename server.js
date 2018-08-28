@@ -57,7 +57,7 @@ app.use(routes);
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: false})
+        db.sequelize.sync({force: true})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
@@ -77,3 +77,27 @@ db.sequelize
 //             console.log("App now listening at localhost: " + app.get('port'));
 //         });  //.catch (function(error) { console.log(error); });
 //     });
+
+
+/*
+/////////////////////////////////////
+// configure spotify authentication
+/////////////////////////////////////
+
+var SpotifyStrategy = require('passport-spotify').Strategy;
+
+passport.use(
+  new SpotifyStrategy(
+    {
+      clientID: client_id,
+      clientSecret: client_secret,
+      callbackURL: 'http://localhost:8888/auth/spotify/callback'
+    },
+    function(accessToken, refreshToken, expires_in, profile, done) {
+      User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
+        return done(err, user);
+      });
+    }
+  )
+);
+*/
