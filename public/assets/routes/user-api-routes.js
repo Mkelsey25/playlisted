@@ -12,6 +12,25 @@ var db = require("./../../../models");
 /////////////////
 module.exports = function(app) {
 
+/*
+  ///////////////////////////////////////////////////////
+  // GET route for authenticating users (passport-spotify)
+  ///////////////////////////////////////////////////////
+  app.get('/auth/spotify', passport.authenticate('spotify'), function(req, res) {
+    // The request will be redirected to spotify for authentication, so this
+    // function will not be called.
+  });
+  
+  app.get(
+    '/auth/spotify/callback',
+    passport.authenticate('spotify', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    }
+  );
+*/
+
   /////////////////////////////////////////////
   // GET route for getting ALL of the users
   /////////////////////////////////////////////
