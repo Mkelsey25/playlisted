@@ -8,10 +8,10 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true,
         },
         playlist_name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(50),
             allowNull: false,
             validate: {
-                len: [1]
+                len: { args: [1,50], msg: "String length is not in range" }
             }
         },
         createdAt: {
