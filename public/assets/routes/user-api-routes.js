@@ -21,9 +21,9 @@ module.exports = function(app) {
     console.log("route: all users");
     console.log(JSON.stringify(req.body));
 
-    if (req.query.song_id) {
+    if (req.query.user_id) {
       query.UserId = req.query.user_id;
-    }
+    };
 
     db.Users.findAll({
       where: query
@@ -34,7 +34,7 @@ module.exports = function(app) {
       var hbsObject = {
         users: dbResult
       };
-      res.render("index", hbsObject);
+      res.render("users", hbsObject);
     });
   });
 
@@ -58,7 +58,7 @@ module.exports = function(app) {
         user: dbResult
       };
       // console.log(dbResult);
-      res.render("index", hbsUser);
+      res.render("users", hbsUser);
     });
   });
 
@@ -103,13 +103,6 @@ module.exports = function(app) {
 
     console.log("route: update user");
     console.log(JSON.stringify(req.body));
-
-    // var id;
-    // if (req.params.id) {
-    //   id = req.params.id
-    // } else {
-    //   id = req.body.id
-    // }
 
     var id = (req.params.id) ? req.params.id : req.body.id;
 

@@ -12,58 +12,106 @@ var db = require("./../../../models");
 /////////////////
 module.exports = function(app) {
 
+  /////////////////////////////////////////////
   // GET route for getting all of the songs
+  /////////////////////////////////////////////
   app.get("/api/songs", function(req, res) {
     var query = {};
 
+    console.log("route: all songs");
+    console.log(JSON.stringify(req.body));
+
     if (req.query.song_id) {
       query.SongId = req.query.song_id;
-    }
+    };
 
     //find all songs
     db.Songs.findAll({
       where: query
     }).then(function(dbResult) {
-      res.json(dbResult);
+      // res.json(dbResult);
+
+      // send to handlebars
+      var hbsObject = {
+        songs: dbResult
+      };
+      res.render("songs", hbsObject);      
     });
   });
 
+  /////////////////////////////////////////////
   // GET route for retrieving a single song
+  /////////////////////////////////////////////
   app.get("/api/songs/:id", function(req, res) {
-    db.Songs.findOne({
+
+    console.log("route: specific song");
+    console.log(JSON.stringify(req.body));
+
+    db.Songs.findAll({
       where: {
-        id: req.params.id
+        song_id: req.params.id
       }
     }).then(function(dbResult) {
-      res.json(dbResult);
+      // res.json(dbResult);
+
+      // send to handlebars
+      var hbsSong = {
+        song: dbResult
+      };
+      // console.log(dbResult);
+      res.render("songs", hbsSong);
     });
   });
 
+  /////////////////////////////////////////////
   // POST route for saving new song
+  /////////////////////////////////////////////
   app.post("/api/songs", function(req, res) {
+
+    console.log("route: create song");
+    console.log(JSON.stringify(req.body));
+
     db.Songs.create(req.body).then(function(dbResult) {
+      console.log("Song created.");
+
       res.json(dbResult);
     });
   });
 
+  /////////////////////////////////////////////
   // DELETE route for deleting a song
+  /////////////////////////////////////////////
   app.delete("/api/songs/:id", function(req, res) {
+
+    console.log("route: delete a song");
+    console.log(JSON.stringify(req.body));
+
     db.Songs.destroy({
       where: {
-        id: req.params.id
+        song_id: req.params.id
       }
     }).then(function(dbResult) {
+      console.log("after the deletion of song");
+
       res.json(dbResult);
     });
   });
 
+  /////////////////////////////////////////////
   // PUT route for updating
-  app.put("/api/songs", function(req, res) {
+  /////////////////////////////////////////////
+  app.put("/api/songs/:id", function(req, res) {
+
+    console.log("route: update song");
+    console.log(JSON.stringify(req.body));
+
+    var id = (req.params.id) ? req.params.id : req.body.id;
+
     db.Songs.update(
       req.body,
       {
         where: {
-          id: req.body.id
+          song_id: id
         }
       }).then(function(dbResult) {
         res.json(dbResult);
