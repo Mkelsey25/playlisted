@@ -57,7 +57,7 @@ app.use(routes);
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: false})
+        db.sequelize.sync({force: true})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
