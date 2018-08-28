@@ -75,5 +75,5 @@ db.sequelize
 //     .then(function() {
 //         app.listen(app.get('port'), function() {
 //             console.log("App now listening at localhost: " + app.get('port'));
-//         });
+//         });  //.catch (function(error) { console.log(error); });
 //     });

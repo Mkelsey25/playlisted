@@ -64,7 +64,7 @@ $(function() {
         // Send the POST request.
         $.ajax("/api/playlists", {
             type: "POST",
-            data: newPlayListInfo
+            data: newPlaylistInfo
         }).then(
         function() {
             console.log("created new playlist");

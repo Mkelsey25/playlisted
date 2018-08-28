@@ -7,8 +7,8 @@ create table users (
 	user_id int auto_increment not null,
 	user_name varchar(50) not null,
 	user_password varchar(50),
-	create_date datetime default current_timestamp not null,
-	modify_date datetime on update current_timestamp not null,
+	createdAt datetime default current_timestamp not null,
+	updatedAt datetime on update current_timestamp not null,
 	primary key (user_id)
 );
 
@@ -19,8 +19,8 @@ create table songs (
 	artist_name varchar(50),
 	date_released varchar(8),
 	genre enum('rock', 'classical', 'easy listening', 'pop', 'rap/hip-hop', 'unknown') default 'unknown' not null,
-	create_date datetime default current_timestamp not null,
-	modify_date datetime on update current_timestamp not null,
+	createdAt datetime default current_timestamp not null,
+	updatedAt datetime on update current_timestamp not null,
 	primary key (song_id)
 );
 -- rock: rock, alternative, hardcore
