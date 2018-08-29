@@ -1,95 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="meh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet", type="text/css", href="css/login.css">
+    <title>PLAYLISTED</title>
+    <!-- Added a link to Style and font awesome-->
+    <link href="../assets/css/app_style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Font link-->
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Playlisted Login</title>
+    <!-- Added a link to JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>   
-    <div class="container-fluid">
+<body>
+    <div class="container" id="home">
         <div class="row">
-            <div class="col-md-12 text-center jumbotron">
-                PLAYLISTED
-                <i class="fas fa-music"></i><br>
-                <div class="slogan">Music that fits.</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-                <form action="./login" method="POST">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <a href="" class="link">New here? Join now!</a> <br> <br>
-                    <button type="submit" class="btn btn-light">Sign In!</button><br>
-                    </form>
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-                <div class="userQuestion">
-                    What even is this app? How do I use it? Why would I?
+            <div class="col-lg-3 col-sm-12 sidebar">            
+                <div class="logo">
+                    <a href="#home"><img src="https://via.placeholder.com/350x150"></a>
+                    <button class="hamburger">&#9776;</button>
                 </div>
-                <div class="userAnswer">
-                    <div class="word">Playlisted:</div><br>
-                    <div class="wordType">Verb</div>
-                    <div class="definition">To find the soundtrack of your life.</div><br>
-                    Playlisted is a music application that allows its users to discover and create the perfect playlist to fit their mood/activity level! Your first step towards finding the playlist of your dreams is to sign up for an account. 
-                    After you've joined the Playlisted community, you will be presented with a simple personality quiz that will help design a playlist with you in mind. Don't like what you hear? Change it and rearrange it! Our app gives users the ability
-                    to customize their playlists with ease. Once you have found the perfect fit, save your playlist and listen on!
+                <!-- SIDEBAR MENU -->
+                <div class="menu">
+                    <ul class="nav">
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-list-ul"></i>My Lists</a>
+                        </li>
+                        <li>
+                            <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+                        </li>
+                    </ul>
                 </div>
-
             </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-
-    </div>
     
+            <div class="col-lg-9 col-sm-12">
+                <div class="jumbotron">
+                    <h1 style="text-align: center; line-height: 0em; margin: 0;">PLAYLISTED <i class="fas fa-music"></i></h1>
+                    <div class="slogan">Music that fits.</div>
+                </div>
+
+                <div class="col-lg-12 col-sm-12 content">
+                    <form action="./login" method="POST">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <a href="" class="link">New here? Join now!</a> <br> <br>
+                        <button type="submit" class="btn btn-light">Sign In!</button><br>
+                    </form>
+                </div>
+
+                <div class="col-lg-12 col-sm-12 content">
+                    <div class="userQuestion">
+                        What even is this app? How do I use it? Why would I?
+                    </div>
+                    <div class="userAnswer">
+                        <div class="word">Playlisted:</div><br>
+                        <div class="wordType">Verb</div>
+                        <div class="definition">To find the soundtrack of your life.</div><br>
+                        Playlisted is a music application that allows its users to discover and create the perfect playlist to fit their mood/activity level! Your first step towards finding the playlist of your dreams is to sign up for an account. 
+                        After you've joined the Playlisted community, you will be presented with a simple personality quiz that will help design a playlist with you in mind. Don't like what you hear? Change it and rearrange it! Our app gives users the ability
+                        to customize their playlists with ease. Once you have found the perfect fit, save your playlist and listen on!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
