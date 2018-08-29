@@ -1,0 +1,40 @@
+
+  <header class="header">
+    <h1>Route/API Test Page: Playlist</h1>
+  </header>
+
+  {{#if playlists}}
+    <div class="user-content">
+      <h3>Playlists</h3>
+      <ul>
+        {{#each playlists}}
+          {{> playlist-block}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if playlist}}
+    <div class="playlist-content-single">
+      <h3>Playlist</h3>
+      <ul>
+        {{#each playlist}}
+          {{> playlist-block}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+<h3>Create Playlist</h3>
+<!--form id="form-new-playlist" method="POST" action="/api/playlists" class="create-user-form"-->
+<form id="form-new-playlist">
+  <input type="text" name="playlist_name" placeholder="Name...">
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Update Playlist</h3>
+<form id="form-update-playlist">
+  <input type="text" name="id" placeholder="Id...">
+  <input type="text" name="playlist_name" placeholder="Name...">
+	<button type="submit">Update</button>
+</form>
