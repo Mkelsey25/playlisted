@@ -25,6 +25,24 @@ module.exports = function(sequelize, DataTypes) {
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
         }
     });
-  
+
+    Playlist.bulkCreate([
+        {
+            playlist_id: default, 
+            playlist_name: "First Playlist", 
+            createdAt: default, 
+            updatedAt: default
+        }, {
+            playlist_id: default, 
+            playlist_name: "Second Playlist", 
+            createdAt: default, 
+            updatedAt: default
+        }
+    ]).then(() => {
+            return Playlist.findAll();
+    }).then(playlists => {
+        console.log(playlists);
+    });
+
     return Playlist;
   };
