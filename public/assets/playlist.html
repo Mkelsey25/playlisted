@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>PLAYLISTED</title>
     <!-- Added a link to Style and font awesome-->
-    <link href="assets/css/app_style.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/app_style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Font link-->
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <!-- Added a link to JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,13 +28,13 @@
                 <div class="menu">
                     <ul class="nav">
                         <li>
-                            <a href=""><i class="fa fa-home"></i>Home</a>
+                            <a href="/"><i class="fa fa-home"></i>Home</a>
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-list-ul"></i>My Lists</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-sign-in-alt"></i>Login</a>
+                            <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                         </li>
                     </ul>
                 </div>
@@ -42,26 +42,39 @@
             <div class="col-lg-9 col-sm-12">
                 <div class="jumbotron">
                     <h1 style="text-align: center; line-height: 0em; margin: 0;">PLAYLISTED <i class="fas fa-music"></i></h1>
+                    <div class="slogan">Music that fits.</div>
                 </div>
                 <div class="col-lg-12 col-sm-12 content">
                     <div class="slidecontainer">
                         <h3 style="text-align: center">MOOD</h3>
                         <div class="scroll-img mood">
-                            <img id="angry" src="assets/img/angry.png">
-                            <img id="sad" src="assets/img/sad.png">
-                            <img id="meh" src="assets/img/meh-color.png">
-                            <img id="happy" src="assets/img/happy.png">
-                            <img id="ecstatic" src="assets/img/ecstatic.png">
+                            <img id="angry" src="../assets/img/angry.png">
+                            <img id="sad" src="../assets/img/sad.png">
+                            <img id="meh" src="../assets/img/meh-color.png">
+                            <img id="happy" src="../assets/img/happy.png">
+                            <img id="ecstatic" src="../assets/img/ecstatic.png">
                         </div>
                         <input type="range" min="1" max="5" value="3" class="slider" id="myMood">
                     </div>
                     <div class="slidecontainer">
                         <h3 style="text-align: center">ENERGY</h3>
                         <div class="scroll-img energy">
-                            <img id="zzz" src="assets/img/zzz-meh.png">
-                            <img id="hyper" src="assets/img/hyper-meh.png">
+                            <img id="zzz" src="../assets/img/zzz-meh.png">
+                            <img id="hyper" src="../assets/img/hyper-meh.png">
                         </div>
                         <input type="range" min="1" max="5" value="1" class="slider" id="myEnergy">
+                    </div>
+                    <div class="genrecontainer">
+                        <h3 style="text-align: center">GENRE</h3>
+                        <form action="/action_page.php" id="formGenre">
+                            <select name="cars">
+                                <option value="all" selected>All</option>
+                                <option value="rock">Rock</option>
+                                <option value="classical">Classical</option>
+                                <option value="i donno">donno</option>
+                            </select>
+                            <input type="submit" value="Listen">
+                        </form>
                     </div>
                 </div>
             </div>
