@@ -32,6 +32,9 @@ $ npm install dotenv --save
 $ npm install body-parser --save
 $ npm install passport --save
 
+npm install chai --save
+npm install chai-http --save
+
 ```
 Create an .env file at the root of the project and populate with connection info.
 
