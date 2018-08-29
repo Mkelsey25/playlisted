@@ -46,9 +46,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
-        }    }, 
-        {
-            tableName: 'Songs'
+        }
+    }, 
+    { 
+        tableName: 'Songs' 
     });
   
     return Song;

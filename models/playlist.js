@@ -24,6 +24,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
         }
+    },
+    {
+        tableName: 'Playlists'
     });
   
     return Playlist;

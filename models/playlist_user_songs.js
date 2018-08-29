@@ -5,23 +5,16 @@ module.exports = function(sequelize, DataTypes) {
         playlist_user_songs_id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: true
         },
-        //Should this be a foreign key?
         playlist_id: {
-            type: DataTypes.BIGINT,
-
-
-            allowNull: false
-
+            type: DataTypes.BIGINT
         },
         user_id: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
+            type: DataTypes.BIGINT
         },
         song_id: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
+            type: DataTypes.BIGINT
         },
         createdAt: {
             type: DataTypes.DATE(3), 
@@ -39,10 +32,5 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   //TODO Test
-
-
-
-  //Depracated
-  //Users.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
-  //Songs.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
-
+//   Users.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
+//   Songs.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
