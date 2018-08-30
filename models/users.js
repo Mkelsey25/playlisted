@@ -1,4 +1,5 @@
 //Use the sequelize constructor to design a model for each User and create SQL data 
+var bcrypt = require('bcrypt-nodejs');
 module.exports = function(sequelize, DataTypes) {
 
     var User = sequelize.define("Users", {
@@ -36,6 +37,12 @@ module.exports = function(sequelize, DataTypes) {
     {
         tableName: 'Users'
     });
+    User.methods.hashPassword = function(password) {
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+    }
+    User.methods.comparePassword = function(password) {
+        return bcrypt.compareSync(password, hash)
+    }
   
     return User;
   };

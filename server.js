@@ -50,6 +50,9 @@ app.use(session({
   resave: false
 
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 ////////////////////////////////////////////////////////
