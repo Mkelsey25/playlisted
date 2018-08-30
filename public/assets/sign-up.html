@@ -28,18 +28,18 @@
 
             </div>
             <div class="col-md-8">
-                <form>
+                <form action='/auth/sign-up' method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="input" class="form-control" id="exampleInputUsername" aria-describedby="emailHelp" placeholder="Username">
+                        <input type="input" class="form-control" id="username" placeholder="Username">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="emailHelp">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
                     </div>
                     <button type="submit" class="btn btn-light">Create Account!</button><br>
                     </form>
