@@ -14,7 +14,16 @@ require("../public/assets/routes/song-api-routes.js")(router);
 require("../public/assets/routes/user-api-routes.js")(router);
 require("../public/assets/routes/auth")(passport, router);
 
-router.get('/', function(req, res, next) {
+var loggedIn = function(req,res,next) {
+if(req.isAuthenticated()) {
+    next();
+}
+else {
+    res.redirect('/login');
+}
+}
+
+/*router.get('/', function(req, res, next) {
     res.render('index');
 });
 
@@ -25,5 +34,8 @@ router.get('/login', function(req, res, next) {
 router.get('/', function(req, res, next) {
     res.render('sign-up');
 });
+router.get('/profile', loggedIn, function(req, res, next) {
+    res.send(req.session)
+});*/
   
 module.exports = router;

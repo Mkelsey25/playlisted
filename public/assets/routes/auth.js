@@ -30,5 +30,13 @@ module.exports = function(passport) {
             }
         })
     });
+
+router.post('/login', passport.authenticate('local', {
+    failureRedirect: '/login',
+    failureRedirect: '/index'
+}), function(req, res) {
+    res.send('hey')
+})
+
     return router;
 };
