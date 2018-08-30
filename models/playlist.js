@@ -29,23 +29,5 @@ module.exports = function(sequelize, DataTypes) {
         tableName: 'Playlists'
     });
 
-    Playlist.bulkCreate([
-        {
-            playlist_id: default, 
-            playlist_name: "First Playlist", 
-            createdAt: default, 
-            updatedAt: default
-        }, {
-            playlist_id: default, 
-            playlist_name: "Second Playlist", 
-            createdAt: default, 
-            updatedAt: default
-        }
-    ]).then(() => {
-            return Playlist.findAll();
-    }).then(playlists => {
-        console.log(playlists);
-    });
-
     return Playlist;
   };

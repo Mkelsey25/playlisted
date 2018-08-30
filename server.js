@@ -84,6 +84,11 @@ db.sequelize
 // configure spotify authentication
 /////////////////////////////////////
 
+//Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
+//Verify callback takes client data and finds or creates a Spotify user
+//Returns done the Spotify user info
+//1. npm install passport-spotify
+
 var SpotifyStrategy = require('passport-spotify').Strategy;
 
 passport.use(
