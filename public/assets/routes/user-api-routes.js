@@ -20,8 +20,8 @@ module.exports = function(app) {
   //Spotify auth route with scopes, currently returning 
   //user's Spotify email and private info
   //
-  
-  app.get('/auth/spotify', passport.authenticate('spotify', {
+  $("#spotifyLoginBtn").on("click", function() {
+    app.get('/auth/spotify', passport.authenticate('spotify', {
       scope: ['user-read-email', 'user-read-private'],
       //force login dialog 
       showDialog: true
@@ -40,9 +40,11 @@ module.exports = function(app) {
       res.redirect('/');
     }
   );
-
+  });
   
 */
+  
+
 
   /////////////////////////////////////////////
   // GET route for getting ALL of the users

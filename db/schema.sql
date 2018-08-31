@@ -2,7 +2,7 @@ drop database if exists playlisted_db;
 create database playlisted_db;
 use playlisted_db;
 
--- drop table users
+-- drop table if exists users;
 create table users (
 	user_id int auto_increment not null,
 	user_name varchar(50) not null,
@@ -12,22 +12,25 @@ create table users (
 	primary key (user_id)
 );
 
--- drop table songs
+-- drop table if exists songs;
 create table songs (
 	song_id int auto_increment not null,
 	song_title varchar(50) not null,
 	artist_name varchar(50),
 	date_released varchar(8),
+    mood enum('Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic') not null,
+    energy enum("0.1", "0.2", "0.3", "0.4", "0.5","0.6","0.7","0.8", "0.9", "1.0") not null,
 	genre enum('rock', 'classical', 'easy listening', 'pop', 'rap/hip-hop', 'unknown') default 'unknown' not null,
 	createdAt datetime default current_timestamp not null,
 	updatedAt datetime on update current_timestamp not null,
 	primary key (song_id)
 );
+-- todo: date_released would be more valid as DATE instead of varchar(8)
 -- rock: rock, alternative, hardcore
 -- instrumental: non-lyrical, classical, soundtracks
 -- easy listening: oldies, folk 
 
--- drop table playlist
+-- drop table if exists playlist;
 create table playlist (
 	playlist_id int auto_increment not null,
 	playlist_name varchar(50) not null,
@@ -36,7 +39,7 @@ create table playlist (
     primary key (playlist_id)
 );
 
--- drop table playlist_user_songs
+-- drop table if exists playlist_user_songs;
 create table playlist_user_songs (
 	playlist_user_songs_id int auto_increment not null,
     playlist_id int not null,

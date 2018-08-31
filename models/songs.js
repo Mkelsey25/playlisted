@@ -28,6 +28,24 @@ module.exports = function(sequelize, DataTypes) {
                 len: { args: [1,8], msg: "String length is not in range" }
             }
         },
+        mood: {
+            type: DataTypes.ENUM,
+            values: ['Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic', 'Unknown'],
+            allowNull: false,
+            defaultValue: 'Unknown',
+            validate: {
+                len: [1]
+            }
+        },
+        energy: {
+            type: DataTypes.ENUM,
+            values: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+            allowNull: false,
+            defaultValue: 'Unknown',
+            validate: {
+                len: [1]
+            }
+        },
         genre: {
             type: DataTypes.ENUM,
             values: ['Rock', 'Classical', 'Easy Listening', 'Pop', 'Rap/Hip-Hop', 'Unknown'],
@@ -50,15 +68,6 @@ module.exports = function(sequelize, DataTypes) {
     }, 
     { 
         tableName: 'Songs' 
-    });
-    
-    Playlist.bulkCreate([
-        {playlist_name: "First Playlist", createdAt: default, updatedAt: default}, 
-        {playlist_name: "Second Playlist", createdAt: default, updatedAt: default}
-    ]).then(() => {
-            return Playlist.findAll();
-    }).then(playlists => {
-        console.log(playlists);
     });
   
     return Song;

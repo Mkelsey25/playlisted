@@ -9,9 +9,9 @@ require('dotenv').config();
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
-var session = require('express-session');
+//var session = require('express-session');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
 // models are required to sync them
