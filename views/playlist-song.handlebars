@@ -1,0 +1,44 @@
+
+  <header class="header">
+    <h1>Route/API Test Page: Playlist Song</h1>
+  </header>
+
+  {{#if playlistsongs}}
+    <div class="playlist-song-content">
+      <h3>Playlist Songs</h3>
+      <ul>
+        {{#each playlistsongs}}
+          {{> playlistsongs-block}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+  {{#if playlistsong}}
+    <div class="playlist-song-content-single">
+      <h3>Playlist Song</h3>
+      <ul>
+        {{#each playlistsong}}
+          {{> playlistsong-block}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
+<h3>Create Playlist Song</h3>
+<!--form id="form-new-playlist-song" method="POST" action="/api/playlists/{}/songs" class="create-playlist-song-form"-->
+<form id="form-new-playlist-song">
+  <input type="text" name="playlist_id" placeholder="Playlist Id..." value={{{playlistsongs.0.playlist_id}}} hidden>
+  <input type="text" name="user_id" placeholder="User Id...">
+  <input type="text" name="song_id" placeholder="Song Id...">
+  <button type="submit">Submit</button>
+</form>
+
+<h3>Update Playlist Song</h3>
+<form id="form-update-playlist-song">
+  <input type="text" name="id" placeholder="Id...">
+  <input type="text" name="playlist_id" placeholder="Playlist Id..." value={{{playlistsongs.0.playlist_id}}} hidden>
+  <input type="text" name="user_id" placeholder="User Id...">
+  <input type="text" name="song_id" placeholder="Song Id...">
+	<button type="submit">Update</button>
+</form>

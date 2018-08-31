@@ -14,7 +14,8 @@ $(function() {
         event.preventDefault();
 
         var newPlaylist = {
-            playlist_name: $("#form-new-playlist [name=playlist_name]").val().trim()
+            playlist_name: $("#form-new-playlist [name=playlist_name]").val().trim(),
+            user_id: $("#form-new-playlist [name=user_id]").val().trim()
         };
 
         console.log("Ajax request: create playlist");
@@ -42,7 +43,8 @@ $(function() {
         var id = $("[name=id]").val().trim();
 
         var PlaylistData = {
-            playlist_name: $("#form-update-playlist [name=playlist_name]").val().trim()
+            playlist_name: $("#form-update-playlist [name=playlist_name]").val().trim(),
+            user_id: $("#form-new-playlist [name=user_id]").val().trim()
         };
 
         console.log("Ajax request: update playlist");
