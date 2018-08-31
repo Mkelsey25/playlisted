@@ -1,0 +1,28 @@
+<li>
+	<div class="flex-wrapper">
+		<span id="playlistsongs-item" class="flex-item">
+			{{playlist_user_songs_id}}. 
+		</span>
+		<span id="playlistsongs-id-item" class="flex-item" hidden>
+			{{playlist_id}}
+		</span>
+		<span id="user-id-item" class="flex-item">
+			{{user_id}}
+		</span>
+		<span id="song-id-item" class="flex-item">
+			{{song_id}}
+		</span>
+		<span id="create-date-item" class="flex-item">
+			{{createdAt}}
+		</span>
+		<span id="modify-date-item" class="flex-item">
+			{{updatedAt}}
+		</span>
+
+		<div id="btns" class="flex-item">
+			<button class="delete-playlist-song" data-id="{{this.playlist_user_songs_id}}">Delete</button>
+		</div>
+
+	</div>
+</li>
+	

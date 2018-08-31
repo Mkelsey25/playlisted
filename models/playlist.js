@@ -14,6 +14,11 @@ module.exports = function(sequelize, DataTypes) {
                 len: { args: [1,50], msg: "String length is not in range" }
             }
         },
+        user_id: {
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            defaultValue: 0
+        },
         createdAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
@@ -26,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     },
     {
-        tableName: 'Playlists'
+        tableName: 'playlists'
     });
   
     return Playlist;
