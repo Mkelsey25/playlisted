@@ -9,6 +9,10 @@ require('dotenv').config();
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
+//var session = require('express-session');
+var path = require('path');
+//var cookieParser = require('cookie-parser');
+var passport = require('passport');
 
 // models are required to sync them
 var db = require("./models");
@@ -36,6 +40,17 @@ var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+//Auth Setup (Morgan)
+
+app.use(cookieParser());
+app.use(session({
+  secret: 'potato',
+  saveUninitialized: false,
+  resave: false
+
+}));
+
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -83,6 +98,11 @@ db.sequelize
 /////////////////////////////////////
 // configure spotify authentication
 /////////////////////////////////////
+
+//Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
+//Verify callback takes client data and finds or creates a Spotify user
+//Returns done the Spotify user info
+//1. npm install passport-spotify
 
 var SpotifyStrategy = require('passport-spotify').Strategy;
 

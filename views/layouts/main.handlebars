@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-
-		<link rel="stylesheet" href="/assets/css/app_style.css" type="text/css" />
-
-		<title>Playlisted</title>
-
-		<script src="https://code.jquery.com/jquery.js"></script>
-		
-		<script src="/assets/js/playlist.js"></script>
-		<script src="/assets/js/playlist-song.js"></script>
-		<script src="/assets/js/song.js"></script>
-		<script src="/assets/js/user.js"></script>
-
-	</head>
+    <meta charset="UTF-8">
+    <title>PLAYLISTED</title>
+    <!-- Added a link to Style and font awesome-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/app_style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Font link-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <!-- Added a link to JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+	<script type="text/javascript" src="../assets/js/playlist.js"></script>
+  <script type="text/javascript" src="../assets/js/playlist-song.js"></script>
+	<script type="text/javascript" src="../assets/js/song.js"></script>
+	<script type="text/javascript" src="../assets/js/user.js"></script>
+    <!-- Added a link to Bootstrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	
+</head>
 	<body>
-		<div id="main">
-			{{{ body }}}
+		<div class="container" id="home">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12 sidebar">            
+                <div class="logo">
+                    <a href="/"><img id="logo" src="../assets/img/logo-meh.png"></a>
+                    <button class="hamburger">&#9776;</button>
+                </div>
+                <!-- SIDEBAR MENU -->
+                <div class="menu">
+                    <ul class="nav">
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-list-ul"></i>My Lists</a>
+                        </li>
+                        <li>
+                            <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<div class="col-lg-9 col-sm-12 main">
+				<div class="jumbotron">
+                    <h1 style="text-align: center; line-height: 0em; margin: 0;">PLAYLISTED <i class="fas fa-music"></i></h1>
+                    <div class="slogan">Music that fits.</div>
+                </div>
+				{{{ body }}}
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

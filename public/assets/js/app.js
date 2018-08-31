@@ -34,6 +34,7 @@ $(document).ready(function() {
 		$(".slider#myMood").val(1);
 		$("html").addClass("angry");
 		$(this).attr("src", "../assets/img/angry-color.png");
+		$("img#logo").attr("src", "../assets/img/logo-angry.png");
 		$("img#zzz").attr("src", "../assets/img/zzz-angry.png");
 		$("img#hyper").attr("src", "../assets/img/hyper-angry.png");
 	});
@@ -41,6 +42,7 @@ $(document).ready(function() {
 		$(".slider#myMood").val(2);
 		$("html").addClass("sad");
 		$(this).attr("src", "../assets/img/sad-color.png");
+		$("img#logo").attr("src", "../assets/img/logo-sad.png");
 		$("img#zzz").attr("src", "../assets/img/zzz-sad.png");
 		$("img#hyper").attr("src", "../assets/img/hyper-sad.png");
 	});
@@ -48,6 +50,7 @@ $(document).ready(function() {
 		$(".slider#myMood").val(3);
 		$("html").addClass("meh");
 		$(this).attr("src", "../assets/img/meh-color.png");
+		$("img#logo").attr("src", "../assets/img/logo-meh.png");
 		$("img#zzz").attr("src", "../assets/img/zzz-meh.png");
 		$("img#hyper").attr("src", "../assets/img/hyper-meh.png");
 	});
@@ -55,6 +58,7 @@ $(document).ready(function() {
 		$(".slider#myMood").val(4);
 		$("html").addClass("happy");
 		$(this).attr("src", "../assets/img/happy-color.png");
+		$("img#logo").attr("src", "../assets/img/logo-happy.png");
 		$("img#zzz").attr("src", "../assets/img/zzz-happy.png");
 		$("img#hyper").attr("src", "../assets/img/hyper-happy.png");
 	});
@@ -62,6 +66,7 @@ $(document).ready(function() {
 		$(".slider#myMood").val(5);
 		$("html").addClass("ecstatic");
 		$(this).attr("src", "../assets/img/ecstatic-color.png");
+		$("img#logo").attr("src", "../assets/img/logo-ecstatic.png");
 		$("img#zzz").attr("src", "../assets/img/zzz-ecstatic.png");
 		$("img#hyper").attr("src", "../assets/img/hyper-ecstatic.png");
 	});
@@ -77,30 +82,35 @@ $(document).ready(function() {
 			$("html").removeAttr("class");
 			$("html").addClass("angry");
 			$("img#angry").attr("src", "../assets/img/angry-color.png");
+			$("img#logo").attr("src", "../assets/img/logo-angry.png");
 			$("img#zzz").attr("src", "../assets/img/zzz-angry.png");
 			$("img#hyper").attr("src", "../assets/img/hyper-angry.png");
 		} else if (scrollMood.value == 2) {
 			$("html").removeAttr("class");
 			$("html").addClass("sad");
 			$("img#sad").attr("src", "../assets/img/sad-color.png");
+			$("img#logo").attr("src", "../assets/img/logo-sad.png");
 			$("img#zzz").attr("src", "../assets/img/zzz-sad.png");
 			$("img#hyper").attr("src", "../assets/img/hyper-sad.png");
 		} else if (scrollMood.value == 3) {
 			$("html").removeAttr("class");
 			$("html").addClass("meh");
 			$("img#meh").attr("src", "../assets/img/meh-color.png");
+			$("img#logo").attr("src", "../assets/img/logo-meh.png");
 			$("img#zzz").attr("src", "../assets/img/zzz-meh.png");
 			$("img#hyper").attr("src", "../assets/img/hyper-meh.png");
 		} else if (scrollMood.value == 4) {
 			$("html").removeAttr("class");
 			$("html").addClass("happy");
 			$("img#happy").attr("src", "../assets/img/happy-color.png");
+			$("img#logo").attr("src", "../assets/img/logo-happy.png");
 			$("img#zzz").attr("src", "../assets/img/zzz-happy.png");
 			$("img#hyper").attr("src", "../assets/img/hyper-happy.png");
 		} else if (scrollMood.value == 5) {
 			$("html").removeAttr("class");
 			$("html").addClass("ecstatic");
 			$("img#ecstatic").attr("src", "../assets/img/ecstatic-color.png");
+			$("img#logo").attr("src", "../assets/img/logo-ecstatic.png");
 			$("img#zzz").attr("src", "../assets/img/zzz-ecstatic.png");
 			$("img#hyper").attr("src", "../assets/img/hyper-ecstatic.png");
 		}

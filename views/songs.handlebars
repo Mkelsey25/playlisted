@@ -1,7 +1,7 @@
-  <header class="header">
-    <h1>Route/API Test Page: Songs</h1>
-  </header>
-
+<header class="header">
+  <h1>Route/API Test Page: Songs</h1>
+</header>
+<div class="formcontainer list">
   {{#if songs}}
     <div class="song-content">
       <h3>Songs</h3>
@@ -12,7 +12,9 @@
       </ul>
     </div>
   {{/if}}
+</div>
 
+<div class="formcontainer list">
   {{#if song}}
     <div class="song-content-single">
       <h3>Song</h3>
@@ -23,23 +25,36 @@
       </ul>
     </div>
   {{/if}}
+</div>
 
-<h3>Create Song</h3>
-<!--form id="form-new-song" method="POST" action="/api/songs" class="create-song-form"-->
-<form id="form-new-song">
-  <input type="text" name="song_title" placeholder="Song Title...">
-  <input type="text" name="artist_name" placeholder="Artist Name...">
-  <input type="text" name="date_released" placeholder="Date Released...">
-  <input type="text" name="genre" placeholder="Genre...">
-  <button type="submit">Submit</button>
-</form>
+<div class="formcontainer">
+  <h3>Create Song</h3>
+  <!--form id="form-new-song" method="POST" action="/api/songs" class="create-song-form"-->
+  <form id="form-new-song">
+    <div style="display:inline-block;">
+      <input type="text" name="song_title" placeholder="Song Title...">
+      <input type="text" name="artist_name" placeholder="Artist Name...">
+      <input type="text" name="date_released" placeholder="Date Released...">
+      <input type="text" name="genre" placeholder="Genre...">
+    </div>
+    <div style="display:block;">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
 
-<h3>Update Song</h3>
-<form id="form-update-song">
-  <input type="text" name="song_id" placeholder="Id...">
-  <input type="text" name="song_title" placeholder="Song Title...">
-  <input type="text" name="artist_name" placeholder="Artist Name...">
-  <input type="text" name="date_released" placeholder="Date Released...">
-  <input type="text" name="genre" placeholder="Genre...">
-	<button type="submit">Update</button>
-</form>
+<div class="formcontainer">
+  <h3>Update Song</h3>
+  <form id="form-update-song">
+    <div style="display:inline-flex;">
+      <input type="text" name="song_id" placeholder="Id...">
+      <input type="text" name="song_title" placeholder="Song Title...">
+      <input type="text" name="artist_name" placeholder="Artist Name...">
+      <input type="text" name="date_released" placeholder="Date Released...">
+      <input type="text" name="genre" placeholder="Genre...">
+    </div>
+    <div style="display:block;">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
