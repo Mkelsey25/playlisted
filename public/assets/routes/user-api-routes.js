@@ -16,11 +16,22 @@ module.exports = function(app) {
   ///////////////////////////////////////////////////////
   // GET route for authenticating users (passport-spotify)
   ///////////////////////////////////////////////////////
-  app.get('/auth/spotify', passport.authenticate('spotify'), function(req, res) {
-    // The request will be redirected to spotify for authentication, so this
-    // function will not be called.
-  });
   
+  //Spotify auth route with scopes, currently returning 
+  //user's Spotify email and private info
+  //
+  $("#spotifyLoginBtn").on("click", function() {
+    app.get('/auth/spotify', passport.authenticate('spotify', {
+      scope: ['user-read-email', 'user-read-private'],
+      //force login dialog 
+      showDialog: true
+    }),
+    function(req, res) {
+      // The request will be redirected to spotify for authentication, so this
+      // function will not be called.
+    }
+  );
+
   app.get(
     '/auth/spotify/callback',
     passport.authenticate('spotify', { failureRedirect: '/login' }),
@@ -29,7 +40,11 @@ module.exports = function(app) {
       res.redirect('/');
     }
   );
+  });
+  
 */
+  
+
 
   /////////////////////////////////////////////
   // GET route for getting ALL of the users

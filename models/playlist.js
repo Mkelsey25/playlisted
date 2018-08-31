@@ -28,6 +28,6 @@ module.exports = function(sequelize, DataTypes) {
     {
         tableName: 'Playlists'
     });
-  
+
     return Playlist;
   };
