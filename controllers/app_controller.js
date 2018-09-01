@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var passport = require('passport');
+var session = require('express-session');
 
 // import the model to use its db function
 var db = require("../models");
@@ -12,7 +13,9 @@ require("../public/assets/routes/html-routes.js")(router);
 require("../public/assets/routes/playlist-api-routes.js")(router);
 require("../public/assets/routes/song-api-routes.js")(router);
 require("../public/assets/routes/user-api-routes.js")(router);
-require("../public/assets/routes/auth")(passport, router);
+
+//Morgan/////////////////////////////////////////////
+var auth = require('../public/assets/routes/auth');
 
 var loggedIn = function(req,res,next) {
 if(req.isAuthenticated()) {
@@ -37,5 +40,5 @@ router.get('/', function(req, res, next) {
 router.get('/profile', loggedIn, function(req, res, next) {
     res.send(req.session)
 });
-  
+////////////////////////////////////////////////////////////////////////
 module.exports = router;
