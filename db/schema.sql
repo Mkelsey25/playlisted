@@ -19,7 +19,7 @@ create table songs (
 	artist_name varchar(50),
 	date_released varchar(8),
     mood enum('Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic') not null,
-    energy enum("0.1", "0.2", "0.3", "0.4", "0.5","0.6","0.7","0.8", "0.9", "1.0") not null,
+    energy enum('0.1', '0.2', '0.3', '0.4', '0.5','0.6','0.7','0.8', '0.9', '1.0') not null,
 	genre enum('rock', 'classical', 'easy listening', 'pop', 'rap/hip-hop', 'unknown') default 'unknown' not null,
 	createdAt datetime default current_timestamp not null,
 	updatedAt datetime on update current_timestamp not null,
@@ -31,7 +31,7 @@ create table songs (
 -- easy listening: oldies, folk 
 
 -- drop table if exists playlist;
-create table playlist (
+create table playlists (
 	playlist_id int auto_increment not null,
 	playlist_name varchar(50) not null,
 	create_date datetime default current_timestamp not null,

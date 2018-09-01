@@ -1,7 +1,7 @@
 //Use the sequelize constructor to design a model for each new playlist and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
-    var Playlist_user_songs = sequelize.define("Playlist_user_songs", {
+    var PlaylistSong = sequelize.define("PlaylistSong", {
         playlist_user_songs_id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -26,9 +26,12 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
         }
-    });
+    },
+    {
+        tablename: 'playlist_user_songs'
+     });
   
-    return Playlist_user_songs;
+    return PlaylistSong;
   };
 
   //TODO Test
