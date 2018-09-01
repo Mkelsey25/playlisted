@@ -9,9 +9,9 @@ require('dotenv').config();
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
-//var session = require('express-session');
+var session = require('express-session');
 var path = require('path');
-//var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
 // models are required to sync them
@@ -42,7 +42,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Auth Setup (Morgan)
-
+/*
 app.use(cookieParser());
 app.use(session({
   secret: 'potato',
@@ -50,7 +50,7 @@ app.use(session({
   resave: false
 
 }));
-
+*/
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -94,24 +94,38 @@ db.sequelize
 //     });
 
 
-/*
 /////////////////////////////////////
 // configure spotify authentication
 /////////////////////////////////////
 
 //Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
+//3 parties are involved in the authorization process:
+    //Server: the Spotify server
+    //Client: your application
+    //Resource: the end user data and controls
 //Verify callback takes client data and finds or creates a Spotify user
 //Returns done the Spotify user info
 //1. npm install passport-spotify
 
 var SpotifyStrategy = require('passport-spotify').Strategy;
 
+var SPOTIFY_ID = '5b419e7b9f424360a5b65b1f705ac363';
+var SPOTIFY_SECRET = '634ab6b2f4e8410d9d7723325bff8c61';
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: client_id,
-      clientSecret: client_secret,
-      callbackURL: 'http://localhost:8888/auth/spotify/callback'
+      clientID: SPOTIFY_ID,
+      clientSecret: SPOTIFY_SECRET,
+      callbackURL: 'http://localhost:8080/auth/spotify/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
@@ -120,4 +134,3 @@ passport.use(
     }
   )
 );
-*/

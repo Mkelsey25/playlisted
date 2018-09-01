@@ -6,21 +6,25 @@
 
 // Requiring our models
 var db = require("./../../../models");
+var passport = require('passport');
 
 /////////////////
 // Routes
 /////////////////
 module.exports = function(app) {
 
-/*
+
   ///////////////////////////////////////////////////////
   // GET route for authenticating users (passport-spotify)
   ///////////////////////////////////////////////////////
   
+  app.get('/api/playlists/{playlistid}', ensureAuthenticated, function(req, res) {
+    res.render('playlist.html', { user: req.user });
+  })
+
   //Spotify auth route with scopes, currently returning 
   //user's Spotify email and private info
   //
-  $("#spotifyLoginBtn").on("click", function() {
     app.get('/auth/spotify', passport.authenticate('spotify', {
       scope: ['user-read-email', 'user-read-private'],
       //force login dialog 
@@ -40,10 +44,13 @@ module.exports = function(app) {
       res.redirect('/');
     }
   );
-  });
-  
-*/
-  
+
+  function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect('/login');
+  }
 
 
   /////////////////////////////////////////////
