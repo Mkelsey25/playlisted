@@ -97,7 +97,8 @@ db.sequelize
 /////////////////////////////////////
 // configure spotify authentication
 /////////////////////////////////////
-
+//OAuth: A token is a special code that is a temporary key that we
+//get in our backend server which is connected to your spotify app.
 //Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
 //3 parties are involved in the authorization process:
     //Server: the Spotify server

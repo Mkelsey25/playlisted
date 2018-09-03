@@ -75,10 +75,33 @@
                             </select>
                             <input type="submit" value="Listen">
                         </form>
+
+                        <!--container for generated playlist-->
+                        <div id="playlist-container">
+                            <!--containers for each song-->
+                            <!--This would do well as a flexbox. I will do the CSS for it with time permitting.-->
+                            <!--format: (justify left) song_title, "By: ", artist-->
+                            <!--        (justify right) favorite-button, delete-song button-->
+
+                            <div class="song-container">
+                                <!--container for favorite button-->
+                                <div class="favorite-button-container" data-commentid="1"></div>
+                                <!--container for delete-song button-->
+                                <div class="delete-button-container" data-commentid="2"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="delete_button.js"></script>
 </body>
 </html>
