@@ -1,3 +1,6 @@
+// import the model to use its db function
+var db = require("../models");
+
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
@@ -20,7 +23,11 @@ module.exports = function(sequelize, DataTypes) {
         user_id: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            defaultValue: 0
+            defaultValue: 0,
+            references: {
+                model: 'User',
+                key: 'user_id'
+              }
         },
         createdAt: {
             type: DataTypes.DATE(3), 

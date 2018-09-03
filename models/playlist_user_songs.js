@@ -11,13 +11,25 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         playlist_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'Playlist',
+                key: 'playlist_id'
+              }
         },
         user_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'User',
+                key: 'user_id'
+            }
         },
         song_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'Song',
+                key: 'song_id'
+            }
         },
         createdAt: {
             type: DataTypes.DATE(3), 
