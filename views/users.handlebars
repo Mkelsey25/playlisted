@@ -1,11 +1,11 @@
 
   <header class="header">
-    <h1>Route/API Test Page: Users</h1>
+    <h1>Users</h1>
   </header>
 <div class="formcontainer list">
   {{#if users}}
     <div class="user-content">
-      <h3>Users</h3>
+      <!--h3>Users</h3-->
       <ul>
         {{#each users}}
           {{> user-block}}
@@ -34,6 +34,7 @@
   <form id="form-new-user">
     <div style="display:inline-block;">
       <input type="text" name="user_name" placeholder="Name...">
+      <input type="text" name="user_email" placeholder="Email...">
       <input type="text" name="user_password" placeholder="Password...">
     </div>
     <div style="display:block;">
@@ -46,9 +47,10 @@
   <h3>Update User</h3>
   <form id="form-update-user">
     <div style="display:inline-block;">
-      <input type="text" name="id" placeholder="Id...">
-      <input type="text" name="name" placeholder="Name...">
-      <input type="text" name="password" placeholder="Password...">
+      <input type="text" name="user_id" placeholder="Id...">
+      <input type="text" name="user_name" placeholder="Name...">
+      <input type="text" name="user_email" placeholder="Email...">
+      <input type="text" name="user_password" placeholder="Password...">
     </div>
     <div style="display:block;">
       <button type="submit">Update</button>

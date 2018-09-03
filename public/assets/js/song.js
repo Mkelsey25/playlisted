@@ -2,7 +2,7 @@
 $(function() {
 
     ///////////////////////////////
-    // Make AJAX requests
+    // AJAX requests
     ///////////////////////////////
 
     /////////////////////
@@ -12,11 +12,21 @@ $(function() {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
+        // allow for default values when not provided
+        var mood = $("#form-new-song [name=mood]").val().trim();
+        var genre = $("#form-new-song [name=genre]").val().trim();
+        var energy = $("#form-new-song [name=energy]").val().trim();
+        // handle a value without the leading 0
+        energy = (energy[0] === '.') ? ('0' + energy) : energy;
+        var date_released = $("#form-new-song [name=date_released]").val().trim();
+
         var newSong = {
             song_title: $("#form-new-song [name=song_title]").val().trim(),
             artist_name: $("#form-new-song [name=artist_name]").val().trim(),
-            date_released: $("#form-new-song [name=date_released]").val().trim(),
-            genre: $("#form-new-song [name=genre]").val().trim()
+            date_released: (date_released === '') ? undefined: date_released,
+            mood: (mood === '') ? undefined: mood,
+            energy: energy,
+            genre: (genre === '') ? undefined: genre
         };
 
         console.log("Ajax request: create song");
@@ -39,18 +49,32 @@ $(function() {
     // update the song
     /////////////////////
     $("#form-update-song").on("submit", function(event) {
+    
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
+        
+        // allow for default values when not provided
 
-        var id = $("[name=song_id]").val().trim();
+        // var id = $(this).data("id");
+        var id = $("#form-update-song [name=song_id]").val().trim();
+        console.log("id: " + id);
+
+        var mood = $("#form-update-song [name=mood]").val().trim();
+        var genre = $("#form-update-song [name=genre]").val().trim();
+        var energy = $("#form-update-song [name=energy]").val().trim();
+        // handle a value without the leading 0
+        energy = (energy[0] === '.') ? ('0' + energy) : energy;
+        var date_released = $("#form-update-song [name=date_released]").val().trim();
 
         var SongData = {
             song_title: $("#form-update-song [name=song_title]").val().trim(),
             artist_name: $("#form-update-song [name=artist_name]").val().trim(),
-            date_released: $("#form-update-song [name=date_released]").val().trim(),
-            genre: $("#form-update-song [name=genre]").val().trim()
+            date_released: (date_released === '') ? undefined: date_released,
+            mood: (mood === '') ? undefined: mood,
+            energy: energy,
+            genre: (genre === '') ? undefined: genre
         };
-
+    
         console.log("Ajax request: update song");
         console.log(SongData);
 
@@ -72,6 +96,9 @@ $(function() {
     /////////////////////
     $(".delete-song").on("click", function(event) {
         var id = $(this).data("id");
+
+        console.log("Ajax request: delete song");
+        console.log(id);
 
         // Send the DELETE request.
         $.ajax("/api/songs/" + id, {

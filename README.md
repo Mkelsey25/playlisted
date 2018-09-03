@@ -30,6 +30,7 @@ $ npm install express --save
 $ npm install express-handlebars --save
 $ npm install dotenv --save
 $ npm install body-parser --save
+$ npm install moment --save
 $ npm install passport --save
 
 npm install chai --save

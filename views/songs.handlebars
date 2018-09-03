@@ -1,13 +1,13 @@
 <header class="header">
-  <h1>Route/API Test Page: Songs</h1>
+  <h1>Available Songs</h1>
 </header>
 <div class="formcontainer list">
   {{#if songs}}
     <div class="song-content">
-      <h3>Songs</h3>
+      <!--h3>Songs</h3-->
       <ul>
-        {{#each songs}}
-          {{> song-block}}
+        {{#each songs as |item index|}}
+          {{> song-block this}}
         {{/each}}
       </ul>
     </div>
@@ -19,8 +19,8 @@
     <div class="song-content-single">
       <h3>Song</h3>
       <ul>
-        {{#each song}}
-          {{> song-block}}
+        {{#each song as |item index|}}
+          {{> song-block this}}
         {{/each}}
       </ul>
     </div>
@@ -34,7 +34,9 @@
     <div style="display:inline-block;">
       <input type="text" name="song_title" placeholder="Song Title...">
       <input type="text" name="artist_name" placeholder="Artist Name...">
-      <input type="text" name="date_released" placeholder="Date Released...">
+      <input type="date" name="date_released" placeholder="Date Released...">
+      <input type="text" name="mood" placeholder="Mood...">
+      <input type="text" name="energy" placeholder="Energy...">
       <input type="text" name="genre" placeholder="Genre...">
     </div>
     <div style="display:block;">
@@ -47,10 +49,13 @@
   <h3>Update Song</h3>
   <form id="form-update-song">
     <div style="display:inline-flex;">
-      <input type="text" name="song_id" placeholder="Id...">
+      {{!-- <input type="text" name="song_id" placeholder="Id..." value={{{songs.0.song_id}}}> --}}
+      <input type="text" name="song_id" placeholder="Id..." value="">
       <input type="text" name="song_title" placeholder="Song Title...">
       <input type="text" name="artist_name" placeholder="Artist Name...">
-      <input type="text" name="date_released" placeholder="Date Released...">
+      <input type="date" name="date_released" placeholder="Date Released...">
+      <input type="text" name="mood" placeholder="Mood...">
+      <input type="text" name="energy" placeholder="Energy...">
       <input type="text" name="genre" placeholder="Genre...">
     </div>
     <div style="display:block;">
@@ -58,3 +63,4 @@
     </div>
   </form>
 </div>
+

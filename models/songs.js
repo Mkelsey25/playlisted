@@ -1,3 +1,8 @@
+'use strict'
+
+var moment = require('moment');
+const dateFormat = 'MM/DD/YYYY hh:mm A';
+
 //Use the sequelize constructor to design a model for each Song and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
@@ -22,10 +27,11 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         date_released: {
-            type: DataTypes.STRING(8),
+            type: DataTypes.DATEONLY,
             allowNull: true,
-            validate: {
-                len: { args: [1,8], msg: "String length is not in range" }
+            validate: { isDate: true },
+            get: function() {
+                return moment.utc(this.getDataValue('date_released')).format('YYYY-MM-DD')
             }
         },
         mood: {
@@ -34,7 +40,10 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 'Unknown',
             validate: {
-                len: [1]
+                isIn: {
+                    args: [['Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic', 'Unknown']],
+                    msg: "Must be a mood within the defined list."
+                  }
             }
         },
         energy: {
@@ -42,7 +51,10 @@ module.exports = function(sequelize, DataTypes) {
             values: ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0'],
             allowNull: false,
             validate: {
-                len: [1]
+                isIn: {
+                    args: [['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1.0']],
+                    msg: "Must be an energy value between 0.1 and 1.0."
+                  }
             }
         },
         genre: {
@@ -51,22 +63,34 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 'Unknown',
             validate: {
-                len: [1]
-            }
+                isIn: {
+                    args: [['Rock', 'Classical', 'Easy Listening', 'Pop', 'Rap/Hip-Hop', 'Unknown']],
+                    msg: "Must be a genre within the defined list."
+                  }
+            }  
         },
         createdAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
+            }
         },
         updatedAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('updatedAt')).local().format(dateFormat)
+            }
         }
     }, 
     { 
-        tableName: 'Songs' 
+        tableName: 'songs',
+        indexes: [ 
+            { unique: true, fields: [ 'song_title', 'artist_name'] } 
+        ]
     });
   
     return Song;

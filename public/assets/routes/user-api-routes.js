@@ -62,9 +62,9 @@ module.exports = function(app) {
     console.log("route: all users");
     console.log(JSON.stringify(req.body));
 
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    };
+    // if (req.query.user_id) {
+    //   query.UserId = req.query.user_id;
+    // };
 
     db.Users.findAll({
       where: query
@@ -150,6 +150,7 @@ module.exports = function(app) {
     db.Users.update(
       {
         user_name: req.body.user_name,
+        user_email: req.body.user_email,
         user_password: req.body.user_password
       },
       {

@@ -9,10 +9,11 @@ require('dotenv').config();
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
-var session = require('express-session');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var passport = require('passport');
+
+// var cookieParser = require('cookie-parser');
+// var session = require('express-session');
 
 // models are required to sync them
 var db = require("./models");
@@ -41,7 +42,9 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+/////////////////////////
 //Auth Setup (Morgan)
+<<<<<<< HEAD
 /*
 app.use(cookieParser());
 app.use(session({
@@ -51,6 +54,16 @@ app.use(session({
 
 }));
 */
+=======
+/////////////////////////
+// app.use(cookieParser());
+// app.use(session({
+//   secret: 'potato',
+//   saveUninitialized: false,
+//   resave: false
+// }));
+
+>>>>>>> upstream/master
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -72,7 +85,7 @@ app.use(routes);
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: false})
+        db.sequelize.sync({force: true})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
