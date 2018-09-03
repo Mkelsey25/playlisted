@@ -9,6 +9,12 @@
 		<span id="date-released-item" class="flex-item">
 			{{date_released}}
 		</span>
+		<span id="mood-item" class="flex-item">
+			{{mood}}
+		</span>
+		<span id="energy-item" class="flex-item">
+			{{energy}}
+		</span>
 		<span id="genre-item" class="flex-item">
 			{{genre}}
 		</span>
@@ -21,9 +27,20 @@
 			</span>
 		</div>
 
-		<div id="btns" class="flex-item">
+		{{!-- <div style="display:inline-flex;">
+			<input type="text" id="song_id-{{{song_id}}}" name="song_id" placeholder="Id..." value={{{song_id}}}>
+			<input type="text" id="song_title-{{{song_id}}}" name="song_title" placeholder="Song Title..." value={{{song_title}}}>
+			<input type="text" id="artist_name-{{{song_id}}}" name="artist_name" placeholder="Artist Name..." value={{{artist_name}}}>
+			<input type="date" id="date_released-{{{song_id}}}" name="date_released" placeholder="Date Released..." value={{{date_released}}}>
+			<input type="text" id="mood-{{{song_id}}}" name="mood" placeholder="Mood..." value={{{mood}}}>
+			<input type="text" id="energy-{{{song_id}}}" name="energy" placeholder="Energy..." value={{{energy}}}>
+			<input type="text" id="genre-{{{song_id}}}" name="genre" placeholder="Genre..." value={{{genre}}}>
+		</div> --}}
+		<div style="display:inline-flex;">
+			{{!-- <button class="update-song" data-id="{{this.song_id}}">Update</button> --}}
 			<button class="delete-song" data-id="{{this.song_id}}">Delete</button>
 		</div>
+
 	</div>
 </li>
 	

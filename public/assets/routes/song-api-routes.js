@@ -21,10 +21,6 @@ module.exports = function(app) {
     console.log("route: all songs");
     console.log(JSON.stringify(req.body));
 
-    if (req.query.song_id) {
-      query.SongId = req.query.song_id;
-    };
-
     //find all songs
     db.Songs.findAll({
       where: query
@@ -46,6 +42,10 @@ module.exports = function(app) {
 
     console.log("route: specific song");
     console.log(JSON.stringify(req.body));
+
+    // if (req.query.song_id) {
+    //   query.song_id = req.query.song_id;
+    // };
 
     db.Songs.findAll({
       where: {
@@ -104,6 +104,8 @@ module.exports = function(app) {
 
     console.log("route: update song");
     console.log(JSON.stringify(req.body));
+    console.log("request query: " + req.query.songs_id);
+    console.log("request params: " + req.params.id);
 
     var id = (req.params.id) ? req.params.id : req.body.id;
 
