@@ -1,3 +1,8 @@
+'use strict'
+
+var moment = require('moment');
+const dateFormat = 'MM/DD/YYYY hh:mm A';
+
 //Use the sequelize constructor to design a model for each User and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
@@ -15,6 +20,20 @@ module.exports = function(sequelize, DataTypes) {
                 len: { args: [1,50], msg: "String length is not in range" }
             }
         },
+        user_email: {
+            type: DataTypes.STRING(50),
+            allowNull: false,
+            unique: true,
+            validate: {
+                len: {
+                    args: [6, 128],
+                    msg: "Email address must be between 6 and 128 characters in length"
+                },
+                isEmail: {
+                    msg: "Email address must be valid"
+                }
+            }
+        },
         user_password: {
             type: DataTypes.STRING(50),
             allowNull: true,
@@ -22,19 +41,34 @@ module.exports = function(sequelize, DataTypes) {
                 len: { args: [1,50], msg: "String length is not in range" }
             }
         },
+        role: {
+            type: DataTypes.ENUM,
+            values: ['user', 'admin', 'disabled'],
+            allowNull: false,
+            defaultValue: 'user'
+        },
         createdAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
+            }
         },
         updatedAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('updatedAt')).local().format(dateFormat)
+            }
         }
     }, 
     {
-        tableName: 'Users'
+        tableName: 'Users',
+        indexes: [ 
+            { unique: true, fields: [ 'user_name'] } 
+        ]
     });
   
     return User;

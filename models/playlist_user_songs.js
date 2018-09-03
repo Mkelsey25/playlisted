@@ -1,3 +1,8 @@
+'use strict'
+
+var moment = require('moment');
+const dateFormat = 'MM/DD/YYYY hh:mm A';
+
 //Use the sequelize constructor to design a model for each new playlist and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
@@ -8,28 +13,49 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         playlist_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'Playlist',
+                key: 'playlist_id'
+              }
         },
         user_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'User',
+                key: 'user_id'
+            }
         },
         song_id: {
-            type: DataTypes.BIGINT
+            type: DataTypes.BIGINT,
+            references: {
+                model: 'Song',
+                key: 'song_id'
+            }
         },
         createdAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
+            }
         },
         updatedAt: {
             type: DataTypes.DATE(3), 
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+            get: function() {
+                return moment.utc(this.getDataValue('updatedAt')).local().format(dateFormat)
+            }
         }
     },
     {
-        tablename: 'playlist_user_songs'
-     });
+        tableName: 'playlist_user_songs',
+        indexes: [ 
+            { unique: true, fields: [ 'playlist_id', 'user_id', 'song_id'] } 
+        ]
+    });
   
     return PlaylistSong;
   };
