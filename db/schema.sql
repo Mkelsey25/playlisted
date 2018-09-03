@@ -12,6 +12,10 @@ create table users (
 	primary key (user_id)
 );
 
+INSERT INTO users (user_name, user_password) VALUES ('me', '123');
+INSERT INTO users (user_name, user_password) VALUES ('you', '321');
+INSERT INTO users (user_name, user_password) VALUES ('someone', 'abc');
+
 -- drop table songs
 create table songs (
 	song_id int auto_increment not null,
@@ -52,6 +56,7 @@ create table playlist_user_songs (
 		references songs(song_id)
 		on update cascade
 );
+
 
 -----------------------------
 -- Queries 
