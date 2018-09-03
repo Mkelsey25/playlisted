@@ -1,3 +1,5 @@
+'use strict'
+
 // import the model to use its db function
 var db = require("../models");
 
@@ -23,13 +25,14 @@ module.exports = function(sequelize, DataTypes) {
         user_id: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            defaultValue: 0,
-            references: {
-                model: 'User',
-                key: 'user_id'
-              }
+            defaultValue: 0
+            // ,
+            // references: {
+            //     model: 'User',
+            //     key: 'user_id'
+            //   }
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -37,7 +40,7 @@ module.exports = function(sequelize, DataTypes) {
                 return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
             }
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -48,10 +51,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     {
         tableName: 'playlists',
+        underscored: true,
         indexes: [ 
             { unique: true, fields: [ 'playlist_name', 'user_id'] } 
         ]
     });
+
+    // relations
+    Playlist.associate = function (models) {
+        Playlist.belongsTo(models.Users, { constraints: true, onDelete: 'cascade', defaultValue: 0, foreignKey: 'user_id' });
+    };
 
     return Playlist;
   };

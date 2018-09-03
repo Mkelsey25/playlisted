@@ -1,3 +1,5 @@
+'use strict'
+
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 

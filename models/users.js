@@ -1,3 +1,5 @@
+'use strict'
+
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
@@ -38,6 +40,12 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
                 len: { args: [1,50], msg: "String length is not in range" }
             }
+        },
+        role: {
+            type: DataTypes.ENUM,
+            values: ['user', 'admin', 'disabled'],
+            allowNull: false,
+            defaultValue: 'user'
         },
         createdAt: {
             type: DataTypes.DATE(3), 
