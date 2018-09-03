@@ -55,9 +55,9 @@ module.exports = function(app) {
     console.log("route: all users");
     console.log(JSON.stringify(req.body));
 
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    };
+    // if (req.query.user_id) {
+    //   query.UserId = req.query.user_id;
+    // };
 
     db.Users.findAll({
       where: query

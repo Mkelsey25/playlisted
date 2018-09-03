@@ -41,7 +41,7 @@ $(function() {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        var id = $("[name=id]").val().trim();
+        var id = $("[name=user_id]").val().trim();
 
         // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
         var UserData = {
