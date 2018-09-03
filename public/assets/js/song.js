@@ -2,7 +2,7 @@
 $(function() {
 
     ///////////////////////////////
-    // Make AJAX requests
+    // AJAX requests
     ///////////////////////////////
 
     /////////////////////
@@ -49,43 +49,13 @@ $(function() {
     // update the song
     /////////////////////
     $("#form-update-song").on("submit", function(event) {
-    // $(document).on("click", ".update-song", function(event) {
-
+    
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         
-        ////////////////////////////////////////////////////////////////////////
-        //  UPDATE issue with the below.  remove if can't resolve... TODO
-
-        // var self = this;
-
-        // var id = $(self).data("id").toString();
-        // console.log("id: " + id);
-        // // var id = $("[name=song_id]").val().trim();
-        // var title = $(self).find("[id=song-title-" + id + "]").val().trim();
-        // var artist_name = $("[id=artist_name-" + id + "]").val().trim();
-
-        // // allow for default values when not provided
-        // var mood = $("[id=mood-" + id + "]").val().trim();
-        // var genre = $("[id=genre-" + id + "]").val().trim();
-        // var energy = $("[id=energy-" + id + "]").val().trim();
-        // // handle a value without the leading 0
-        // energy = (energy[0] === '.') ? ('0' + energy) : energy;
-        // var date_released = $("[id=date_released-" + id + "]").val().trim();
-
-        // var SongData = {
-        //     song_title: title,
-        //     artist_name: artist_name,
-        //     date_released: (date_released === '') ? undefined: date_released,
-        //     mood: (mood === '') ? undefined: mood,
-        //     energy: energy,
-        //     genre: (genre === '') ? undefined: genre
-        // };
-        
-        /////////////////////////////////////////////////// ORIG
         // allow for default values when not provided
 
-        var id = $(this).data("id");
+        // var id = $(this).data("id");
         var id = $("#form-update-song [name=song_id]").val().trim();
         console.log("id: " + id);
 
@@ -104,9 +74,7 @@ $(function() {
             energy: energy,
             genre: (genre === '') ? undefined: genre
         };
-        // //////////////////////////////////////////////////////////// END ORIG
-
-
+    
         console.log("Ajax request: update song");
         console.log(SongData);
 

@@ -14,6 +14,7 @@ $(function() {
 
         var newUser = {
             user_name: $("#form-new-user [name=user_name]").val().trim(),
+            user_email: $("#form-new-user [name=user_email]").val().trim(),
             user_password: $("#form-new-user [name=user_password]").val().trim()
         };
 
@@ -44,8 +45,9 @@ $(function() {
 
         // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
         var UserData = {
-            user_name: $("#form-update-user [name=name]").val().trim(),
-            user_password: $("#form-update-user [name=password]").val().trim()
+            user_name: $("#form-update-user [name=user_name]").val().trim(),
+            user_email: $("#form-update-user [name=user_email]").val().trim(),
+            user_password: $("#form-update-user [name=user_password]").val().trim()
         };
 
         console.log("Ajax request: update user");

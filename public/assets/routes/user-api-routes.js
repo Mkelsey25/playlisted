@@ -143,6 +143,7 @@ module.exports = function(app) {
     db.Users.update(
       {
         user_name: req.body.user_name,
+        user_email: req.body.user_email,
         user_password: req.body.user_password
       },
       {

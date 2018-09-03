@@ -1,5 +1,4 @@
 var moment = require('moment');
-
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
 //Use the sequelize constructor to design a model for each Song and create SQL data 
@@ -86,7 +85,10 @@ module.exports = function(sequelize, DataTypes) {
         }
     }, 
     { 
-        tableName: 'Songs' 
+        tableName: 'songs',
+        indexes: [ 
+            { unique: true, fields: [ 'song_title', 'artist_name'] } 
+        ]
     });
   
     return Song;
