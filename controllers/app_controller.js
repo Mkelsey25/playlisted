@@ -1,9 +1,6 @@
 var express = require("express");
 var router = express.Router();
 
-// import the model to use its db function
-var db = require("../models");
-
 // =============================================================
 // Routes
 // =============================================================

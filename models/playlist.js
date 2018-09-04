@@ -1,8 +1,5 @@
 'use strict'
 
-// import the model to use its db function
-var db = require("../models");
-
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
@@ -26,11 +23,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BIGINT,
             allowNull: false,
             defaultValue: 0
-            // ,
-            // references: {
-            //     model: 'User',
-            //     key: 'user_id'
-            //   }
         },
         created_at: {
             type: DataTypes.DATE(3), 
@@ -60,6 +52,7 @@ module.exports = function(sequelize, DataTypes) {
     // relations
     Playlist.associate = function (models) {
         Playlist.belongsTo(models.Users, { constraints: true, onDelete: 'cascade', defaultValue: 0, foreignKey: 'user_id' });
+        Playlist.hasMany(models.PlaylistSong, {foreignKey: 'playlist_id', sourceKey: 'playlist_id'});
     };
 
     return Playlist;
