@@ -100,11 +100,11 @@ $(function() {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        var id = $("[name=id]").val().trim();
+        var id = $("#form-update-playlist [name=id]").val().trim();
 
         var PlaylistData = {
             playlist_name: $("#form-update-playlist [name=playlist_name]").val().trim(),
-            user_id: $("#form-new-playlist [name=user_id]").val().trim()
+            user_id: $("#form-update-playlist [name=user_id]").val().trim()
         };
 
         console.log("Ajax request: update playlist");
