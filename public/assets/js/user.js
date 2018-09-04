@@ -8,6 +8,7 @@ $(function() {
     /////////////////////
     // create the user
     /////////////////////
+    //on click in form, change 
     $("#form-new-user").on("submit", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();

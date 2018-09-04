@@ -99,28 +99,6 @@ module.exports = function(app) {
 
     };
 
-<<<<<<< HEAD
-      if (!dbResult) {
-        res.redirect('/login');
-      } else if (!await dbResult.validPassword(password)) {
-        res.redirect('/login');
-      } else {
-        req.session.user = dbResult;
-        res.redirect('/');
-      }
-
-      
-    });
-    
-      // send to handlebars
-    //   var hbsUser = {
-    //     user: dbResult
-    //   };
-    //   // console.log(dbResult);
-    //   res.render("users", hbsUser);
-    // });
-=======
->>>>>>> upstream/master
   });
 
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////

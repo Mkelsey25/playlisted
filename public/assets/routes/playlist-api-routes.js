@@ -42,7 +42,7 @@ module.exports = function(app) {
   });
 
 /*
-//Spotify song fetches
+//Spotify fetch for all the user's playlists
 function displayUserPlaylists() {
   var parsed = queryString.parse(window.location.search);
   var accessToken = parsed.access_token;
