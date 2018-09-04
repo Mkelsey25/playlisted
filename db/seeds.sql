@@ -73,8 +73,28 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Breakaway", "Kelly Clarkson", "11/30/04", "Sad", "0.2", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Girls Like You", "Maroon 5", "01/01/17", "Ecstatic", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Sugar", "Maroon 5", "01/01/14", "Happy", "0.6", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("One Kiss", "Dua Lipa", "01/01/18", "Ecstatic", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
-       ;
+       ("One Kiss", "Dua Lipa", "01/01/18", "Ecstatic", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("In My Feelings", "Drake", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Nice For What", "Drake", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Fade", "Kanye West", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Father Outstretch Your Hands Pt. 2", "Kanye West", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Six Foot Seven Foot", "Lil Wayne", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("I Mean It", "G-Eazy", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Self-Care", "Mac Miller", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Bodak Yellow", "Cardi B", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Be Careful", "Cardi B", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Bartier Cardi", "Cardi B", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Chun-Li", "Nicki Minaj", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Moment For Life", "Nicki Minaj", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Anaconda", "Nicki Minaj", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("", "", "", "", "", "Hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+;
 
 
 select * from songs;
