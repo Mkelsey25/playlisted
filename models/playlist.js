@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
             get: function() {
-                return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
+                return moment.utc(this.getDataValue('created_at')).local().format(dateFormat)
             }
         },
         updated_at: {
@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
             get: function() {
-                return moment.utc(this.getDataValue('updatedAt')).local().format(dateFormat)
+                return moment.utc(this.getDataValue('updated_at')).local().format(dateFormat)
             }
         }
     },
