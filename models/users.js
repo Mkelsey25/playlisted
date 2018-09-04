@@ -68,18 +68,6 @@ module.exports = function(sequelize, DataTypes) {
         tableName: 'Users',
         underscored: true,
         hooks: {
-            // beforeCreate: async function(newUser) {
-            //     const salt = await bcrypt.genSalt(10);
-
-            //     console.log("salt: " + salt);
-            //     console.log("password:" + newUser.dataValues.user_password);
-            //     console.log("password (not dataValues):" + newUser.user_password);
-
-            //     newUser.dataValues.user_password = await bcrypt.hash(newUser.dataValues.user_password, salt, function(err, hash) {
-            //         if (err) throw (err);
-            //     });
-            // }
-
             beforeCreate: (user, options, cb) => {
                 console.log("before create in user");
 
