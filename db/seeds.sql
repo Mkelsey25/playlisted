@@ -54,8 +54,26 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Bohemian Rhapsody", "Queen", "01/01/75", "Happy", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("We Will Rock You", "Queen", "01/01/77", "Ecstatic", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Go Your Own Way", "Fleetwood Mac", "01/01/77", "Happy", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       
-
+       ("Bad Romance", "Lady Gaga", "01/01/09", "Meh", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Love Game", "Lady Gaga", "01/01/08", "Happy", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Poker Face", "Lady Gaga", "01/01/2008", "Happy", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("We Can't Stop", "Miley Cyrus", "01/01/13", "Ecstatic", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Party In The USA", "Miley Cyrus", "01/01/09", "Happy", "0.6", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("TGIF", "Katy Perry", "01/01/10", "Ecstatic", "1.0", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Fireworks", "Katy Perry", "01/01/10", "Ecstatic", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("One Last Time", "Ariana Grande", "01/01/14", "Happy", "0.5", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Dangerous Woman", "Ariana Grande", "05/20/16", "Meh", "0.4", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Look What You Made Me Do", "Taylor Swift", "01/01/17", "Angry", "0.6", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Shake It Off", "Taylor Swift", "01/01/14", "Ecstatic", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Hit Me Baby, One More Time", "Britney Spears", "01/01/98", "Sad", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Piece of Me", "Britney Spears", "01/01/07", "Happy", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Toxic", "Britney Spears", "01/01/03", "Happy", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Hands To Myself", "Selena Gomez", "01/01/15", "Meh", "0.5", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Fetish", "Selena Gomez", "01/01/17", "Meh", "0.4", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Breakaway", "Kelly Clarkson", "11/30/04", "Sad", "0.2", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Girls Like You", "Maroon 5", "01/01/17", "Ecstatic", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Sugar", "Maroon 5", "01/01/14", "Happy", "0.6", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("One Kiss", "Dua Lipa", "01/01/18", "Ecstatic", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
        ;
 
 
