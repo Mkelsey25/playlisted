@@ -69,7 +69,7 @@ module.exports = function(sequelize, DataTypes) {
                   }
             }  
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -77,7 +77,7 @@ module.exports = function(sequelize, DataTypes) {
                 return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
             }
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -88,10 +88,15 @@ module.exports = function(sequelize, DataTypes) {
     }, 
     { 
         tableName: 'songs',
+        underscored: true,
         indexes: [ 
             { unique: true, fields: [ 'song_title', 'artist_name'] } 
         ]
     });
   
+    Song.associate = function(models) {
+        Song.hasMany(models.PlaylistSong, {foreignKey: 'song_id'});
+    };
+
     return Song;
 };

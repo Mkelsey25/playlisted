@@ -115,8 +115,71 @@ module.exports = function(app) {
       console.log("User created.");
 
       res.json(dbResult);          // send as json
+
+      ///////////////Nodemailer: Morgan
+
+              //Nodemailer
+
+              'use strict';
+              var nodemailer = require('nodemailer');
+              
+              // Generate test SMTP service account from ethereal.email
+              // Only needed if you don't have a real mail account for testing
+              nodemailer.createTestAccount((err, account) => {
+                // create reusable transporter object using the default SMTP transport
+                var transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: 'playlistedapplication@gmail.com', 
+                        pass: 'playlisted123' 
+                    }
+                });
+              
+                // setup email data with unicode symbols
+                var mailOptions = {
+                    from: '"Playlisted" <playlistedapplication@gmail.com>', // sender address
+                    to: req.body.user_email, // list of receivers
+                    subject: 'Welcome to Playlisted', // Subject line
+                    text: 'Welcome to Playlisted. Enjoy the playlist of your dreams.', // plain text body
+                    html: '<b>Welcome to Playlisted</b> <p>Your username is: </p>' + req.body.user_name // html body
+                };
+              
+                // send mail with defined transport object
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log('Message sent: %s', info.messageId);
+                    // Preview only available when sending through an Ethereal account
+              
+                });
+              });
+
+
     });
   });
+
+  /*app.post('/api/users', function(req, res) {
+    db.Users.findOne({where: {user_name: req.body.user_name}}).then(function(err, user){
+    if(err) {
+    console.log("ERROR AT START");
+    }
+    else if (user) {
+      console.log('This user already exists.');
+      throw err;
+    } 
+    else {
+      console.log("Username is available!");
+      db.Users.create(req.body).then(function(dbResult) {
+        console.log("USER CREATED");
+
+        res.json(dbResult);
+
+
+                })
+      }
+  })
+})*/
 
   /////////////////////////////////////////////
   // DELETE route for deleting a user

@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 // require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  TODO
 // if (process.env.NODE_ENV !== 'production') {
@@ -9,11 +10,16 @@ require('dotenv').config();
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
+var session = require('express-session');
 var path = require('path');
+var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var flash    = require('connect-flash');
+var fs = require('fs');
+var https = require('https');
+//Passport Config
+//require('./config/passport')(passport);
 
 var request = require('request');
 var querystring = require('querystring');
@@ -44,15 +50,25 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-/////////////////////////
 //Auth Setup (Morgan)
-/////////////////////////
-// app.use(cookieParser());
-// app.use(session({
-//   secret: 'potato',
-//   saveUninitialized: false,
-//   resave: false
-// }));
+
+/*app.use(cookieParser());
+app.use(session({
+  secret: 'potato',
+  saveUninitialized: true,
+  resave: true
+
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session*/
+
+//NOT SURE IF THIS IS REALLY NEEDED BUT HERE IT IS ANYWAY
+//const SERVER_SECRET = 'potato';
+
+//require('./app/routes.js')(app, passport, SERVER_SECRET);
+
+
 
 
 ////////////////////////////////////////////////////////
@@ -143,21 +159,11 @@ var redirect_uri =
 
 
 //using passport-spotify
-
 /*
-//Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
-//3 parties are involved in the authorization process:
-    //Server: the Spotify server
-    //Client: your application
-    //Resource: the end user data and controls
-//Verify callback takes client data and finds or creates a Spotify user
-//Returns done the Spotify user info
-//1. npm install passport-spotify
-
 var SpotifyStrategy = require('passport-spotify').Strategy;
 
-var SPOTIFY_ID = '5b419e7b9f424360a5b65b1f705ac363';
-var SPOTIFY_SECRET = '634ab6b2f4e8410d9d7723325bff8c61';
+var SPOTIFY_ID;
+var SPOTIFY_SECRET;
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -181,4 +187,4 @@ passport.use(
     }
   )
 );
-*/
+*/ 
