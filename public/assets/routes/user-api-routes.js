@@ -123,14 +123,14 @@ module.exports = function(app) {
                 var transporter = nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'mkelsey2557@gmail.com', // generated ethereal user
-                        pass: 'Dundee#25' // generated ethereal password
+                        user: 'playlistedapplication@gmail.com', 
+                        pass: 'playlisted123' 
                     }
                 });
               
                 // setup email data with unicode symbols
                 var mailOptions = {
-                    from: '"Morgan Hamlin" <mkelsey2557@gmail.com>', // sender address
+                    from: '"Playlisted" <playlistedapplication@gmail.com>', // sender address
                     to: req.body.user_email, // list of receivers
                     subject: 'Welcome to Playlisted', // Subject line
                     text: 'Welcome to Playlisted. Enjoy the playlist of your dreams.', // plain text body
