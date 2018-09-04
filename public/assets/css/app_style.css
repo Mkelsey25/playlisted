@@ -105,7 +105,7 @@ body {
 .scroll-img.energy {
     background-image: url("../img/zzz.png"), url("../img/hyper.png");
     background-repeat: no-repeat, no-repeat;
-    background-size: calc(20.1% - 40px), calc(20.1% - 40px);
+    background-size: calc(20% - 40px), calc(20% - 40px);
     background-position: 20px, calc(100% - 20px);
 }
 .scroll-img.energy img#zzz {
@@ -204,16 +204,21 @@ body {
     font-weight: bold;
     padding: 0 5px;
 }
-#form-new-song input {
-    width: 24.5%;
-}
 #form-update-song {
     max-width: 100%;
 }
-#form-update-song input {
+#form-update-song input
+#form-update-song select,
+#form-new-song input,
+#form-new-song select,
+#form-update-user input,
+#form-new-user input,
+#form-update-playlist-song input,
+#form-new-playlist-song input,
+#form-update-playlist input,
+#form-new-playlist input {
     border: #ccc 1px solid;
-    margin: 2px;
-    width: 20%;
+    margin: 5px 2px 0 0;
     padding: 2px;
 }
 .formcontainer button {
@@ -227,6 +232,10 @@ body {
     width: 100px;
     display: block;
 }
+#btns button:hover, .formcontainer button:hover, .genrecontainer .submitButton:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
 
 /*----------------------*/
 /*----COLOR SCHEMES-----*/
@@ -238,6 +247,9 @@ html .menu ul li:hover, html .slider,
 html .slider::-webkit-slider-thumb, html .genrecontainer #formGenre input {
     -webkit-transition: all 300ms;
     transition: all 300ms;
+}
+html body .jumbotron {
+    background-color: #F9BA32;
 }
 html.angry {
     background: #262F34;
@@ -338,6 +350,45 @@ html.ecstatic .menu ul li:hover, html.ecstatic .slider {
     background-color: #80BD9E;
 }
 html.ecstatic .genrecontainer #formGenre input {
+    background-color: #FF420E;
+    color: #fff;
+}
+
+/*----------------------*/
+/*---------MODAL--------*/
+/*----------------------*/
+html.angry #myModal {
+    background-color: #262F34;
+}
+html.angry #myModal .modal-content {
+    background-color: #CB0000;
+    color: #fff;
+}
+html.sad #myModal {
+    background-color: #1995AD;
+}
+html.sad #myModal .modal-content {
+    background-color: #A1D6E2;
+    color: #F1F1F2;
+}
+html.meh #myModal {
+    background-color: #426E86;
+}
+html.meh #myModal .modal-content {
+    background-color: #F9BA32;
+    color: #F8F1E5;
+}
+html.happy #myModal {
+    background-color: #1995AD;
+}
+html.happy #myModal .modal-content {
+    background-color: #D09683;
+    color: #73605B;
+}
+html.ecstatic #myModal {
+    background-color: #89DA59;
+}
+html.ecstatic #myModal .modal-content {
     background-color: #FF420E;
     color: #fff;
 }

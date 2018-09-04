@@ -1,8 +1,8 @@
 
-  <header class="header">
-    <h1>Route/API Test Page: Playlist</h1>
-  </header>
-
+<header class="header">
+  <h1>Route/API Test Page: Playlist</h1>
+</header>
+<div class="formcontainer list">
   {{#if playlists}}
     <div class="user-content">
       <h3>Playlists</h3>
@@ -13,7 +13,9 @@
       </ul>
     </div>
   {{/if}}
+</div>
 
+<div class="formcontainer list">
   {{#if playlist}}
     <div class="playlist-content-single">
       <h3>Playlist</h3>
@@ -24,19 +26,32 @@
       </ul>
     </div>
   {{/if}}
+</div>
 
-<h3>Create Playlist</h3>
-<!--form id="form-new-playlist" method="POST" action="/api/playlists" class="create-user-form"-->
-<form id="form-new-playlist">
-  <input type="text" name="playlist_name" placeholder="Name...">
-  <input type="text" name="user_id" placeholder="User id...">
-  <button type="submit">Submit</button>
-</form>
+<div class="formcontainer">
+  <h3>Create Playlist</h3>
+  <!--form id="form-new-playlist" method="POST" action="/api/playlists" class="create-user-form"-->
+  <form id="form-new-playlist">
+    <div>
+      <input type="text" name="playlist_name" placeholder="Name...">
+      <input type="text" name="user_id" placeholder="User id...">
+    </div>
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
 
-<h3>Update Playlist</h3>
-<form id="form-update-playlist">
-  <input type="text" name="id" placeholder="Id...">
-  <input type="text" name="playlist_name" placeholder="Name...">
-  <input type="text" name="user_id" placeholder="User id...">
-	<button type="submit">Update</button>
-</form>
+<div class="formcontainer">
+  <h3>Update Playlist</h3>
+  <form id="form-update-playlist">
+    <div>
+      <input type="text" name="id" placeholder="Id...">
+      <input type="text" name="playlist_name" placeholder="Name...">
+      <input type="text" name="user_id" placeholder="User id...">
+    </div>
+    <div>
+      <button type="submit">Update</button>
+    </div>
+  </form>
+</div>
