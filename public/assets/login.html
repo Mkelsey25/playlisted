@@ -55,9 +55,10 @@
                             <label>Password</label>
                             <input type="password" class="form-control" id="password" name="user_password" placeholder="Password">
                         </div>
+                        <input type="text" class="form-control" id="login_type" name="login_type" hidden>
                         <a href="" class="link">New here? Join now!</a> <br> <br>
-                        <button id='playlistedLoginBtn' type="submit" value='login' class="btn btn-light">Login</button><br>
-                        <button href='api/users/spotify'type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
+                        <button type="submit" id="playlistedLoginBtn" value='login' class="btn btn-light">Login</button><br>
+                        <button href='api/users/spotify' type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
                     </form>
                 </div>
 
@@ -78,6 +79,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -85,5 +87,23 @@
 
     <!-- Load our React component. -->
     <!--<script src="delete_button.js"></script>-->
+=======
+<script>
+$(document).ready (function() {
+
+    $("#playlistedLoginBtn").on("click", function() {
+        console.log("in normal login");
+        $("#login_type").val("login");
+    });
+
+    $("#spotifyLoginBtn").on("click", function() {
+        console.log("in spotify login");
+        $("#login_type").val("login-spotify");
+    });
+
+});
+</script>
+
+>>>>>>> upstream/master
 </body>
 </html>

@@ -49,6 +49,8 @@ module.exports = function(app) {
   app.post("/api/users/login", function(req, res) {
     var query = {};
     var password = req.body.user_password;
+    var loginType = req.body.login_type;
+    console.log("loginType: " + loginType);
 
     console.log("route: login user");
     console.log(JSON.stringify(req.body));
@@ -59,11 +61,45 @@ module.exports = function(app) {
       query.user_name = req.body.user_name;
     };
 
-    db.Users.findOne({
-      where: query
-    }).then(async function(dbResult) {
-      // res.json(dbResult);          // send as json
+    ////////////////////////
+    // login via bcrypt
+    ////////////////////////
+    if (loginType === "login") {
+      console.log("in bcrypt login");
 
+      db.Users.findOne({
+        where: query
+      }).then(async function(dbResult) {
+        // res.json(dbResult);          // send as json
+
+        if (!dbResult) {
+          res.redirect('/login');
+        } else if (!await dbResult.validPassword(password)) {
+          res.redirect('/login');
+        } else {
+          req.session.user = dbResult;
+          res.redirect('/');
+        }
+      });
+      
+        // send to handlebars
+      //   var hbsUser = {
+      //     user: dbResult
+      //   };
+      //   // console.log(dbResult);
+      //   res.render("users", hbsUser);
+      // });
+    }; 
+
+    ////////////////////////
+    // login with spotify
+    ////////////////////////
+    if (loginType === "login-spotify") {
+      console.log("in spotify login");
+
+    };
+
+<<<<<<< HEAD
       if (!dbResult) {
         res.redirect('/login');
       } else if (!await dbResult.validPassword(password)) {
@@ -83,6 +119,8 @@ module.exports = function(app) {
     //   // console.log(dbResult);
     //   res.render("users", hbsUser);
     // });
+=======
+>>>>>>> upstream/master
   });
 
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////

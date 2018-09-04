@@ -18,7 +18,7 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-var flash    = require('connect-flash');
+var flash = require('connect-flash');
 var fs = require('fs');
 var https = require('https');
 //Passport Config
@@ -93,7 +93,7 @@ app.use(routes);
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: true})
+        db.sequelize.sync({force: false})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
