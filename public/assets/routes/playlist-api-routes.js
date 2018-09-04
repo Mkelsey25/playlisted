@@ -41,9 +41,25 @@ module.exports = function(app) {
     });
   });
 
+/*
+//Spotify song fetches
+function displayUserPlaylists() {
+  var parsed = queryString.parse(window.location.search);
+  var accessToken = parsed.access_token;
+
+  fetch('https://api.spotify.com/v1/me', {
+  headers: {'Authorization' : 'Bearer ' + accessToken}
+}).then(data => this.setState({
+    playlists: data.items.map(item => {
+
+    })
+}))
+}
+*/
+
   /////////////////////////////////////////////
   // GET route for retrieving a single playlist
-    /////////////////////////////////////////////
+  /////////////////////////////////////////////
   app.get("/api/playlists/:id", function(req, res) {
 
     console.log("route: specific playlist");

@@ -6,7 +6,9 @@ use playlisted_db;
 create table users (
 	user_id int auto_increment not null,
 	user_name varchar(50) not null,
-	user_password varchar(50),
+	user_email varchar(50) not null,
+	user_password BLOB not null,
+	role enum('user', 'admin', 'disabled') default 'user' not null,
 	createdAt datetime default current_timestamp not null,
 	updatedAt datetime on update current_timestamp not null,
 	primary key (user_id)

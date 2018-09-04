@@ -8,7 +8,8 @@
 var db = require("./../../../models");
 var passport = require('passport');
 // const { check, validationResult } = require('express-validator/check');
-
+var request = require('request');
+var querystring = require('querystring');
 /////////////////
 // Routes
 /////////////////
@@ -71,6 +72,8 @@ module.exports = function(app) {
         req.session.user = dbResult;
         res.redirect('/');
       }
+
+      
     });
     
       // send to handlebars
@@ -83,6 +86,53 @@ module.exports = function(app) {
   });
 
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
+
+function spotifyAuth() {
+/////////////////////////////////////
+// configure spotify authentication
+/////////////////////////////////////
+//OAuth: A token is a special code that is a temporary key that we
+//get in our backend server which is connected to your spotify app.
+
+var redirect_uri = 
+  process.env.REDIRECT_URI || 
+  'http://localhost:8080/api/users/:id'
+
+  app.get('/login', function(req, res) {
+    res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));
+  });
+  
+  //Back-end gets access token from Spotify and appends it to the callback URL
+  app.get('/api/users/:id', function(req, res) {
+    var code = req.query.code || null
+    var authOptions = {
+      url: 'https://accounts.spotify.com/api/token',
+      form: {
+        code: code,
+        redirect_uri,
+        grant_type: 'authorization_code'
+      },
+      headers: {
+        'Authorization': 'Basic ' + (new Buffer(
+          process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+        ).toString('base64'))
+      },
+      json: true
+    }
+    request.post(authOptions, function(error, response, body) {
+      var access_token = body.access_token
+      var uri = process.env.redirect_uri || 'http://localhost:8080'
+      res.redirect(uri + '?access_token=' + access_token)
+    });
+  });
+
+}
 
   /////////////////////////////////////////////
   // GET route for retrieving ONE user
@@ -242,50 +292,8 @@ module.exports = function(app) {
 
   });
 };
-<<<<<<< HEAD
-
-
-///////////////////////////////////////////////////////
-  // GET route for authenticating users (passport-spotify)
-  ///////////////////////////////////////////////////////
-  
-/*
-  app.get('/api/playlists/{playlistid}', ensureAuthenticated, function(req, res) {
-    res.render('playlist.html', { user: req.user });
-  })
-  //Spotify auth route with scopes, currently returning 
-  //user's Spotify email and private info
-  //
-    app.get('/auth/spotify', passport.authenticate('spotify', {
-      scope: ['user-read-email', 'user-read-private'],
-      //force login dialog 
-      showDialog: true
-    }),
-    function(req, res) {
-      // The request will be redirected to spotify for authentication, so this
-      // function will not be called.
-    }
-  );
-  app.get(
-    '/auth/spotify/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    }
-  );
-  function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/login');
-  }
-*/
-
 
   /////////////////////////////////////////////////////////////////////
   // res.status(404)        // HTTP status 404: NotFound
   // .send('Not found')
   /////////////////////////////////////////////////////////////////////
-=======
->>>>>>> upstream/master

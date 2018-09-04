@@ -28,8 +28,18 @@ $(function() {
         }).then(
         function() {
             console.log("created new user");
+            console.log(Users);
             // Reload the page to get the updated user list
-            location.reload();
+            if ($('#spotifyLoginBtn').data('clicked')) {
+                spotifyAuth();
+            } else { 
+                location.reload();
+            }
+            /*if(not verified) {
+                //message: "There was a problem logging in. 
+                //Please make sure your username is ____ and your password only contains ___
+                //Your username may already be taken."
+            }*/
         }
         );
     });
@@ -43,7 +53,7 @@ $(function() {
 
         var id = $("[name=user_id]").val().trim();
 
-        // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
+        // TODO if we are storing the password, someone will need to add logic to encrypt it... should remove if not
         var UserData = {
             user_name: $("#form-update-user [name=user_name]").val().trim(),
             user_email: $("#form-update-user [name=user_email]").val().trim(),
