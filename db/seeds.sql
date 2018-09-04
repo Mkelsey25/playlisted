@@ -35,6 +35,26 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Cool", "Soccer Mommy", "03/01/18", "Happy", "0.5", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Shark Smile", "Big Thief", "06/09/17", "Happy", "0.6", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Paul", "Big Thief", "01/01/16", "Sad", "0.2", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Believer", "Imagine Dragons", "01/01/17", "Happy", "0.5", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Celebrity Skin", "Hole", "01/01/09", "Meh", "0.5", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("First to Love", "Blaqk Audio", "07/08/16", "Happy", "0.5", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("The Gutter", "Coheed and Cambria", "08/16/18", "Sad", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Photograph", "Nickelback", "01/01/05", "Sad", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("How You Remind Me", "Nickleback", "01/01/01", "Meh", "0.5", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Rockstar", "Nickleback", "01/01/05", "Angry", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Hurt Yourself", "Beyonce", "01/01/16", "Angry", "1.0", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Aurelia", "AFI", "01/01/17", "Angry", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Livin' On A Prayer", "Bon Jovi", "01/01/86", "Ecstatic", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Smells Like Teen Spirit", "Nirvana", "01/01/91", "Angry", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Young Volcanoes", "Fall Out Boy", "01/01/13", "Happy", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Save Rock and Roll", "Fall Out Boy", "01/01/13", "Meh", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Just One Yesterday", "Fall Out Boy", "01/01/13", "Happy", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("My Songs Know What You Did In The Dark", "Fall Out Boy", "01/01/13", "Angry", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Sugar, We're Going Down", "Fall Out Boy", "01/01/2009", "Happy", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Bohemian Rhapsody", "Queen", "01/01/75", "Happy", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("We Will Rock You", "Queen", "01/01/77", "Ecstatic", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Go Your Own Way", "Fleetwood Mac", "01/01/77", "Happy", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       
 
        ;
 
