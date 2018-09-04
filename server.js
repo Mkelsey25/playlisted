@@ -11,11 +11,18 @@ if (process.env.NODE_ENV !== 'production') {
 //////////////////////////
 var express = require("express");
 var bodyParser = require("body-parser");
+var session = require('express-session');
 var path = require('path');
 
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+
+var flash    = require('connect-flash');
+var fs = require('fs');
+var https = require('https');
+//Passport Config
+//require('./config/passport')(passport);
 
 // models are required to sync them
 var db = require("./models");
@@ -46,15 +53,24 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-/////////////////////////
 //Auth Setup (Morgan)
 /////////////////////////
 app.use(cookieParser());
+
 app.use(session({
   secret: 'potato',
   saveUninitialized: true,
   resave: true
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session*/
+
+//NOT SURE IF THIS IS REALLY NEEDED BUT HERE IT IS ANYWAY
+//const SERVER_SECRET = 'potato';
+
+//require('./app/routes.js')(app, passport, SERVER_SECRET);
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -102,11 +118,6 @@ db.sequelize
 // configure spotify authentication
 /////////////////////////////////////
 
-//Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
-//Verify callback takes client data and finds or creates a Spotify user
-//Returns done the Spotify user info
-//1. npm install passport-spotify
-
 var SpotifyStrategy = require('passport-spotify').Strategy;
 
 passport.use(
@@ -123,4 +134,8 @@ passport.use(
     }
   )
 );
-*/
+*/ 
+
+
+
+
