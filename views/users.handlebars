@@ -1,7 +1,7 @@
 
-  <header class="header">
-    <h1>Users</h1>
-  </header>
+<header class="header">
+  <h1>Users</h1>
+</header>
 <div class="formcontainer list">
   {{#if users}}
     <div class="user-content">
@@ -32,12 +32,12 @@
   <h3>Create User</h3>
   <!--form id="form-new-user" method="POST" action="/api/users" class="create-user-form"-->
   <form id="form-new-user">
-    <div style="display:inline-block;">
+    <div>
       <input type="text" name="user_name" placeholder="Name...">
       <input type="text" name="user_email" placeholder="Email...">
       <input type="text" name="user_password" placeholder="Password...">
     </div>
-    <div style="display:block;">
+    <div>
       <button type="submit">Submit</button>
     </div>
   </form>
