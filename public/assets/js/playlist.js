@@ -1,11 +1,70 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
 
-    
     ///////////////////////////////
-    // Make AJAX requests
+    // playlist display
     ///////////////////////////////
+    /*$(".test-pull button").on("click", function(event) {
+        $.get("/api/songs", function(req, res) {
+            // res.json(songs);
+            var query = {};
+            // console.log(res.json(songs));
+            console.log(res);
+            if (req.query.song_id) {
+                query.SongId = req.query.song_id;
+            };
+        });
+        /*$.ajax("/api/songs/" + id, {
+            type: "GET",
+            data: SongData
+        }).then(
+        function() {
+            console.log("Updated id: ", id);
+            // Reload the page to get the updated list
+            // location.reload();
+        });
+    });*/
+    $(".submitButton").on("click", function(event) {
+        event.preventDefault();
+        var userInput = {
+            mood: $("#myMood").val().trim(),
+            energy: $("#myEnergy").val().trim(),
+            genre: $("#myGenre").val().trim()
+        };
+        if (userInput.mood == 1) {
+            $(".modal-body p#mood").html("Angry");
+        };
+        if (userInput.mood == 2) {
+            $(".modal-body p#mood").html("Sad");
+        };
+        if (userInput.mood == 3) {
+            $(".modal-body p#mood").html("Meh");
+        };
+        if (userInput.mood == 4) {
+            $(".modal-body p#mood").html("Happy");
+        };
+        if (userInput.mood == 5) {
+            $(".modal-body p#mood").html("Ecstatic");
+        };
+        
+        $(".modal-body p#energy").html(userInput.energy);
+        $(".modal-body p#genre").html(userInput.genre).css("text-transform", "capitalize");
 
+        /*$.post("/api/users", userInput)
+          .done(function(data) {
+            console.log("response = " + JSON.stringify(data));
+            $(".modal-title").html(data.mood);
+            $(".modal-body p").html(data.energy);
+        });*/
+    });
+    // close popup with escape button
+    $(document).keydown(function(e) { 
+        if (e.keyCode == 27) { 
+            $("#myModal").fadeOut(300).modal("hide");
+            //or
+            window.close();
+        }
+    });
 
     /////////////////////////
     // create the playlist

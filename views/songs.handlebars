@@ -4,7 +4,7 @@
 <div class="formcontainer list">
   {{#if songs}}
     <div class="song-content">
-      <!--h3>Songs</h3-->
+      <h3>Songs</h3>
       <ul>
         {{#each songs as |item index|}}
           {{> song-block this}}
@@ -31,15 +31,42 @@
   <h3>Create Song</h3>
   <!--form id="form-new-song" method="POST" action="/api/songs" class="create-song-form"-->
   <form id="form-new-song">
-    <div style="display:inline-block;">
+    <div>
       <input type="text" name="song_title" placeholder="Song Title...">
       <input type="text" name="artist_name" placeholder="Artist Name...">
       <input type="date" name="date_released" placeholder="Date Released...">
-      <input type="text" name="mood" placeholder="Mood...">
-      <input type="text" name="energy" placeholder="Energy...">
-      <input type="text" name="genre" placeholder="Genre...">
     </div>
-    <div style="display:block;">
+    <div>
+      <select name="mood" placeholder="Mood...">
+        <option selected disabled>Mood</option>
+        <option>Angry</option>
+        <option>Sad</option>
+        <option>Meh</option>
+        <option>Happy</option>
+        <option>Ecstatic</option>
+      </select>
+      <select name="energy" placeholder="Energy...">
+        <option>0.1</option>
+        <option>0.2</option>
+        <option>0.3</option>
+        <option>0.4</option>
+        <option>0.5</option>
+        <option>0.6</option>
+        <option>0.7</option>
+        <option>0.8</option>
+        <option>0.9</option>
+        <option>1.0</option>
+      </select>
+      <select name="genre" placeholder="Genre...">
+        <option>Rock</option>
+        <option>Classical</option>
+        <option>Easy Listening</option>
+        <option>Pop</option>
+        <option>Rap/Hip-Hop</option>
+        <option>Unknown</option>
+      </select>
+    </div>
+    <div>
       <button type="submit">Submit</button>
     </div>
   </form>
@@ -48,17 +75,43 @@
 <div class="formcontainer">
   <h3>Update Song</h3>
   <form id="form-update-song">
-    <div style="display:inline-flex;">
+    <div>
       {{!-- <input type="text" name="song_id" placeholder="Id..." value={{{songs.0.song_id}}}> --}}
       <input type="text" name="song_id" placeholder="Id..." value="">
       <input type="text" name="song_title" placeholder="Song Title...">
       <input type="text" name="artist_name" placeholder="Artist Name...">
       <input type="date" name="date_released" placeholder="Date Released...">
-      <input type="text" name="mood" placeholder="Mood...">
-      <input type="text" name="energy" placeholder="Energy...">
-      <input type="text" name="genre" placeholder="Genre...">
     </div>
-    <div style="display:block;">
+    <div>
+      <select name="mood" placeholder="Mood...">
+        <option>Angry</option>
+        <option>Sad</option>
+        <option>Meh</option>
+        <option>Happy</option>
+        <option>Ecstatic</option>
+      </select>
+      <select name="energy" placeholder="Energy...">
+        <option>0.1</option>
+        <option>0.2</option>
+        <option>0.3</option>
+        <option>0.4</option>
+        <option>0.5</option>
+        <option>0.6</option>
+        <option>0.7</option>
+        <option>0.8</option>
+        <option>0.9</option>
+        <option>1.0</option>
+      </select>
+      <select name="genre" placeholder="Genre...">
+        <option>Rock</option>
+        <option>Classical</option>
+        <option>Easy Listening</option>
+        <option>Pop</option>
+        <option>Rap/Hip-Hop</option>
+        <option>Unknown</option>
+      </select>
+    </div>
+    <div>
       <button type="submit">Submit</button>
     </div>
   </form>

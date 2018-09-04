@@ -6,7 +6,7 @@ const dateFormat = 'MM/DD/YYYY hh:mm A';
 //Use the sequelize constructor to design a model for each Song and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
-    var Song = sequelize.define("Songs", {
+    const Song = sequelize.define("Songs", {
         song_id: {
             type: DataTypes.BIGINT,
             primaryKey: true,

@@ -68,13 +68,16 @@
                     <div class="genrecontainer">
                         <h3 style="text-align: center">GENRE</h3>
                         <form action="/action_page.php" id="formGenre">
-                            <select name="cars">
+                            <select id="myGenre" name="genre">
                                 <option value="all" selected>All</option>
-                                <option value="rock">Rock</option>
                                 <option value="classical">Classical</option>
-                                <option value="i donno">donno</option>
+                                <option value="rock">Rock</option>
+                                <option value="easy listening">Easy Listening</option>
+                                <option value="pop">Pop</option>
+                                <option value="rap/hip-hop">Rap/Hip-Hop</option>
+                                <option value="unknown">Unknown</option>
                             </select>
-                            <input type="submit" value="Listen">
+                            <input type="submit" value="Listen" data-toggle="modal" data-target="#myModal" class="submitButton">
                         </form>
 
                         <!--container for generated playlist-->
@@ -89,6 +92,34 @@
                                 <div class="favorite-button-container" data-commentid="1"></div>
                                 <!--container for delete-song button-->
                                 <div class="delete-button-container" data-commentid="2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="test-pull">
+                        <button id="songs1">AHHHHHH</button>
+                    </div>
+                    
+                    <!-- Modal -->
+                    <div id="myModal" class="modal" role="dialog">
+                        <div class="modal-dialog modal-md">
+                            <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" style="text-align:center;width:100%;">HERE'S YOUR PLAYLIST!</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="mood"></p>
+                                        <p id="energy"></p>
+                                        <p id="genre"></p>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p id="playlist"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
