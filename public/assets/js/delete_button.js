@@ -31,8 +31,3 @@ document.querySelectorAll('.delete-button-container')
         domContainer
     );
 });
-
-
-
-var domContainer = ;
-ReactDOM.render(e(DeleteButton), domContainer);

@@ -12,9 +12,11 @@ var bodyParser = require("body-parser");
 var path = require('path');
 var passport = require('passport');
 
-// var cookieParser = require('cookie-parser');
-// var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
+var request = require('request');
+var querystring = require('querystring');
 // models are required to sync them
 var db = require("./models");
 
@@ -44,17 +46,6 @@ app.set("view engine", "handlebars");
 
 /////////////////////////
 //Auth Setup (Morgan)
-<<<<<<< HEAD
-/*
-app.use(cookieParser());
-app.use(session({
-  secret: 'potato',
-  saveUninitialized: false,
-  resave: false
-
-}));
-*/
-=======
 /////////////////////////
 // app.use(cookieParser());
 // app.use(session({
@@ -63,7 +54,6 @@ app.use(session({
 //   resave: false
 // }));
 
->>>>>>> upstream/master
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -112,6 +102,49 @@ db.sequelize
 /////////////////////////////////////
 //OAuth: A token is a special code that is a temporary key that we
 //get in our backend server which is connected to your spotify app.
+var redirect_uri = 
+  process.env.REDIRECT_URI || 
+  'http://localhost:8080/api/users/:id'
+
+  app.get('/login', function(req, res) {
+    res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));
+  });
+  
+  //Back-end gets access token from Spotify and appends it to the callback URL
+  app.get('/api/users/:id', function(req, res) {
+    var code = req.query.code || null
+    var authOptions = {
+      url: 'https://accounts.spotify.com/api/token',
+      form: {
+        code: code,
+        redirect_uri,
+        grant_type: 'authorization_code'
+      },
+      headers: {
+        'Authorization': 'Basic ' + (new Buffer(
+          process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+        ).toString('base64'))
+      },
+      json: true
+    }
+    request.post(authOptions, function(error, response, body) {
+      var access_token = body.access_token
+      var uri = process.env.FRONTEND_URI || 'http://localhost:3000'
+      res.redirect(uri + '?access_token=' + access_token)
+    });
+  });
+
+
+
+//using passport-spotify
+
+/*
 //Spotify authenticates users using Spotify accounts and OAuth 2.0 tokens
 //3 parties are involved in the authorization process:
     //Server: the Spotify server
@@ -148,3 +181,4 @@ passport.use(
     }
   )
 );
+*/
