@@ -28,8 +28,8 @@ module.exports = function(app) {
   // find all playlists
     db.Playlist.findAll({
       where: query
-      // ,
-      //include: [db.User]
+      ,
+      include: [db.PlaylistSong]
     }).then(function(dbResult) {
       // res.json(dbResult);
 
