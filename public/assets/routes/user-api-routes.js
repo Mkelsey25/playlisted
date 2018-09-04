@@ -13,46 +13,6 @@ var passport = require('passport');
 /////////////////
 module.exports = function(app) {
 
-
-  ///////////////////////////////////////////////////////
-  // GET route for authenticating users (passport-spotify)
-  ///////////////////////////////////////////////////////
-  
-  app.get('/api/playlists/{playlistid}', ensureAuthenticated, function(req, res) {
-    res.render('playlist.html', { user: req.user });
-  })
-
-  //Spotify auth route with scopes, currently returning 
-  //user's Spotify email and private info
-  //
-    app.get('/auth/spotify', passport.authenticate('spotify', {
-      scope: ['user-read-email', 'user-read-private'],
-      //force login dialog 
-      showDialog: true
-    }),
-    function(req, res) {
-      // The request will be redirected to spotify for authentication, so this
-      // function will not be called.
-    }
-  );
-
-  app.get(
-    '/auth/spotify/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    }
-  );
-
-  function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect('/login');
-  }
-
-
   /////////////////////////////////////////////
   // GET route for getting ALL of the users
   /////////////////////////////////////////////
@@ -225,6 +185,44 @@ module.exports = function(app) {
     });
   });
 };
+
+
+///////////////////////////////////////////////////////
+  // GET route for authenticating users (passport-spotify)
+  ///////////////////////////////////////////////////////
+  
+/*
+  app.get('/api/playlists/{playlistid}', ensureAuthenticated, function(req, res) {
+    res.render('playlist.html', { user: req.user });
+  })
+  //Spotify auth route with scopes, currently returning 
+  //user's Spotify email and private info
+  //
+    app.get('/auth/spotify', passport.authenticate('spotify', {
+      scope: ['user-read-email', 'user-read-private'],
+      //force login dialog 
+      showDialog: true
+    }),
+    function(req, res) {
+      // The request will be redirected to spotify for authentication, so this
+      // function will not be called.
+    }
+  );
+  app.get(
+    '/auth/spotify/callback',
+    passport.authenticate('spotify', { failureRedirect: '/login' }),
+    function(req, res) {
+      // Successful authentication, redirect home.
+      res.redirect('/');
+    }
+  );
+  function ensureAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.redirect('/login');
+  }
+*/
 
 
   /////////////////////////////////////////////////////////////////////
