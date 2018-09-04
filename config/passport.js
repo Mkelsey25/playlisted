@@ -2,7 +2,7 @@
 //Author: Morgan Hamlin
 
 //DEPENDENCIES
-var passport = require('passport');
+/*var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var flash = require('connect-flash');
 var User = require('../models/users');
@@ -95,7 +95,7 @@ module.exports = function(passport) {
 
 ///////////////////////////////////////////////////////////////////////////////
 
-//Routes for passport (need to be added to routes folder)
+//Routes for passport (need to be added to routes folder)*/
 
 /*app.post('/login',
   passport.authenticate('local', { successRedirect: '/',
