@@ -35,6 +35,7 @@ $ npm install bcrypt --save
 $ npm install express-validator --save
 $ npm install cookie-parser --save
 $ npm install passport --save
+$ npm install connect-flash --save
 
 npm install chai --save
 npm install chai-http --save
