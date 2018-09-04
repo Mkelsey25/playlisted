@@ -1,8 +1,10 @@
-require('dotenv').config();
-// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  TODO
-// if (process.env.NODE_ENV !== 'production') {
-//     require('dotenv').load();
-//   }
+/////////////////////////////////////////////////////////
+// use dotenv except in prod (where it is not needed)
+/////////////////////////////////////////////////////////
+require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
 
 //////////////////////////
 // dependencies
@@ -10,18 +12,20 @@ require('dotenv').config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require('path');
-var passport = require('passport');
 
-// var cookieParser = require('cookie-parser');
-// var session = require('express-session');
+var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 // models are required to sync them
 var db = require("./models");
+// var validate = require('express-validation');
 
 ///////////////////////
 // configure Express
 ///////////////////////
 var app = express();
+app.use(express.json());
 
 // sets the port info
 app.set('port', (process.env.PORT || 8080));
@@ -45,13 +49,12 @@ app.set("view engine", "handlebars");
 /////////////////////////
 //Auth Setup (Morgan)
 /////////////////////////
-// app.use(cookieParser());
-// app.use(session({
-//   secret: 'potato',
-//   saveUninitialized: false,
-//   resave: false
-// }));
-
+app.use(cookieParser());
+app.use(session({
+  secret: 'potato',
+  saveUninitialized: true,
+  resave: true
+}));
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -65,11 +68,10 @@ app.use(routes);
 // use 'force: true' in sync call to override schema definition
 ////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////
-// ***IMPORTANT***
-// use this for DEV while schema is in flux
+/////////////////////////////////////////////////////////////////
+// ***IMPORTANT***  use this for DEV while schema is in flux 
 // set force=true to override schema
-//////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
