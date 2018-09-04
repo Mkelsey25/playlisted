@@ -13,27 +13,15 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true
         },
         playlist_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: 'Playlist',
-                key: 'playlist_id'
-              }
+            type: DataTypes.BIGINT
         },
         user_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: 'User',
-                key: 'user_id'
-            }
+            type: DataTypes.BIGINT
         },
         song_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: 'Song',
-                key: 'song_id'
-            }
+            type: DataTypes.BIGINT
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -41,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
                 return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
             }
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -52,14 +40,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     {
         tableName: 'playlist_user_songs',
+        underscored: true,
         indexes: [ 
             { unique: true, fields: [ 'playlist_id', 'user_id', 'song_id'] } 
         ]
     });
   
+    // relations
+    PlaylistSong.associate = function (models) {
+        PlaylistSong.belongsTo(models.Users, { constraints: true, onDelete: 'cascade', defaultValue: 0, foreignKey: 'user_id' });
+        PlaylistSong.belongsTo(models.Songs, { constraints: true, onDelete: 'cascade', defaultValue: 0, foreignKey: 'song_id' });
+        PlaylistSong.belongsTo(models.Playlist, { constraints: true, onDelete: 'cascade', defaultValue: 0, foreignKey: 'playlist_id' });
+    };
+
     return PlaylistSong;
   };
-
-  //TODO Test
-//   Users.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});
-//   Songs.hasMany(Playlist_user_songs, { onDelete: 'SET NULL', onUpdate: 'CASCADE'});

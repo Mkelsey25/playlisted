@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         user_name: {
             type: DataTypes.STRING(50),
             allowNull: false,
+            unique: true,
             validate: {
                 //user_name length must be within 1-50 characters
                 len: { args: [1,50], msg: "String length is not in range" }
@@ -47,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             defaultValue: 'user'
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -55,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
                 return moment.utc(this.getDataValue('createdAt')).local().format(dateFormat)
             }
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE(3), 
             allowNull: false,
             defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -66,10 +67,12 @@ module.exports = function(sequelize, DataTypes) {
     }, 
     {
         tableName: 'Users',
-        indexes: [ 
-            { unique: true, fields: [ 'user_name'] } 
-        ]
+        underscored: true
     });
   
+    User.associate = function(models) {
+        User.hasMany(models.Playlist, {foreignKey: 'user_id', sourceKey: 'user_id'});
+    };
+
     return User;
   };
