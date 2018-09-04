@@ -16,7 +16,7 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Waves of Galveston", "Iron and Wine", "01/01/01", "Sad", "0.2", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("London Hymn", "Josh Groban", "10/10/10", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Ave Maria", "Josh Groban", "10/10/10", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Everybody's Changing", "", "11/11/11", "Angry", "0.7", "Indie", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Everybody's Changing", "Keane", "11/11/11", "Angry", "0.7", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Yam Yam", "No Vacation", "01/01/2017", "Happy", "0.7", "Indie", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Deep Sea Dive", "Snail Mail", "06/08/2018", "Sad", "0.4", "Indie", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Space Song", "Beach House", "01/01/2015", "Meh", "0.5", "Indie", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
