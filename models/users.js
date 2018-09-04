@@ -1,12 +1,14 @@
 'use strict'
 
+const bcrypt = require("bcrypt");
+
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
 //Use the sequelize constructor to design a model for each User and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
-    var User = sequelize.define("Users", {
+    const User = sequelize.define("Users", {
         user_id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -36,11 +38,8 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         user_password: {
-            type: DataTypes.STRING(50),
-            allowNull: true,
-            validate: {
-                len: { args: [1,50], msg: "String length is not in range" }
-            }
+            type: DataTypes.BLOB,
+            allowNull: false
         },
         role: {
             type: DataTypes.ENUM,
@@ -67,11 +66,42 @@ module.exports = function(sequelize, DataTypes) {
     }, 
     {
         tableName: 'Users',
-        underscored: true
+        underscored: true,
+        hooks: {
+            beforeCreate: (user, options, cb) => {
+                console.log("before create in user");
+
+                return bcrypt.hash(user.user_password, 10)
+                    .then(hash => {
+                        user.user_password = hash;
+                    })
+                    .catch(err => { 
+                        throw new Error(); 
+                    });
+            },
+            beforeUpdate: (user, options, cb) => {
+                console.log("before update in user");
+
+                return bcrypt.hash(user.user_password, 10)
+                    .then(hash => {
+                        user.user_password = hash;
+                    })
+                    .catch(err => { 
+                        throw new Error(); 
+                    });
+            },
+            beforeBulkUpdate: (users, options , cb) => {
+                console.log("before bulk update for users");
+            }
+        }
     });
   
     User.associate = function(models) {
         User.hasMany(models.Playlist, {foreignKey: 'user_id', sourceKey: 'user_id'});
+    };
+
+    User.prototype.validPassword = async function(password) {
+        return await bcrypt.compare(password, this.dataValues.user_password.toString());
     };
 
     return User;

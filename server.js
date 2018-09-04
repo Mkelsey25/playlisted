@@ -1,9 +1,10 @@
-
-require('dotenv').config();
-// require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  TODO
-// if (process.env.NODE_ENV !== 'production') {
-//     require('dotenv').load();
-//   }
+/////////////////////////////////////////////////////////
+// use dotenv except in prod (where it is not needed)
+/////////////////////////////////////////////////////////
+require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+}
 
 //////////////////////////
 // dependencies
@@ -12,8 +13,11 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var session = require('express-session');
 var path = require('path');
-var cookieParser = require('cookie-parser');
+
 var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 var flash    = require('connect-flash');
 var fs = require('fs');
 var https = require('https');
@@ -22,11 +26,13 @@ var https = require('https');
 
 // models are required to sync them
 var db = require("./models");
+// var validate = require('express-validation');
 
 ///////////////////////
 // configure Express
 ///////////////////////
 var app = express();
+app.use(express.json());
 
 // sets the port info
 app.set('port', (process.env.PORT || 8080));
@@ -48,14 +54,15 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Auth Setup (Morgan)
+/////////////////////////
+app.use(cookieParser());
 
-/*app.use(cookieParser());
 app.use(session({
   secret: 'potato',
   saveUninitialized: true,
   resave: true
-
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session*/
@@ -64,9 +71,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session*/
 //const SERVER_SECRET = 'potato';
 
 //require('./app/routes.js')(app, passport, SERVER_SECRET);
-
-
-
 
 ////////////////////////////////////////////////////////
 // Import routes and give the server access to them.
@@ -80,11 +84,10 @@ app.use(routes);
 // use 'force: true' in sync call to override schema definition
 ////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////
-// ***IMPORTANT***
-// use this for DEV while schema is in flux
+/////////////////////////////////////////////////////////////////
+// ***IMPORTANT***  use this for DEV while schema is in flux 
 // set force=true to override schema
-//////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {

@@ -31,6 +31,9 @@ $ npm install express-handlebars --save
 $ npm install dotenv --save
 $ npm install body-parser --save
 $ npm install moment --save
+$ npm install bcrypt --save
+$ npm install express-validator --save
+$ npm install cookie-parser --save
 $ npm install passport --save
 
 npm install chai --save
