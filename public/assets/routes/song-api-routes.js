@@ -31,7 +31,7 @@ module.exports = function(app) {
       var hbsObject = {
         songs: dbResult
       };
-      res.render("songs", hbsObject);      
+      res.render("songs", hbsObject);
     });
   });
 
