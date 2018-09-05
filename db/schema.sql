@@ -6,9 +6,11 @@ use playlisted_db;
 create table users (
 	user_id int auto_increment not null,
 	user_name varchar(50) not null,
-	user_password varchar(50),
-	createdAt datetime default current_timestamp not null,
-	updatedAt datetime on update current_timestamp not null,
+	user_email varchar(50) not null,
+	user_password BLOB not null,
+	role enum('user', 'admin', 'disabled') default 'user' not null,
+	created_at datetime default current_timestamp not null,
+	updated_at datetime on update current_timestamp not null,
 	primary key (user_id)
 );
 
@@ -21,8 +23,8 @@ create table songs (
     mood enum('Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic') not null,
     energy enum('0.1', '0.2', '0.3', '0.4', '0.5','0.6','0.7','0.8', '0.9', '1.0') not null,
 	genre enum('rock', 'classical', 'easy listening', 'pop', 'rap/hip-hop', 'unknown') default 'unknown' not null,
-	createdAt datetime default current_timestamp not null,
-	updatedAt datetime on update current_timestamp not null,
+	created_at datetime default current_timestamp not null,
+	updated_at datetime on update current_timestamp not null,
 	primary key (song_id)
 );
 -- todo: date_released would be more valid as DATE instead of varchar(8)
@@ -34,8 +36,9 @@ create table songs (
 create table playlists (
 	playlist_id int auto_increment not null,
 	playlist_name varchar(50) not null,
-	create_date datetime default current_timestamp not null,
-	modify_date datetime on update current_timestamp not null,
+    user_id bigint not null default 0,
+	created_at datetime default current_timestamp not null,
+	updated_at datetime on update current_timestamp not null,
     primary key (playlist_id)
 );
 
@@ -45,8 +48,8 @@ create table playlist_user_songs (
     playlist_id int not null,
 	user_id int not null,
 	song_id int not null,
-	create_date datetime default current_timestamp not null,
-	modify_date datetime on update current_timestamp not null,
+	created_at datetime default current_timestamp not null,
+	updated_at datetime on update current_timestamp not null,
 	primary key (playlist_user_songs_id),
 	constraint FK_user foreign key (user_id)
 	   references users(user_id)

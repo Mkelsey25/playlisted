@@ -24,6 +24,8 @@ var https = require('https');
 //Passport Config
 //require('./config/passport')(passport);
 
+var request = require('request');
+var querystring = require('querystring');
 // models are required to sync them
 var db = require("./models");
 // var validate = require('express-validation');
@@ -113,19 +115,28 @@ db.sequelize
 //     });
 
 
-/*
-/////////////////////////////////////
-// configure spotify authentication
-/////////////////////////////////////
 
+//using passport-spotify
+/*
 var SpotifyStrategy = require('passport-spotify').Strategy;
+
+var SPOTIFY_ID;
+var SPOTIFY_SECRET;
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 passport.use(
   new SpotifyStrategy(
     {
-      clientID: client_id,
-      clientSecret: client_secret,
-      callbackURL: 'http://localhost:8888/auth/spotify/callback'
+      clientID: SPOTIFY_ID,
+      clientSecret: SPOTIFY_SECRET,
+      callbackURL: 'http://localhost:8080/auth/spotify/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
@@ -135,7 +146,3 @@ passport.use(
   )
 );
 */ 
-
-
-
-
