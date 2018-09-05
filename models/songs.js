@@ -31,7 +31,11 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
             validate: { isDate: true },
             get: function() {
+<<<<<<< HEAD
                 return moment.utc(this.getDataValue('date_released')).format('YYYY-MM-DD');
+=======
+                return moment.utc(this.getDataValue('date_released')).format('DD-MM-YY')
+>>>>>>> a04ccf8edd216e4e76ea0e72ca252274066d9daa
             }
         },
         mood: {
