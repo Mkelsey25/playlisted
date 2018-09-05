@@ -96,12 +96,21 @@ module.exports = function(app) {
     ////////////////////////
     if (loginType === "login-spotify") {
       console.log("in spotify login");
-
+      res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));
     };
 
   });
 
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
+//access song's specific attributes (valence, etc.)
+//fetch songs -- songs to songs table -- search in app through songs list 
+// --move songs to playlist table
 
 function spotifyAuth() {
 /////////////////////////////////////
@@ -112,20 +121,23 @@ function spotifyAuth() {
 
 var redirect_uri = 
   process.env.REDIRECT_URI || 
-  'http://localhost:8080/api/users/:id'
+  'http://localhost:8080/'
+
 
   app.get('/login', function(req, res) {
-    res.redirect('https://accounts.spotify.com/authorize?' +
+    /*res.redirect('https://accounts.spotify.com/authorize?' +
       querystring.stringify({
         response_type: 'code',
         client_id: process.env.SPOTIFY_CLIENT_ID,
         scope: 'user-read-private user-read-email',
         redirect_uri
-      }));
+      }));*/
   });
-  
+}
+
+function spotifyToken() {
   //Back-end gets access token from Spotify and appends it to the callback URL
-  app.get('/api/users/:id', function(req, res) {
+  app.get('/', function(req, res) {
     var code = req.query.code || null
     var authOptions = {
       url: 'https://accounts.spotify.com/api/token',
@@ -147,7 +159,6 @@ var redirect_uri =
       res.redirect(uri + '?access_token=' + access_token)
     });
   });
-
 }
 
   /////////////////////////////////////////////
