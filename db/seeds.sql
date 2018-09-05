@@ -94,24 +94,24 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Rude Boy", "Rihanna", "02/19/10", "Happy", "0.8", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Love On The Brain", "Rihanna", "01/27/16", "Sad", "0.4", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Sisters", "Future", "01/01/15", "Meh", "0.5", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Sleep", "eric whitacre", "01/01/10", "Meh", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Sleep", "Eric Whitacre", "01/01/10", "Meh", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Ave Maria", "Josh Groban", "01/01/07", "Sad", "0.7", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("lux aurumque", "eric whitacre", "01/01/10", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("london hymn", "Josh Groban", "01/01/10", "Meh", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("when david heard", "eric whitacre", "01/01/12", "Sad", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Lux Aurumque", "Eric Whitacre", "01/01/10", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("London Hymn", "Josh Groban", "01/01/10", "Meh", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("when david heard", "Eric Whitacre", "01/01/12", "Sad", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Come What May", "Nicole Kidman and Ewan McGregor", "01/01/08", "Ecstatic", "0.9", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Beethoven's 5th Symphony", "Ludwig Van Beethoven", "01/01/08", "Happy", "0.7", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Hallelujah", "lindsey stirling", "12/07/15", "Meh", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Hallelujah", "Lindsey Stirling", "12/07/15", "Meh", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("The Show Must Go On", "Celine, Lindsey Stirling ", "05/20/16", "Sad", "0.8", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("A Thousand Years", "The Piano Guys", "05/09/12", "Happy", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("The Hobbit Cover", "The Piano Guys", "11/20/12", "Sad", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Fight Song", "The Piano Guys", "10/29/15", "Happy", "0.9", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Bella's Lullaby", "Carter Burwell", "01/01/08", "Sad", "0.1", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("pokemon theme", "kurt hugo schneider, lindsey stirling", "", "Ecstatic", "1.0", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Pokemon Theme", "Kurt Hugo Schneider, Lindsey Stirling", "", "Ecstatic", "1.0", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Hallelujah", "Il Divo", "11/10/08", "Sad", "0.6", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Mama", "Il Divo", "01/01/04", "Sad", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Regresa a Mi", "Il Divo", "01/01/04", "Sad", "0.7", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("the seal lullaby ", "eric whitacre", "01/01/2010", "Happy", "0.1", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+       ("The Seal Lullaby ", "Eric Whitacre", "01/01/2010", "Happy", "0.1", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ;
 
 
