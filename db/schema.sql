@@ -21,8 +21,8 @@ create table songs (
     mood enum('Angry', 'Sad', 'Meh', 'Happy', 'Ecstatic') not null,
     energy enum('0.1', '0.2', '0.3', '0.4', '0.5','0.6','0.7','0.8', '0.9', '1.0') not null,
 	genre enum('rock', 'classical', 'easy listening', 'pop', 'rap/hip-hop', 'unknown') default 'unknown' not null,
-	createdAt datetime default current_timestamp not null,
-	updatedAt datetime on update current_timestamp not null,
+	created_at datetime default current_timestamp not null,
+	updated_at datetime on update current_timestamp not null,
 	primary key (song_id)
 );
 -- todo: date_released would be more valid as DATE instead of varchar(8)

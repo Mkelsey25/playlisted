@@ -21,7 +21,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	var scrollMood = document.getElementById("myMood");
 	var scrollEnergy = document.getElementById("myEnergy");
-	// console.log(scroll.value);
+	
 	$(".scroll-img.mood img").click(function() {
 		$("html").removeAttr("class");
 		$("img#angry").attr("src", "../assets/img/angry.png");

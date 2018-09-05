@@ -2,16 +2,16 @@
 -- Test data population
 ---------------------------
 -- insert users
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `createdAt`, `updatedAt`) VALUES (default, 'Jenni', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `createdAt`, `updatedAt`) VALUES (default, 'Becky', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `createdAt`, `updatedAt`) VALUES (default, 'Morgan', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `createdAt`, `updatedAt`) VALUES (default, 'James', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `createdAt`, `updatedAt`) VALUES (default, 'SuperUser', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Jenni', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Becky', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Morgan', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'James', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'SuperUser', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 
 select * from users;
 
 -- insert songs
-INSERT INTO `playlisted_db`.`songs` (`song_title`, `artist_name`, `date_released`,`mood`, `energy`, `genre`, `createdAt`, `updatedAt`) 
+INSERT INTO `playlisted_db`.`songs` (`song_title`, `artist_name`, `date_released`,`mood`, `energy`, `genre`, `created_at`, `updated_at`) 
 VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Waves of Galveston", "Iron and Wine", "01/01/01", "Sad", "0.2", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("London Hymn", "Josh Groban", "10/10/10", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
@@ -78,7 +78,7 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Nice For What", "Drake", "01/01/18", "Happy", "0.6", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Fade", "Kanye West", "01/01/16", "Meh", "0.7", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Father Outstretch Your Hands Pt. 2", "Kanye West", "06/07/16", "Ecstatic", "0.9", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Six Foot Seven Foot", "Lil Wayne", "12/16/10", "Happy", 0.8 "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Six Foot Seven Foot", "Lil Wayne", "12/16/10", "Happy", "0.8", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("I Mean It", "G-Eazy", "05/13/14", "Meh", "0.4", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Self-Care", "Mac Miller", "07/12/18", "Meh", "0.3", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Bodak Yellow", "Cardi B", "06/16/17", "Ecstatic", "1.0", "rap/hip-hop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
