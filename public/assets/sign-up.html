@@ -1,33 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="meh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet", type="text/css", href="css/sign-up.css">
+    <title>PLAYLISTED</title>
+    <!-- Added a link to Style and font awesome-->
+    <link href="/assets/css/app_style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Font link-->
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Playlisted</title>
+    <!-- Added a link to JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/app.js"></script>
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container" id="home">
         <div class="row">
-            <div class="col-md-12 text-center jumbotron">
-                PLAYLISTED
-                <i class="fas fa-music"></i><br>
-                <div class="slogan">Music that fits.</div>
+            <div class="col-lg-3 col-sm-12 sidebar">            
+                <div class="logo">
+                    <a href="/"><img id="logo" src="/assets/img/logo-meh.png"></a>
+                    <button class="hamburger">&#9776;</button>
+                </div>
+                <!-- SIDEBAR MENU -->
+                <div class="menu">
+                    <ul class="nav">
+                        <li>
+                            <a href="/"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-list-ul"></i>My Lists</a>
+                        </li>
+                        <li>
+                            <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
+    
+            <div class="col-lg-9 col-sm-12">
+                <div class="jumbotron">
+                    <h1 style="text-align: center; line-height: 0em; margin: 0;">PLAYLISTED <i class="fas fa-music"></i></h1>
+                    <div class="slogan">Music that fits.</div>
+                </div>
 
-            </div>
-            <div class="col-md-8">
+                <div class="col-lg-12 col-sm-12 content">
                 <form action='/api/users/sign-up' method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -44,45 +62,9 @@
                     <button id='playlistedLoginBtn' type="submit" class="btn btn-light">Create Account!</button><br>
                     <button href='api/users/spotify'type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
                     </form>
-            </div>
-            <div class="col-md-2">
-
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-8">
-
-            </div>
-            <div class="col-md-2">
-
-            </div>
-        </div>
-
     </div>
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
