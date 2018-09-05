@@ -21,7 +21,7 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Deep Sea Dive", "Snail Mail", "06/08/18", "Sad", "0.4", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Space Song", "Beach House", "01/01/15", "Meh", "0.5", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Flaming Hot Cheetos", "Clairo", "01/01/18", "Happy", "0.6", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("When the Night is Over", "Lord Heron", "04/01/2018", "Meh", "0.5", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("When the Night is Over", "Lord Heron", "04/01/18", "Meh", "0.5", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Marry Me, Archie", "Alvvays", "01/01/14", "Happy", "0.7", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Mistake", "Middle Kids", "01/01/18", "Angry", "0.8", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Edge of Town", "Middle Kids", "01/01/18", "Meh", "0.6", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
@@ -50,13 +50,13 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Save Rock and Roll", "Fall Out Boy", "01/01/13", "Meh", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Just One Yesterday", "Fall Out Boy", "01/01/13", "Happy", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("My Songs Know What You Did In The Dark", "Fall Out Boy", "01/01/13", "Angry", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Sugar, We're Going Down", "Fall Out Boy", "01/01/2009", "Happy", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Sugar, We're Going Down", "Fall Out Boy", "01/01/09", "Happy", "0.8", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Bohemian Rhapsody", "Queen", "01/01/75", "Happy", "0.7", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("We Will Rock You", "Queen", "01/01/77", "Ecstatic", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Go Your Own Way", "Fleetwood Mac", "01/01/77", "Happy", "0.6", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Bad Romance", "Lady Gaga", "01/01/09", "Meh", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Love Game", "Lady Gaga", "01/01/08", "Happy", "0.8", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("Poker Face", "Lady Gaga", "01/01/2008", "Happy", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("Poker Face", "Lady Gaga", "01/01/08", "Happy", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("We Can't Stop", "Miley Cyrus", "01/01/13", "Ecstatic", "0.7", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Party In The USA", "Miley Cyrus", "01/01/09", "Happy", "0.6", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("TGIF", "Katy Perry", "01/01/10", "Ecstatic", "1.0", "Pop", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
@@ -111,7 +111,7 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Hallelujah", "Il Divo", "11/10/08", "Sad", "0.6", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Mama", "Il Divo", "01/01/04", "Sad", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Regresa a Mi", "Il Divo", "01/01/04", "Sad", "0.7", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("The Seal Lullaby ", "Eric Whitacre", "01/01/2010", "Happy", "0.1", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
+       ("The Seal Lullaby ", "Eric Whitacre", "01/01/10", "Happy", "0.1", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3))
 ;
 
 
