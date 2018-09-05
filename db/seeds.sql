@@ -2,7 +2,7 @@
 -- Test data population
 ---------------------------
 -- insert users
-INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Sasha','sasha@aol.com', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
+INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Jenni','jenni@aol.com', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Becky','becky@aol.com', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'Morgan','morgan@aol.com', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
 INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_password`, `created_at`, `updated_at`) VALUES (default, 'James','james@aol.com', 'pwd', CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3));
