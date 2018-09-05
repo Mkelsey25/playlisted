@@ -102,7 +102,7 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
        ("Come What May", "Nicole Kidman and Ewan McGregor", "01/01/08", "Ecstatic", "0.9", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Beethoven's 5th Symphony", "Ludwig Van Beethoven", "01/01/08", "Happy", "0.7", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Hallelujah", "Lindsey Stirling", "12/07/15", "Meh", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
-       ("The Show Must Go On", "Celine, Lindsey Stirling ", "05/20/16", "Sad", "0.8", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
+       ("The Show Must Go On", "Celine Dion, Lindsey Stirling ", "05/20/16", "Sad", "0.8", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("A Thousand Years", "The Piano Guys", "05/09/12", "Happy", "0.5", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("The Hobbit Cover", "The Piano Guys", "11/20/12", "Sad", "0.2", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Fight Song", "The Piano Guys", "10/29/15", "Happy", "0.9", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
