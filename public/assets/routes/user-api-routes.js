@@ -6,10 +6,12 @@
 
 // Requiring our models
 var db = require("./../../../models");
+
 var passport = require('passport');
 // const { check, validationResult } = require('express-validator/check');
 var request = require('request');
 var querystring = require('querystring');
+
 /////////////////
 // Routes
 /////////////////
@@ -107,6 +109,19 @@ module.exports = function(app) {
 
   });
 
+  app.get("api/users/logout", function(req, res) {
+    console.log("route: logout");
+
+    req.session.reset();
+    res.redirect('/');
+  });
+
+  app.get("'api/users/register", function(req, res) {
+    console.log("route: register");
+
+    res.redirect('/sign-up');
+  });
+
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
 //access song's specific attributes (valence, etc.)
 //fetch songs -- songs to songs table -- search in app through songs list 
@@ -181,6 +196,7 @@ function spotifyToken() {
         user: dbResult
       };
       // console.log(dbResult);
+
       res.render("users", hbsUser);
     });
   });
@@ -188,34 +204,22 @@ function spotifyToken() {
   /////////////////////////////////////////////
   // POST route for CREATE a new user
   /////////////////////////////////////////////
-  app.post("/api/users", 
-  // [
-  //     check('user_name').isLength({ min: 1, max: 50}),
-  //     check('user_email').isEmail(),
-  //     check('user_password').isLength({ min: 5 })
-  //   ],  
-    function(req, res) {
+  app.post("/api/users", function(req, res) {
 
     console.log("route: create user");
     console.log(JSON.stringify(req.body));
 
-    // Finds the validation errors in this request and wraps them in an object with handy functions
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   console.log(errors);
-    //   return res.status(422).json({ errors: errors.array() });
-    // }
-    
     // call the model to create the user
     db.Users.create(req.body).then(function(dbResult) {
       console.log("User created.");
 
       res.json(dbResult);          // send as json
 
+      // sendNotification();
       ///////////////Nodemailer: Morgan
 
               //Nodemailer
-
+            // function sendNotification() {
               'use strict';
               var nodemailer = require('nodemailer');
               
@@ -250,32 +254,11 @@ function spotifyToken() {
               
                 });
               });
-
+            // };
+/////////////////////////////////////////////////////////////////////////////////
 
     });
   });
-
-  /*app.post('/api/users', function(req, res) {
-    db.Users.findOne({where: {user_name: req.body.user_name}}).then(function(err, user){
-    if(err) {
-    console.log("ERROR AT START");
-    }
-    else if (user) {
-      console.log('This user already exists.');
-      throw err;
-    } 
-    else {
-      console.log("Username is available!");
-      db.Users.create(req.body).then(function(dbResult) {
-        console.log("USER CREATED");
-
-        res.json(dbResult);
-
-
-                })
-      }
-  })
-})*/
 
   /////////////////////////////////////////////
   // DELETE route for deleting a user
