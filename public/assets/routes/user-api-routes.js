@@ -172,6 +172,10 @@ module.exports = function(app) {
       var errors = req.validationErrors();
       
       if (errors) {
+        var hbsObject = {
+          users: req.body
+        };
+        req.flash('error_msg', "Form validation Error.");
         res.render("login", { errors: errors });
         
       } else {
@@ -184,14 +188,17 @@ module.exports = function(app) {
           if (!dbResult) {
             console.log("no user found");
 
+            var hbsObject = {
+              users: req.body
+            };
             req.flash('error_msg', "No user by that name found.");
-            res.render("login", { errors: errors });
+            res.render("login", hbsObject);
 
             // res.redirect('/login');
           } else if (!await dbResult.validPassword(password)) {
             console.log("invalid password");
             var hbsObject = {
-              users: dbResult
+              users: req.body
             };
             req.flash('error_msg', "Invalid password.");
             res.render("login", hbsObject);
