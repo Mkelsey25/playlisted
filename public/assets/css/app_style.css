@@ -148,6 +148,12 @@ body {
     background: #F8F1E5;
     cursor: pointer;
 }
+.slider#myEnergy::-webkit-slider-thumb {
+    width: 10%;
+}
+.slider#myEnergy::-moz-range-thumb {
+    width: 10%;
+}
 html {
     max-width: 100%;
     width: 100%;
@@ -225,8 +231,9 @@ body {
     border: none;
     color: #F8F1E5;
     font-weight: bold;
-    padding: 2px 5px;
-    width: 100px;
+    padding: 2px 10px;
+    width: auto;
+    max-width: 200px;
     display: block;
 }
 #btns button:hover, .formcontainer button:hover, .genrecontainer .submitButton:hover {
@@ -388,6 +395,20 @@ html.ecstatic #myModal {
 html.ecstatic #myModal .modal-content {
     background-color: #FF420E;
     color: #fff;
+}
+#myModal #playlist #song-id-item,
+#myModal #playlist #date-released-item,
+#myModal #playlist #mood-item,
+#myModal #playlist #energy-item,
+#myModal #playlist #genre-item,
+#myModal #playlist #create-date-item,
+#myModal #playlist #modify-date-item,
+#myModal #playlist .delete-song {
+    display: none;
+}
+#myModal .modal-body.user p {
+    text-align: center;
+    font-weight: bold;
 }
 
 /*----------------------*/

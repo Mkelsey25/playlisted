@@ -1,7 +1,10 @@
 <li>
-	<div class="flex-wrapper">
-		<span id="user-item" class="flex-item">
-			{{song_id}}. {{song_title}}, 
+	<div class="flex-wrapper" data-mood="{{mood}}" data-energy="{{energy}}" data-genre="{{genre}}">
+		<span id="song-id-item" class="flex-item">
+			{{song_id}}.
+		</span>
+		<span id="song-title-item" class="flex-item">
+			{{song_title}}, 
 		</span>
 		<span id="artist-name-item" class="flex-item">
 			{{artist_name}}
