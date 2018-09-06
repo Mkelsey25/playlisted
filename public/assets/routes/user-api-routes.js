@@ -7,44 +7,15 @@
 // Requiring our models
 var db = require("./../../../models");
 
+var passport = require('passport');
+// const { check, validationResult } = require('express-validator/check');
+var request = require('request');
+var querystring = require('querystring');
+
 /////////////////
 // Routes
 /////////////////
 module.exports = function(app) {
-
-/*
-  ///////////////////////////////////////////////////////
-  // GET route for authenticating users (passport-spotify)
-  ///////////////////////////////////////////////////////
-  
-  //Spotify auth route with scopes, currently returning 
-  //user's Spotify email and private info
-  //
-  $("#spotifyLoginBtn").on("click", function() {
-    app.get('/api/users/spotify', passport.authenticate('spotify', {
-      scope: ['user-read-email', 'user-read-private'],
-      //force login dialog 
-      showDialog: true
-    }),
-    function(req, res) {
-      // The request will be redirected to spotify for authentication, so this
-      // function will not be called.
-    }
-  );
-
-  app.get(
-    '/api/users/spotify/callback',
-    passport.authenticate('spotify', { failureRedirect: '/login' }),
-    function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
-    }
-  );
-  });
-  
-*/
-  
-
 
   /////////////////////////////////////////////
   // GET route for getting ALL of the users
@@ -127,7 +98,13 @@ module.exports = function(app) {
     ////////////////////////
     if (loginType === "login-spotify") {
       console.log("in spotify login");
-
+      res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));
     };
 
   });
@@ -146,6 +123,58 @@ module.exports = function(app) {
   });
 
   //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
+//access song's specific attributes (valence, etc.)
+//fetch songs -- songs to songs table -- search in app through songs list 
+// --move songs to playlist table
+
+function spotifyAuth() {
+/////////////////////////////////////
+// configure spotify authentication
+/////////////////////////////////////
+//OAuth: A token is a special code that is a temporary key that we
+//get in our backend server which is connected to your spotify app.
+
+var redirect_uri = 
+  process.env.REDIRECT_URI || 
+  'http://localhost:8080/'
+
+
+  app.get('/login', function(req, res) {
+    /*res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));*/
+  });
+}
+
+function spotifyToken() {
+  //Back-end gets access token from Spotify and appends it to the callback URL
+  app.get('/', function(req, res) {
+    var code = req.query.code || null
+    var authOptions = {
+      url: 'https://accounts.spotify.com/api/token',
+      form: {
+        code: code,
+        redirect_uri,
+        grant_type: 'authorization_code'
+      },
+      headers: {
+        'Authorization': 'Basic ' + (new Buffer(
+          process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+        ).toString('base64'))
+      },
+      json: true
+    }
+    request.post(authOptions, function(error, response, body) {
+      var access_token = body.access_token
+      var uri = process.env.redirect_uri || 'http://localhost:8080'
+      res.redirect(uri + '?access_token=' + access_token)
+    });
+  });
+}
 
   /////////////////////////////////////////////
   // GET route for retrieving ONE user
@@ -273,3 +302,8 @@ module.exports = function(app) {
 
   });
 };
+
+  /////////////////////////////////////////////////////////////////////
+  // res.status(404)        // HTTP status 404: NotFound
+  // .send('Not found')
+  /////////////////////////////////////////////////////////////////////

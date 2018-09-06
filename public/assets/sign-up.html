@@ -41,7 +41,8 @@
                         <label for="emailHelp">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="Email">
                     </div>
-                    <button type="submit" class="btn btn-light">Create Account!</button><br>
+                    <button id='playlistedLoginBtn' type="submit" class="btn btn-light">Create Account!</button><br>
+                    <button href='api/users/spotify'type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
                     </form>
             </div>
             <div class="col-md-2">
@@ -83,5 +84,12 @@
         </div>
 
     </div>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <!--<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>-->
+    <!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>-->
+
+    <!-- Load our React component. -->
+    <!--<script src="delete_button.js"></script>-->
 </body>
 </html>

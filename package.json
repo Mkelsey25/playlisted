@@ -39,6 +39,7 @@
     "passport-local": "^1.0.0",
     "passport-spotify": "^1.0.1",
     "path": "^0.12.7",
+    "request": "^2.88.0",
     "sequelize": "^4.38.0"
   }
 }
