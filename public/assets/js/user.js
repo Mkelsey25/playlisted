@@ -29,20 +29,8 @@ $(function() {
         }).then(
         function() {
             console.log("created new user");
-            console.log(Users);
-            // Reload the page to get the updated user list
-            if ($('#spotifyLoginBtn').data('clicked')) {
-                spotifyAuth();
-            } else { 
-                location.reload();
-            }
-            /*if(not verified) {
-                //message: "There was a problem logging in. 
-                //Please make sure your username is ____ and your password only contains ___
-                //Your username may already be taken."
-            }*/
-        }
-        );
+            location.reload();
+        });
     });
 
     /////////////////////
@@ -96,29 +84,5 @@ $(function() {
         }
         );
     });
-
-    //////////////////////////////
-    // login user through Spotify
-    //////////////////////////////
-
-    /*
-    $("#spotifyLoginBtn").on("click", function() {
-
-        var clientId = 
-        // Send the POST request.
-        $.ajax("https://accounts.spotify.com/authorize/?client_id=" 
-                + clientId + "&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09", {
-            type: "GET",
-            data: newUser
-        }).then(
-        function() {
-            console.log("created new user");
-            // Reload the page to get the updated user list
-            location.reload();
-        }
-        );
-
-    }
-*/
 
 });

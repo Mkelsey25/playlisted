@@ -1,92 +1,57 @@
-
-  <header class="header">
-    <h1>Registered Users</h1>
-  </header>
-
-  {{#if users}}
-    <div class="user-content">
-      <h3>Users</h3>
-        <ul>
-        {{#each users}}
-          {{> user-block}}
-        {{/each}}
-        </ul>
-    </div>
-  {{/if}}
-
-  {{#if user}}
-    <div class="user-content-single">
-      <h3>User</h3>
-        <ul>
-          {{#each user}}
-            {{> user-block}}
-          {{/each}}
-        </ul>
-    </div>
-  {{/if}}
-
-<h3>Create User</h3>
-<!--form id="form-new-user" method="POST" action="/api/users" class="create-user-form"-->
-{{!-- <form id="form-new-user">
-  <input type="text" name="user_name" placeholder="Name...">
-  <input type="text" name="user_password" placeholder="Password...">
-  <button type="submit">Submit</button>
-</form> --}}
-
-{{!-- {{#if user}}
-        <div class="alert alert-danger">Username is taken already. Choose again.</div> 
-{{/if}} --}}
-{{!-- {{#if mail}}
-        <div class="alert alert-danger">Email is taken already. Choose again.</div> 
-{{/if}}  --}}
 {{#if errors}}
       {{#each errors}}
         <div class="alert alert-danger">{{msg}}</div>
       {{/each}}
 {{/if}}
-<div class="formcontainer">
-  <!--form id="form-new-user" method="POST" action="/api/users" class="create-user-form"-->
-  <form id="form-new-user">
-    <div>
-      <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="usernamne" name="user_name" placeholder="Name..." class="form-control" maxlength="50" required autofocus>
-      </div>
-      <div class="form-group">
-        <label for="useremail">Email</label>
-        <input type="text" id="useremail" name="user_email" placeholder="Email..." class="form-control">
-      </div>
-      <div class="form-group">
-          <label for="userpassword">Password</label>
-          <input type="text" id="userpassword" name="user_password" placeholder="Password..." class="form-control">
-      </div>
-    </div>
-    <div>
-      <button type="submit">Submit</button>
-      <button href='api/users/spotify'type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
-    </div>
-  </form>
+
+
+<div class="formcontainer col-lg-12 col-sm-12 content mb-0">
+    {{!-- <form id="form-new-login" action="login" method="POST"> --}}
+    <form id="form-new-login">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="user_name" placeholder="Username" autofocus required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="user_password" placeholder="Password" required>
+        </div>
+        <input type="text" class="form-control" id="login_type" name="login_type" hidden>
+        <a href="/register" class="link">New here? Join now!</a> <br> <br>
+        <button type="submit" id="playlistedLoginBtn" value='login' class="btn mt-0 mb-3">Login</button><br>
+        <button href='api/users/spotify' type="submit" value='oauth' id= "spotifyLoginBtn" class='btn m-1' hidden>Login With Spotify</button>
+    </form>
 </div>
 
-{{!-- <h3>Update User</h3>
-<form id="form-update-user">
-  <input type="text" name="id" placeholder="Id...">
-  <input type="text" name="name" placeholder="Name...">
-  <input type="text" name="password" placeholder="Password...">
-	<button type="submit">Update</button>
-</form> --}}
-
-<div class="formcontainer">
-  <h3>Update User</h3>
-  <form id="form-update-user">
-    <div style="display:inline-block;">
-      <input type="text" name="user_id" placeholder="Id...">
-      <input type="text" name="user_name" placeholder="Name...">
-      <input type="text" name="user_email" placeholder="Email...">
-      <input type="text" name="user_password" placeholder="Password...">
+<div class="col-lg-12 col-sm-12 content">
+    <h4 class="userQuestion">
+        What is this app? How do I use it? Why would I?
+    </h4>
+    <div>
+        <p>
+            To find the soundtracks that suit your life.
+        </p>
+        <p>
+            Playlisted is a music application to discover and create the perfect playlist to fit a mood/activity level! Your first step towards finding the playlist of your dreams is to sign up for an account. 
+            After you join the Playlisted community, create your perfect playlists by selecting a mood, energy level, and genre.  The personalized song recommendations are purpose built with you in mind. Don't like what you hear? Change it and rearrange it! Customize any playlists with ease. Once you have the perfect fit, save your playlist and listen on!
+        </p>
+        <p>Welcome to audio bliss! Let's get started today.  If you are new here, click on the link to register and join.</p>
     </div>
-    <div style="display:block;">
-      <button type="submit">Update</button>
-    </div>
-  </form>
 </div>
+
+<script>
+    $(document).ready (function() {
+
+        $("#playlistedLoginBtn").on("click", function() {
+            console.log("in normal login");
+            $("#login_type").val("login");
+        });
+
+        $("#spotifyLoginBtn").on("click", function() {
+            console.log("in spotify login");
+            $("#login_type").val("login-spotify");
+        });
+
+    });
+</script>
+

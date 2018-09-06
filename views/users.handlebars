@@ -25,12 +25,7 @@
     </div>
   {{/if}}
 
-<h3>Create User</h3>
-{{#if errors}}
-  {{#each errors}}
-    <div class="alert alert-danger">{{msg}}</div>
-  {{/each}}
-{{/if}}
+<h3>Add User</h3>
 <div class="formcontainer">
   <!--form id="form-new-user" method="POST" action="/api/users" class="create-user-form"-->
   <form id="form-new-user">
@@ -50,7 +45,6 @@
     </div>
     <div>
       <button type="submit">Submit</button>
-      <button href='api/users/spotify'type="submit" value='oauth' id= "spotifyLoginBtn" class='btn btn-light'>Login With Spotify</button>
     </div>
   </form>
 </div>

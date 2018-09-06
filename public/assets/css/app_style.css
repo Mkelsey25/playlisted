@@ -210,6 +210,14 @@ body {
     font-weight: bold;
     padding: 0 5px;
 }
+
+/* #form-update-song {
+    max-width: 100%;
+} */
+#form-new-registration input,
+#form-new-registration select,
+#form-new-login input,
+#form-new-login select,
 #form-new-song input,
 #form-new-song select,
 #form-update-song input,
