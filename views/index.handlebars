@@ -1,5 +1,61 @@
-
-  <header class="header">
-    <h1>Playlisted</h1>
-  </header>
-
+<script type="text/javascript" src="/assets/js/app.js"></script>
+<div class="col-lg-12 col-sm-12 content">
+    <div class="slidecontainer">
+        <h3 style="text-align: center">MOOD</h3>
+        <div class="scroll-img mood">
+            <img id="angry" src="../assets/img/angry.png">
+            <img id="sad" src="../assets/img/sad.png">
+            <img id="meh" src="../assets/img/meh-color.png">
+            <img id="happy" src="../assets/img/happy.png">
+            <img id="ecstatic" src="../assets/img/ecstatic.png">
+        </div>
+        <input type="range" min="1" max="5" value="3" class="slider" id="myMood">
+    </div>
+    <div class="slidecontainer">
+        <h3 style="text-align: center">ENERGY</h3>
+        <div class="scroll-img energy">
+            <img id="zzz" src="../assets/img/zzz-meh.png">
+            <img id="hyper" src="../assets/img/hyper-meh.png">
+        </div>
+        <input type="range" min="0.1" max="1" value="0.1" step="0.1" class="slider" id="myEnergy">
+    </div>
+    <div class="genrecontainer">
+        <h3 style="text-align: center">GENRE</h3>
+        <form action="/action_page.php" id="formGenre">
+            <select id="myGenre" name="genre">
+                <option value="All" selected>All</option>
+                <option value="Classical">Classical</option>
+                <option value="Rock">Rock</option>
+                <option value="Easy Listening">Easy Listening</option>
+                <option value="Pop">Pop</option>
+                <option value="Rap/Hip-Hop">Rap/Hip-Hop</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+            <input type="submit" value="Listen" data-toggle="modal" data-target="#myModal" id="meg" class="submitButton">
+        </form>
+    </div>
+  
+    <!-- Modal -->
+    <div id="myModal" class="modal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align:center;width:100%;">HERE'S YOUR PLAYLIST!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body user">
+                    <p id="mood"></p>
+                    <p id="energy"></p>
+                    <p id="genre"></p>
+                </div>
+                <div class="modal-body">
+                    <p id="playlist"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

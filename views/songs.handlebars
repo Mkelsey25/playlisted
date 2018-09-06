@@ -29,7 +29,6 @@
 
 <div class="formcontainer">
   <h3>Create Song</h3>
-  <!--form id="form-new-song" method="POST" action="/api/songs" class="create-song-form"-->
   <form id="form-new-song">
     <div>
       <input type="text" name="song_title" placeholder="Song Title...">
@@ -46,6 +45,7 @@
         <option>Ecstatic</option>
       </select>
       <select name="energy" placeholder="Energy...">
+        <option selected disabled>Energy</option>
         <option>0.1</option>
         <option>0.2</option>
         <option>0.3</option>
@@ -58,6 +58,7 @@
         <option>1.0</option>
       </select>
       <select name="genre" placeholder="Genre...">
+        <option selected disabled>Genre</option>
         <option>Rock</option>
         <option>Classical</option>
         <option>Easy Listening</option>
@@ -76,7 +77,6 @@
   <h3>Update Song</h3>
   <form id="form-update-song">
     <div>
-      {{!-- <input type="text" name="song_id" placeholder="Id..." value={{{songs.0.song_id}}}> --}}
       <input type="text" name="song_id" placeholder="Id..." value="">
       <input type="text" name="song_title" placeholder="Song Title...">
       <input type="text" name="artist_name" placeholder="Artist Name...">
@@ -84,6 +84,7 @@
     </div>
     <div>
       <select name="mood" placeholder="Mood...">
+        <option selected disabled>Mood</option>
         <option>Angry</option>
         <option>Sad</option>
         <option>Meh</option>
@@ -91,6 +92,7 @@
         <option>Ecstatic</option>
       </select>
       <select name="energy" placeholder="Energy...">
+        <option selected disabled>Energy</option>
         <option>0.1</option>
         <option>0.2</option>
         <option>0.3</option>
@@ -103,6 +105,7 @@
         <option>1.0</option>
       </select>
       <select name="genre" placeholder="Genre...">
+        <option selected disabled>Genre</option>
         <option>Rock</option>
         <option>Classical</option>
         <option>Easy Listening</option>
@@ -116,4 +119,3 @@
     </div>
   </form>
 </div>
-

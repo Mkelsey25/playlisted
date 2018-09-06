@@ -32,23 +32,23 @@ $(function() {
             genre: $("#myGenre").val().trim()
         };
         if (userInput.mood == 1) {
-            $(".modal-body p#mood").html("Angry");
+            $(".modal-body p#mood").html("Mood: Angry");
         };
         if (userInput.mood == 2) {
-            $(".modal-body p#mood").html("Sad");
+            $(".modal-body p#mood").html("Mood: Sad");
         };
         if (userInput.mood == 3) {
-            $(".modal-body p#mood").html("Meh");
+            $(".modal-body p#mood").html("Mood: Meh");
         };
         if (userInput.mood == 4) {
-            $(".modal-body p#mood").html("Happy");
+            $(".modal-body p#mood").html("Mood: Happy");
         };
         if (userInput.mood == 5) {
-            $(".modal-body p#mood").html("Ecstatic");
+            $(".modal-body p#mood").html("Mood: Ecstatic");
         };
         
-        $(".modal-body p#energy").html(userInput.energy);
-        $(".modal-body p#genre").html(userInput.genre).css("text-transform", "capitalize");
+        $(".modal-body p#energy").html("Energy: " + userInput.energy);
+        $(".modal-body p#genre").html("Genre: " + userInput.genre).css("text-transform", "capitalize");
 
         /*$.post("/api/users", userInput)
           .done(function(data) {
@@ -57,14 +57,15 @@ $(function() {
             $(".modal-body p").html(data.energy);
         });*/
     });
-    // close popup with escape button
+
+    /* close popup with escape button
     $(document).keydown(function(e) { 
         if (e.keyCode == 27) { 
             $("#myModal").fadeOut(300).modal("hide");
             //or
             window.close();
         }
-    });
+    });*/
 
     /////////////////////////
     // create the playlist

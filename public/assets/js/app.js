@@ -1,5 +1,53 @@
 //=====================================================//
-//						NAVBAR						//
+//						PULL SONG					   //
+//=====================================================//
+$(document).ready(function() {
+	$(".submitButton").on("click", function() {
+		var moodInput = "";
+		var value = $("#myMood").val();
+		if (value == 1) {
+			moodInput = "Angry";
+		};
+		if (value == 2) {
+			moodInput = "Sad";
+		};
+		if (value == 3) {
+			moodInput = "Meh";
+		};
+		if (value == 4) {
+			moodInput = "Happy";
+		};
+		if (value == 5) {
+			moodInput = "Ecstatic";
+		};
+		// console.log(moodInput);
+		var energyInput = $("#myEnergy").val();
+		// console.log(energyInput);
+		var genreInput = $("#myGenre").val();
+		// console.log(genreInput);
+		if (genreInput === "All") {
+			$.ajax({
+				url:'api/songs',
+				type:'GET',
+				success: function(data){
+					data=$(data).find("[data-mood='" + moodInput + "'][data-energy='" + energyInput + "']");
+					$('#playlist').html($(data));
+				}
+			});
+		} else {
+			$.ajax({
+				url:'api/songs',
+				type:'GET',
+				success: function(data){
+					data=$(data).find("[data-mood='" + moodInput + "'][data-energy='" + energyInput + "'][data-genre='" + genreInput + "']");
+					$('#playlist').html($(data));
+				}
+			});
+		}
+	});
+});
+//=====================================================//
+//						NAVBAR					   	   //
 //=====================================================//
 $(document).ready(function() {
 	$(".hamburger").click(function() {
@@ -21,7 +69,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	var scrollMood = document.getElementById("myMood");
 	var scrollEnergy = document.getElementById("myEnergy");
-	// console.log(scroll.value);
+	
 	$(".scroll-img.mood img").click(function() {
 		$("html").removeAttr("class");
 		$("img#angry").attr("src", "../assets/img/angry.png");
@@ -120,19 +168,34 @@ $(document).ready(function() {
 
 	if (scrollEnergy != null) {
 		scrollEnergy.addEventListener("change", function() {
-			if (scrollEnergy.value == 1) {
+			if (scrollEnergy.value == 0.1) {
 				$("img#zzz").css("opacity", "1");
 				$("img#hyper").css("opacity", "0");
-			} else if (scrollEnergy.value == 2) {
-				$("img#zzz").css("opacity", "0.75");
-				$("img#hyper").css("opacity", "0.25");
-			} else if (scrollEnergy.value == 3) {
-				$("img#zzz").css("opacity", "0.5");
-				$("img#hyper").css("opacity", "0.5");
-			} else if (scrollEnergy.value == 4) {
-				$("img#zzz").css("opacity", "0.25");
-				$("img#hyper").css("opacity", "0.75");
-			} else if (scrollEnergy.value == 5) {
+			} else if (scrollEnergy.value == 0.2) {
+				$("img#zzz").css("opacity", "0.89");
+				$("img#hyper").css("opacity", "0.12");
+			} else if (scrollEnergy.value == 0.3) {
+				$("img#zzz").css("opacity", "0.78");
+				$("img#hyper").css("opacity", "0.23");
+			} else if (scrollEnergy.value == 0.4) {
+				$("img#zzz").css("opacity", "0.67");
+				$("img#hyper").css("opacity", "0.34");
+			} else if (scrollEnergy.value == 0.5) {
+				$("img#zzz").css("opacity", "0.56");
+				$("img#hyper").css("opacity", "0.45");
+			} else if (scrollEnergy.value == 0.6) {
+				$("img#zzz").css("opacity", "0.45");
+				$("img#hyper").css("opacity", "0.56");
+			} else if (scrollEnergy.value == 0.7) {
+				$("img#zzz").css("opacity", "0.34");
+				$("img#hyper").css("opacity", "0.67");
+			} else if (scrollEnergy.value == 0.8) {
+				$("img#zzz").css("opacity", "0.23");
+				$("img#hyper").css("opacity", "0.78");
+			} else if (scrollEnergy.value == 0.9) {
+				$("img#zzz").css("opacity", "0.12");
+				$("img#hyper").css("opacity", "0.89");
+			} else if (scrollEnergy.value == 1) {
 				$("img#zzz").css("opacity", "0");
 				$("img#hyper").css("opacity", "1");
 			}

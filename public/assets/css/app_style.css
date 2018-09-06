@@ -148,6 +148,12 @@ body {
     background: #F8F1E5;
     cursor: pointer;
 }
+.slider#myEnergy::-webkit-slider-thumb {
+    width: 10%;
+}
+.slider#myEnergy::-moz-range-thumb {
+    width: 10%;
+}
 html {
     max-width: 100%;
     width: 100%;
@@ -204,17 +210,18 @@ body {
     font-weight: bold;
     padding: 0 5px;
 }
-#form-update-song {
+
+/* #form-update-song {
     max-width: 100%;
-}
-#form-update-song input
-#form-update-song select,
-#form-new-registration input
+} */
+#form-new-registration input,
 #form-new-registration select,
-#form-new-login input
+#form-new-login input,
 #form-new-login select,
 #form-new-song input,
 #form-new-song select,
+#form-update-song input,
+#form-update-song select,
 #form-update-user input,
 #form-new-user input,
 #form-update-playlist-song input,
@@ -222,7 +229,7 @@ body {
 #form-update-playlist input,
 #form-new-playlist input {
     border: #ccc 1px solid;
-    margin: 5px 2px 0 0;
+    margin: 10px 2px 0 0;
     padding: 2px;
 }
 .formcontainer button {
@@ -232,8 +239,9 @@ body {
     border: none;
     color: #F8F1E5;
     font-weight: bold;
-    padding: 2px 5px;
-    width: 100px;
+    padding: 2px 10px;
+    width: auto;
+    max-width: 200px;
     display: block;
 }
 #btns button:hover, .formcontainer button:hover, .genrecontainer .submitButton:hover {
@@ -285,7 +293,7 @@ html.sad body .menu ul li, html.sad body .menu ul li a {
     color: #A1D6E2;
     border-color: #A1D6E2;
 }
-html.sad .jumbotron, html.sad .slider::-webkit-slider-thumb, html.sad .hamburger {
+html.sad .jumbotron, html.sad .slider::-webkit-slider-thumb {
     background-color: #A1D6E2;
 }
 html.sad .menu ul li:hover, html.sad .slider {
@@ -304,7 +312,7 @@ html.meh body, html.meh body .jumbotron {
 html.meh body .menu ul li, html.meh body .menu ul li a {
     border-color: #F9BA32;
 }
-html.meh .jumbotron, html.meh .slider::-webkit-slider-thumb, html.meh .hamburger {
+html.meh .jumbotron, html.meh .slider::-webkit-slider-thumb {
     background-color: #F9BA32;
 }
 html.meh .menu ul li:hover, html.meh .slider {
@@ -324,7 +332,7 @@ html.happy body .menu ul li, html.happy body .menu ul li a {
     color: #D09683;
     border-color: #D09683;
 }
-html.happy .jumbotron, html.happy .slider::-webkit-slider-thumb, html.happy .hamburger {
+html.happy .jumbotron, html.happy .slider::-webkit-slider-thumb {
     background-color: #D09683;
 }
 html.happy .menu ul li:hover, html.happy .slider {
@@ -347,7 +355,7 @@ html.ecstatic body .menu ul li, html.ecstatic body .menu ul li a {
     color: #FF420E;
     border-color: #FF420E;
 }
-html.ecstatic .jumbotron, html.ecstatic .slider::-webkit-slider-thumb, html.ecstatic .hamburger {
+html.ecstatic .jumbotron, html.ecstatic .slider::-webkit-slider-thumb {
     background-color: #FF420E;
 }
 html.ecstatic .menu ul li:hover, html.ecstatic .slider {
@@ -395,6 +403,20 @@ html.ecstatic #myModal {
 html.ecstatic #myModal .modal-content {
     background-color: #FF420E;
     color: #fff;
+}
+#myModal #playlist #song-id-item,
+#myModal #playlist #date-released-item,
+#myModal #playlist #mood-item,
+#myModal #playlist #energy-item,
+#myModal #playlist #genre-item,
+#myModal #playlist #create-date-item,
+#myModal #playlist #modify-date-item,
+#myModal #playlist .delete-song {
+    display: none;
+}
+#myModal .modal-body.user p {
+    text-align: center;
+    font-weight: bold;
 }
 
 /*----------------------*/
