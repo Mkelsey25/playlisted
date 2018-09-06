@@ -21,14 +21,25 @@ module.exports = function(app) {
   });
 
   // login route loads login.html
-  app.get("/login", function(req, res) {
-    res.render("login", {
-      title: "Login"
-    });
-  });
-  app.get("/sign-up", function(req, res) {
-    res.render("sign-up", {
-      title: "Sign Up"
-    });
-  });
+
+  // app.get("/login", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../login.html"));
+  // });
+  
+  // app.get("/sign-up", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../sign-up.html"));
+  // });
+
+  // commented this out as theres routes are in handlebars and under a different file.... may need to add the title piece to that though.  will check
+//   app.get("/login", function(req, res) {
+//     res.render("login", {
+//       title: "Login"
+//     });
+//   });
+//   app.get("/sign-up", function(req, res) {
+//     res.render("sign-up", {
+//       title: "Sign Up"
+//     });
+//   });
+
 };

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/assets/js/playlist-song.js"></script>
 	<script type="text/javascript" src="/assets/js/song.js"></script>
 	<script type="text/javascript" src="/assets/js/user.js"></script>
+    <script type="text/javascript" src="/assets/js/register.js"></script>
     <!-- Added a link to Bootstrap-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -61,6 +62,12 @@
                     <div class="alert alert-danger">{{error}}</div>
                 {{/if}}
                 
+                {{#if errors}}
+                    {{#each errors}}
+                        <div class="alert alert-danger">{{msg}}</div>
+                    {{/each}}
+                {{/if}}
+
                 {{{ body }}}
             </div>
         </div>
