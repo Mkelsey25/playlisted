@@ -1,5 +1,8 @@
-drop database if exists playlisted_db;
-create database playlisted_db;
+-- drop database if exists playlisted_db;
+-- create database playlisted_db;
+drop database if exists kuyqu83fc4fu1oq3;
+create database kuyqu83fc4fu1oq3;
+
 use kuyqu83fc4fu1oq3;
 
 -- drop table if exists users;
