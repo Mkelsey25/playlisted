@@ -7,8 +7,6 @@
 // Requiring our models
 var db = require("./../../../models");
 
-var passport = require('passport');
-// const { check, validationResult } = require('express-validator/check');
 var request = require('request');
 var querystring = require('querystring');
 
@@ -44,6 +42,17 @@ module.exports = function(app) {
   });
 
   //////////////////////////   AUTH   ///////////////////////////////////////////////////////////////
+
+  /////////////////////////////////////////////////
+  // GET route to show the registration page
+  /////////////////////////////////////////////////
+  app.get("/register", function(req, res) {
+
+    console.log("route: register");
+    console.log(JSON.stringify(req.body));
+
+    res.render("register");
+  });
 
   /////////////////////////////////////////////
   // GET route to LOGIN a user
@@ -109,23 +118,91 @@ module.exports = function(app) {
 
   });
 
-  app.get("api/users/logout", function(req, res) {
+  ///////////////////////////////
+  // GET route to LOGOUT a user
+  ///////////////////////////////
+  app.get("/api/users/logout", function(req, res) {
     console.log("route: logout");
 
     req.session.reset();
     res.redirect('/');
   });
 
-  app.get("'api/users/register", function(req, res) {
-    console.log("route: register");
+  /////////////////////////////////////
+  // POST route to REGISTER a user
+  ////////////////////////////////////
+  app.post("/register/user", function(req, res) {
+    
+    console.log("route: register user");
+    console.log(JSON.stringify(req.body));
 
-    res.redirect('/sign-up');
+    // call the model to create the user
+    db.Users.create(req.body).then(function(dbResult) {
+      console.log("User registered.");
+
+      //////////////////////////////////////
+      /////////////  Nodemailer: Morgan
+      //////////////////////////////////////
+      //Nodemailer
+      {
+        'use strict';
+        var nodemailer = require('nodemailer');
+        
+        // Generate test SMTP service account from ethereal.email
+        // Only needed if you don't have a real mail account for testing
+        nodemailer.createTestAccount((err, account) => {
+          // create reusable transporter object using the default SMTP transport
+          var transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                  user: 'playlistedapplication@gmail.com', 
+                  pass: 'playlisted123' 
+              }
+          });
+        
+          // setup email data with unicode symbols
+          var mailOptions = {
+              from: '"Playlisted" <playlistedapplication@gmail.com>', // sender address
+              to: req.body.user_email, // list of receivers
+              subject: 'Welcome to Playlisted', // Subject line
+              text: 'Welcome to Playlisted. Enjoy the playlist of your dreams.', // plain text body
+              html: '<b>Welcome to Playlisted</b> <p>Your username is: </p>' + req.body.user_name // html body
+          };
+        
+          // send mail with defined transport object
+          transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                  // return console.log(error);
+                  console.log(error);
+              } else {
+                console.log('Message sent to %s: %s', req.body.user_email, info.messageId);
+                // Preview only available when sending through an Ethereal account
+              }
+          });
+        });
+      };
+      /////////////////////////////////////////////////////////////////////////////////
+
+      req.flash('success_msg', 'Registration successful!');
+      res.json(dbResult);          // send as json
+
+    }).catch(function (err) {
+      console.log("do we get here: " + err);
+
+      var errors = err.messageId + ": " + err.toString();
+
+      // res.redirect('/sign-up');
+
+      // send to handlebars
+
+      var hbsObject = {
+        errors: err
+      };
+      req.flash('error_msg', err.toString());
+      res.render("register", hbsObject);
+    });
+
   });
-
-  //////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
-//access song's specific attributes (valence, etc.)
-//fetch songs -- songs to songs table -- search in app through songs list 
-// --move songs to playlist table
 
 function spotifyAuth() {
 /////////////////////////////////////
@@ -176,6 +253,8 @@ function spotifyToken() {
   });
 }
 
+//////////////////////////   AUTH end   ///////////////////////////////////////////////////////////////
+
   /////////////////////////////////////////////
   // GET route for retrieving ONE user
   /////////////////////////////////////////////
@@ -204,7 +283,7 @@ function spotifyToken() {
   /////////////////////////////////////////////
   // POST route for CREATE a new user
   /////////////////////////////////////////////
-  app.post("/api/users", function(req, res) {
+  app.post("/api/users", function(req, res, next) {
 
     console.log("route: create user");
     console.log(JSON.stringify(req.body));
@@ -215,49 +294,14 @@ function spotifyToken() {
 
       res.json(dbResult);          // send as json
 
-      // sendNotification();
-      ///////////////Nodemailer: Morgan
+    }).catch(function (err) {
+      console.log("do we get here: " + err);
 
-              //Nodemailer
-            // function sendNotification() {
-              'use strict';
-              var nodemailer = require('nodemailer');
-              
-              // Generate test SMTP service account from ethereal.email
-              // Only needed if you don't have a real mail account for testing
-              nodemailer.createTestAccount((err, account) => {
-                // create reusable transporter object using the default SMTP transport
-                var transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'playlistedapplication@gmail.com', 
-                        pass: 'playlisted123' 
-                    }
-                });
-              
-                // setup email data with unicode symbols
-                var mailOptions = {
-                    from: '"Playlisted" <playlistedapplication@gmail.com>', // sender address
-                    to: req.body.user_email, // list of receivers
-                    subject: 'Welcome to Playlisted', // Subject line
-                    text: 'Welcome to Playlisted. Enjoy the playlist of your dreams.', // plain text body
-                    html: '<b>Welcome to Playlisted</b> <p>Your username is: </p>' + req.body.user_name // html body
-                };
-              
-                // send mail with defined transport object
-                transporter.sendMail(mailOptions, (error, info) => {
-                    if (error) {
-                        return console.log(error);
-                    }
-                    console.log('Message sent: %s', info.messageId);
-                    // Preview only available when sending through an Ethereal account
-              
-                });
-              });
-            // };
-/////////////////////////////////////////////////////////////////////////////////
-
+      res.render("users", {
+        errors: err
+      });
     });
+
   });
 
   /////////////////////////////////////////////
@@ -302,8 +346,3 @@ function spotifyToken() {
 
   });
 };
-
-  /////////////////////////////////////////////////////////////////////
-  // res.status(404)        // HTTP status 404: NotFound
-  // .send('Not found')
-  /////////////////////////////////////////////////////////////////////

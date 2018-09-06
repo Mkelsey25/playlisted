@@ -21,15 +21,6 @@ var flash = require('connect-flash');
 // var fs = require('fs');
 // var https = require('https');
 
-///////////////////////
-//Passport Config
-///////////////////////
-// require('./config/passport')(passport);
-// var LocalStrategy = require('passport-local').Strategy;
-
-
-var request = require('request');
-var querystring = require('querystring');
 // models are required to sync them
 var db = require("./models");
 var expressValidator = require('express-validator');
@@ -68,9 +59,16 @@ app.use(session({
   resave: true
 }));
 
-/////////////////////
+///////////////////////
+//Passport Config
+///////////////////////
+// require('./config/passport')(passport);
+// var LocalStrategy = require('passport-local').Strategy;
+
+var request = require('request');
+var querystring = require('querystring');
+
 // Passport init
-/////////////////////
 // app.use(passport.initialize());
 // app.use(passport.session());
 //NOT SURE IF THIS IS REALLY NEEDED BUT HERE IT IS ANYWAY
@@ -91,6 +89,37 @@ passport.use(
       clientID: client_id,
       clientSecret: client_secret,
       callbackURL: 'http://localhost:8888/auth/spotify/callback'
+    },
+    function(accessToken, refreshToken, expires_in, profile, done) {
+      User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
+        return done(err, user);
+      });
+    }
+  )
+);
+*/ 
+
+//using passport-spotify
+/*
+var SpotifyStrategy = require('passport-spotify').Strategy;
+
+var SPOTIFY_ID;
+var SPOTIFY_SECRET;
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
+
+passport.use(
+  new SpotifyStrategy(
+    {
+      clientID: SPOTIFY_ID,
+      clientSecret: SPOTIFY_SECRET,
+      callbackURL: 'http://localhost:8080/auth/spotify/callback'
     },
     function(accessToken, refreshToken, expires_in, profile, done) {
       User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
@@ -152,7 +181,7 @@ app.use(routes);
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
-        db.sequelize.sync({force: false})
+        db.sequelize.sync({force: true})
         .then (function() {
             db.sequelize.query('SET FOREIGN_KEY_CHECKS = 1', null, {raw: true})
         })
@@ -173,34 +202,3 @@ db.sequelize
 //         });  //.catch (function(error) { console.log(error); });
 //     });
 
-
-//using passport-spotify
-/*
-var SpotifyStrategy = require('passport-spotify').Strategy;
-
-var SPOTIFY_ID;
-var SPOTIFY_SECRET;
-
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-passport.use(
-  new SpotifyStrategy(
-    {
-      clientID: SPOTIFY_ID,
-      clientSecret: SPOTIFY_SECRET,
-      callbackURL: 'http://localhost:8080/auth/spotify/callback'
-    },
-    function(accessToken, refreshToken, expires_in, profile, done) {
-      User.findOrCreate({ spotifyId: profile.id }, function(err, user) {
-        return done(err, user);
-      });
-    }
-  )
-);
-*/ 

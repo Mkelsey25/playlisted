@@ -37,6 +37,7 @@ $ npm install cookie-parser --save
 $ npm install passport --save
 $ npm install connect-flash --save
 $ npm install nodemailer --save
+$ npm install request --save
 
 npm install chai --save
 npm install chai-http --save
