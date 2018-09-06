@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     }, 
     {
-        tableName: 'Users',
+        tableName: 'users',
         underscored: true,
         hooks: {
             beforeCreate: (user, options, cb) => {
