@@ -18,25 +18,6 @@ module.exports = function(app) {
     res.render("index", {
       title: "Playlisted"
     });
-<<<<<<< HEAD
-=======
-
-    /*  get render of songs to index page to work
-        algorithm for choosing which songs to add to playlist
-        variable to display songs */
-
-    /*var query = {};
-    db.Songs.findAll({
-      where: query
-    }).then(function(dbResult) {
-
-      // send to handlebars
-      var hbsObject = {
-        songs: dbResult
-      };
-      res.render("index", hbsObject);
-    });*/
->>>>>>> a04ccf8edd216e4e76ea0e72ca252274066d9daa
   });
 
   // login route loads login.html
