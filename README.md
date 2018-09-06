@@ -3,9 +3,9 @@
 PlayListed is a full stack project that uses Express, MySQL, Sequelize and Handlebars to create a recommended playlist of songs based on user preferences such as mood, energy, and genre.
 
 **Problem it solves:** \
-TBD. \
+Identify and manage a personalized playlist of song recommendations according to mood, energy level, and genre. \
 **How solved:** \
-TBD. \
+Perform searches against a song library that matches attributes to user preferences. \
 **Technical approach:** \
 MySQL is used as the backend to manage users, songs, and playlists leveraging the Sequelize ORM and implemented with the MVC design pattern.  Handlebars and static pages are used for UI/UX on CSS3 and HTML5 in combination with Bootstrap.  An api is available to perform CRUD operations against the users, songs and playlists from the front-end via AJAX requests.  Passport is used for user authentication.
 
@@ -36,6 +36,7 @@ $ npm install express-validator --save
 $ npm install cookie-parser --save
 $ npm install passport --save
 $ npm install connect-flash --save
+$ npm install nodemailer --save
 
 npm install chai --save
 npm install chai-http --save
@@ -64,7 +65,7 @@ DB_DEV_PORT=3306
 
 ## Running tests
 
-TBD
+Unit testing was done against all routes from end-to-end and functionally tested by team mates.
 
 ## Deployment
 
@@ -84,7 +85,7 @@ This is version 0.1
 
 ## Authors
 
-* **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize (basic), AJAX calls (songs, users, playlists) and Handlebars*
+* **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize, AJAX calls (songs, users, playlists), Bcrypt and Handlebars*
 
 ## License
 

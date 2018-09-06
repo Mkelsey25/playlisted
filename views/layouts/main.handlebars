@@ -21,8 +21,8 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 	
 </head>
-	<body>
-		<div class="container" id="home">
+<body>
+    <div class="container" id="home">
         <div class="row">
             <div class="col-lg-3 col-sm-12 sidebar">            
                 <div class="logo">
@@ -44,14 +44,27 @@
                     </ul>
                 </div>
             </div>
-			<div class="col-lg-9 col-sm-12 main">
-				<div class="jumbotron">
+            <div class="col-lg-9 col-sm-12 main">
+                <div class="jumbotron">
                     <h1 style="text-align: center; line-height: 0em; margin: 0;">PLAYLISTED <i class="fas fa-music"></i></h1>
                     <div class="slogan">Music that fits.</div>
                 </div>
-				{{{ body }}}
-				</div>
-			</div>
-		</div>
-	</body>
+
+                {{#if success_msg}}
+                    <div class="alert alert-success">{{success_msg}}</div>
+                {{/if}}
+
+                {{#if error_msg}}
+                    <div class="alert alert-danger">{{error_msg}}</div>
+                {{/if}}
+
+                {{#if error}}
+                    <div class="alert alert-danger">{{error}}</div>
+                {{/if}}
+                
+                {{{ body }}}
+            </div>
+        </div>
+    </div>
+</body>
 </html>
