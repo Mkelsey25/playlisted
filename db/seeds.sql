@@ -114,5 +114,3 @@ VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURREN
 
 
 select * from songs;
-
- SELECT `user_id`, `user_name`, `user_email`, `user_password`, `role`, `created_at`, `updated_at` FROM `users` AS `Users`;
