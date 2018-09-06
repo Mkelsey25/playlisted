@@ -53,81 +53,7 @@ module.exports = function(app) {
 
     res.render("register");
   });
-
-  /////////////////////////////////////////////
-  // GET route to LOGIN a user
-  /////////////////////////////////////////////
-  app.post("/api/users/login", function(req, res) {
-    var query = {};
-    var password = req.body.user_password;
-    var loginType = req.body.login_type;
-    console.log("loginType: " + loginType);
-
-    console.log("route: login user");
-    console.log(JSON.stringify(req.body));
-
-    if (req.query.user_name) {
-      query.user_name = req.query.user_name;
-    } else {
-      query.user_name = req.body.user_name;
-    };
-
-    ////////////////////////
-    // login via bcrypt
-    ////////////////////////
-    if (loginType === "login") {
-      console.log("in bcrypt login");
-
-      db.Users.findOne({
-        where: query
-      }).then(async function(dbResult) {
-        // res.json(dbResult);          // send as json
-
-        if (!dbResult) {
-          res.redirect('/login');
-        } else if (!await dbResult.validPassword(password)) {
-          res.redirect('/login');
-        } else {
-          req.session.user = dbResult;
-          res.redirect('/');
-        }
-      });
-      
-        // send to handlebars
-      //   var hbsUser = {
-      //     user: dbResult
-      //   };
-      //   // console.log(dbResult);
-      //   res.render("users", hbsUser);
-      // });
-    }; 
-
-    ////////////////////////
-    // login with spotify
-    ////////////////////////
-    if (loginType === "login-spotify") {
-      console.log("in spotify login");
-      res.redirect('https://accounts.spotify.com/authorize?' +
-      querystring.stringify({
-        response_type: 'code',
-        client_id: process.env.SPOTIFY_CLIENT_ID,
-        scope: 'user-read-private user-read-email',
-        redirect_uri
-      }));
-    };
-
-  });
-
-  ///////////////////////////////
-  // GET route to LOGOUT a user
-  ///////////////////////////////
-  app.get("/api/users/logout", function(req, res) {
-    console.log("route: logout");
-
-    req.session.reset();
-    res.redirect('/');
-  });
-
+  
   /////////////////////////////////////
   // POST route to REGISTER a user
   ////////////////////////////////////
@@ -202,6 +128,170 @@ module.exports = function(app) {
       res.render("register", hbsObject);
     });
 
+  });
+
+  /////////////////////////////////////////////////
+  // GET route to show the login page
+  /////////////////////////////////////////////////
+  app.get("/login", function(req, res) {
+
+    console.log("route: login");
+    console.log(JSON.stringify(req.body));
+
+    res.render("login");
+  });
+
+  /////////////////////////////////////////////
+  // POST route to LOGIN a user
+  /////////////////////////////////////////////
+  app.post("/login", function(req, res) {
+    var query = {};
+    var password = req.body.user_password;
+    var loginType = req.body.login_type;
+    console.log("loginType: " + loginType);
+
+    console.log("route: login/authenticate user");
+    console.log(JSON.stringify(req.body));
+
+    if (req.query.user_name) {
+      query.user_name = req.query.user_name;
+    } else {
+      query.user_name = req.body.user_name;
+    };
+
+    ////////////////////////
+    // login via bcrypt
+    ////////////////////////
+    if (loginType === "login") {
+      console.log("in bcrypt login");
+
+      // Validation
+      req.checkBody('user_name', 'Username is required').notEmpty();
+      req.checkBody('user_password', 'Password is required').notEmpty();
+
+      var errors = req.validationErrors();
+      
+      if (errors) {
+        req.flash('error_msg', "No user by that name found.");
+        res.render("login", { errors: errors });
+      } else {
+
+        db.Users.findOne({
+          where: query
+        }).then(async function(dbResult) {
+          // res.json(dbResult);          // send as json
+
+
+      // var errors = err.messageId + ": " + err.toString();
+
+      // // send to handlebars
+      //   var hbsObject = {
+      //   users: req.body
+      // };
+      // req.flash('error_msg', err.toString());
+      // res.render("login", hbsObject);
+
+
+          if (!dbResult) {
+            console.log("no user found");
+
+            req.flash('error_msg', "No user by that name found.");
+            res.render("login", dbResult);
+
+            // res.redirect('/login');
+          } else if (!await dbResult.validPassword(password)) {
+            console.log("invalid password");
+            var hbsObject = {
+              users: dbResult
+            };
+            req.flash('error_msg', "Invalid password.");
+            res.render("login", hbsObject);
+
+            // res.redirect('/login');
+          } else {
+            console.log("user is logged in.");
+            req.session.user = dbResult;
+
+            var hbsObject = {
+              users: req.body
+            };
+            req.flash('success_msg', 'Login successful!');
+            res.render("login", hbsObject);
+
+            // res.redirect('/');
+          }
+
+        }).catch(function (err) {
+
+//           if (!dbResult) {
+//             console.log("no user found");
+// // console.log(res.locals.error);
+
+//             req.flash('error_msg', "No user by that name found.");
+//             res.render("login", dbResult);
+//             // res.json(dbResult);
+
+//             // res.redirect('/login');
+//           } else if (!await dbResult.validPassword(password)) {
+//             console.log("invalid password");
+//             var hbsObject = {
+//               users: dbResult
+//             };
+//             req.flash('error_msg', "Invalid password.");
+//             res.render("login", hbsObject);
+
+//             // res.redirect('/login');
+//           } else {
+//             console.log("user is logged in.");
+//             req.session.user = dbResult;
+
+//             // req.flash('success_msg', 'Login successful!');
+//             res.redirect('/');
+//           }
+
+          if (err) {
+            console.log("catch login error: " + err);
+            var errors = err.messageId + ": " + err.toString();
+          } else {
+            console.log("catch login error!");
+          }
+    
+          // send to handlebars
+            var hbsObject = {
+            users: req.body
+          };
+          // req.flash('error_msg', err.toString());
+          req.flash('error_msg', "No user found");
+          res.render("login", hbsObject);
+        });
+      }
+
+    }; 
+
+    ////////////////////////
+    // login with spotify
+    ////////////////////////
+    if (loginType === "login-spotify") {
+      console.log("in spotify login");
+      res.redirect('https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        scope: 'user-read-private user-read-email',
+        redirect_uri
+      }));
+    };
+
+  });
+
+  ///////////////////////////////
+  // GET route to LOGOUT a user
+  ///////////////////////////////
+  app.get("/api/users/logout", function(req, res) {
+    console.log("route: logout");
+
+    req.session.reset();
+    res.redirect('/');
   });
 
 function spotifyAuth() {

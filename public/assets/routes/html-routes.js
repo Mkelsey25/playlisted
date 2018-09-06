@@ -18,11 +18,12 @@ module.exports = function(app) {
   });
 
   // login route loads login.html
-  app.get("/login", function(req, res) {
-    res.sendFile(path.join(__dirname, "../login.html"));
-  });
-  app.get("/sign-up", function(req, res) {
-    res.sendFile(path.join(__dirname, "../sign-up.html"));
-  });
+  // app.get("/login", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../login.html"));
+  // });
+  
+  // app.get("/sign-up", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../sign-up.html"));
+  // });
 
 };
