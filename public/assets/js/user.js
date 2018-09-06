@@ -43,7 +43,6 @@ $(function() {
 
         var id = $("[name=user_id]").val().trim();
 
-        // TODO if we are storing the password, someone will need to ad logic to encrypt it... should remove if not
         var UserData = {
             user_name: $("#form-update-user [name=user_name]").val().trim(),
             user_email: $("#form-update-user [name=user_email]").val().trim(),
