@@ -11,7 +11,7 @@ INSERT INTO `playlisted_db`.`users` (`user_id`, `user_name`,`user_email`, `user_
 select * from users;
 
 -- insert songs
-INSERT INTO `playlisted_db`.`songs` (`song_title`, `artist_name`, `date_released`,`mood`, `energy`, `genre`, `created_at`, `updated_at`) 
+INSERT INTO `kuyqu83fc4fu1oq3`.`songs` (`song_title`, `artist_name`, `date_released`,`mood`, `energy`, `genre`, `created_at`, `updated_at`) 
 VALUES ("Come Sail Away", "Styx",  "02/02/02", "Ecstatic", "0.9", "Rock", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("Waves of Galveston", "Iron and Wine", "01/01/01", "Sad", "0.2", "Easy Listening", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
        ("London Hymn", "Josh Groban", "02/02/02", "Meh", "0.3", "Classical", CURRENT_TIMESTAMP(3), CURRENT_TIMESTAMP(3)),
