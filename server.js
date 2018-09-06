@@ -4,6 +4,8 @@
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
+} else if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
 //////////////////////////
