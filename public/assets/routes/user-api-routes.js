@@ -183,7 +183,7 @@ module.exports = function(app) {
       };
       /////////////////////////////////////////////////////////////////////////////////
 
-      req.flash('success_msg', 'Registration successful!');
+      req.flash('success_msg', 'Registration successful! Welcome to the community.');
       res.json(dbResult);          // send as json
 
     }).catch(function (err) {
@@ -196,7 +196,7 @@ module.exports = function(app) {
       // send to handlebars
 
       var hbsObject = {
-        errors: err
+        users: req.body
       };
       req.flash('error_msg', err.toString());
       res.render("register", hbsObject);
