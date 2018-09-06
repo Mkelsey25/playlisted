@@ -1,17 +1,6 @@
-{{!-- {{#if user}}
-        <div class="alert alert-danger">Username is taken already. Choose again.</div> 
-{{/if}} --}}
-{{!-- {{#if mail}}
-        <div class="alert alert-danger">Email is taken already. Choose again.</div> 
-{{/if}}  --}}
-{{#if errors}}
-      {{#each errors}}
-        <div class="alert alert-danger">{{msg}}</div>
-      {{/each}}
-{{/if}}
-
 <div class="formcontainer col-lg-12 col-sm-12 content mb-0">
-    <form id="form-new-login" action="login" method="POST">
+    {{!-- <form id="form-new-login" action="login" method="POST"> --}}
+    <form id="form-new-login">
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="user_name" placeholder="Username" autofocus>
@@ -42,29 +31,6 @@
         <p>Welcome to audio bliss! Let's get started today.  If you are new here, click on the link to register and join.</p>
     </div>
 </div>
-
-
-{{!-- <div class="formcontainer">
-  <form id="form-new-registration">
-    <div>
-      <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" id="usernamne" name="user_name" placeholder="Name..." class="form-control" maxlength="50" required autofocus>
-      </div>
-      <div class="form-group">
-        <label for="useremail">Email</label>
-        <input type="text" id="useremail" name="user_email" placeholder="Email..." class="form-control" maxlength="128" required>
-      </div>
-      <div class="form-group">
-          <label for="userpassword">Password</label>
-          <input type="text" id="userpassword" name="user_password" placeholder="Password..." class="form-control" required>
-      </div>
-    </div>
-    <div>
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-</div> --}}
 
 <script>
     $(document).ready (function() {

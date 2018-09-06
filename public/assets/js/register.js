@@ -29,4 +29,32 @@ $(function() {
         });
     });
 
+    /////////////////////
+    // login the user
+    /////////////////////
+    //on click in form, change 
+    $("#form-new-login").on("submit", function(event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var newUser = {
+            user_name: $("#form-new-login [name=user_name]").val().trim(),
+            user_password: $("#form-new-login [name=user_password]").val().trim(),
+            login_type: $("#form-new-login [name=login_type]").val().trim()
+        };
+
+        console.log("Ajax request: login");
+        console.log(newUser);
+
+        // Send the POST request.
+        $.ajax("/login", {
+            type: "POST",
+            data: newUser
+        }).then(
+        function() {
+            console.log("logged in");
+            location.reload();
+        });
+    });
+
 });

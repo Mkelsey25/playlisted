@@ -172,8 +172,8 @@ module.exports = function(app) {
       var errors = req.validationErrors();
       
       if (errors) {
-        req.flash('error_msg', "No user by that name found.");
         res.render("login", { errors: errors });
+        
       } else {
 
         db.Users.findOne({
@@ -181,22 +181,11 @@ module.exports = function(app) {
         }).then(async function(dbResult) {
           // res.json(dbResult);          // send as json
 
-
-      // var errors = err.messageId + ": " + err.toString();
-
-      // // send to handlebars
-      //   var hbsObject = {
-      //   users: req.body
-      // };
-      // req.flash('error_msg', err.toString());
-      // res.render("login", hbsObject);
-
-
           if (!dbResult) {
             console.log("no user found");
 
             req.flash('error_msg', "No user by that name found.");
-            res.render("login", dbResult);
+            res.render("login", { errors: errors });
 
             // res.redirect('/login');
           } else if (!await dbResult.validPassword(password)) {
