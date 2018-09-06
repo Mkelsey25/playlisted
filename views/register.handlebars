@@ -1,41 +1,12 @@
-
-  <header class="header">
-    <h1>Register Today</h1>
-  </header>
-
-  {{#if users}}
-    <div class="user-content">
-      <h3>Users</h3>
-        <ul>
-        {{#each users}}
-          {{> user-block}}
-        {{/each}}
-        </ul>
-    </div>
-  {{/if}}
-
-  {{#if user}}
-    <div class="user-content-single">
-      <h3>User</h3>
-        <ul>
-          {{#each user}}
-            {{> user-block}}
-          {{/each}}
-        </ul>
-    </div>
-  {{/if}}
-
-{{!-- {{#if user}}
-        <div class="alert alert-danger">Username is taken already. Choose again.</div> 
-{{/if}} --}}
-{{!-- {{#if mail}}
-        <div class="alert alert-danger">Email is taken already. Choose again.</div> 
-{{/if}}  --}}
 {{#if errors}}
       {{#each errors}}
         <div class="alert alert-danger">{{msg}}</div>
       {{/each}}
 {{/if}}
+
+  <header class="header">
+    <h1>Register Today</h1>
+  </header>
 
 <div class="formcontainer">
   <form id="form-new-registration">
@@ -50,7 +21,7 @@
       </div>
       <div class="form-group">
           <label for="userpassword">Password</label>
-          <input type="text" id="userpassword" name="user_password" placeholder="Password..." class="form-control" required>
+          <input type="password" id="userpassword" name="user_password" placeholder="Password..." class="form-control" required>
       </div>
     </div>
     <div>
