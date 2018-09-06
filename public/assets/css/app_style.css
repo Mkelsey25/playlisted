@@ -436,6 +436,8 @@ html.ecstatic #myModal .modal-content {
     .logo {
         text-align: center;
         padding:  20px;
+        max-width: 400px;
+        margin: auto;
     }
     .menu {
         display: none;
@@ -458,7 +460,7 @@ html.ecstatic #myModal .modal-content {
     .scroll-img.energy {
         background-image: url("../img/zzz.png"), url("../img/hyper.png");
         background-repeat: no-repeat, no-repeat;
-        background-size: calc(20% - 20px), calc(20% - 20px);
+        background-size: calc(20.1% - 20px), calc(20% - 20px);
         background-position: 10px, calc(100% - 10px);
     }
 }
