@@ -22,10 +22,14 @@ module.exports = function(app) {
 
   // login route loads login.html
   app.get("/login", function(req, res) {
-    res.sendFile(path.join(__dirname, "../login.html"));
+    res.render("login", {
+      title: "Login"
+    });
   });
   app.get("/sign-up", function(req, res) {
-    res.sendFile(path.join(__dirname, "../sign-up.html"));
+    res.render("sign-up", {
+      title: "Sign Up"
+    });
   });
 
 };
