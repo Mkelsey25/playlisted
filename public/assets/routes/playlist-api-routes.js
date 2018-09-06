@@ -96,6 +96,7 @@ function displayUserPlaylists() {
       console.log("Playlist created.");
 
       res.json(dbResult);
+      
     });
   });
 

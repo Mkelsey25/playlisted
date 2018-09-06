@@ -3,8 +3,10 @@
 //
 // Description: This file offers a set of routes for displaying and saving song data to the db
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
+var $ = require("jquery");
+$( document ).ready(function() {
 // Requiring our models
+//var userInput = require('../js/playlist');
 var db = require("./../../../models");
 
 /////////////////
@@ -16,7 +18,27 @@ module.exports = function(app) {
   // GET route for getting all of the songs
   /////////////////////////////////////////////
   app.get("/api/songs", function(req, res) {
-    var query = {};
+    db.Songs.findAll({
+      where: { 
+          mood: $("#form-new-song [name=mood]").val.trim,
+          energy: $("#form-new-song [name=energy]").val.trim,
+          genre: $("#form-new-song [name=genre]").val.trim
+      }
+      }).then(function(songList) {
+          console.log("I found these songs for you!");
+          //console.log(songList);
+          //res.json(songList);
+
+          var hbsObject = {
+            songs: songList
+          };
+          
+          //console.log(songList);
+          res.render("songs", hbsObject);
+          
+      });
+    
+    /*var query = {};
 
     console.log("route: all songs");
     console.log(JSON.stringify(req.body));
@@ -32,8 +54,10 @@ module.exports = function(app) {
         songs: dbResult
       };
       res.render("songs", hbsObject);      
-    });
-  });
+    });*/
+
+
+  }); 
 
   /////////////////////////////////////////////
   // GET route for retrieving a single song
@@ -120,3 +144,4 @@ module.exports = function(app) {
     });
   });
 };
+});

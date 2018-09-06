@@ -3,6 +3,8 @@
 var moment = require('moment');
 const dateFormat = 'MM/DD/YYYY hh:mm A';
 
+var db = require("../models");
+
 //Use the sequelize constructor to design a model for each new playlist and create SQL data 
 module.exports = function(sequelize, DataTypes) {
 
@@ -56,4 +58,9 @@ module.exports = function(sequelize, DataTypes) {
     };
 
     return Playlist;
+
+
+
   };
+
+

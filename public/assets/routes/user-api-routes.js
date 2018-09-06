@@ -74,8 +74,10 @@ module.exports = function(app) {
 
         if (!dbResult) {
           res.redirect('/login');
+          console.log('NOT IN DATABASE');
         } else if (!await dbResult.validPassword(password)) {
           res.redirect('/login');
+          console.log('INCORRECT PASSWORD');
         } else {
           req.session.user = dbResult;
           res.redirect('/');
@@ -318,6 +320,16 @@ function spotifyToken() {
     });
 
   });
+
+  //Morgan 
+
+  /*app.get("/api/users/:id/playlists", function(req, res) {
+    console.log("Individual User's Playlists");
+    console.log(JSON.stringify(req.body));
+    var id = (req.params.id) ? req.params.id : req.body.id;
+    Needs to grab data from every playlist that belongs to the user along with songs.
+
+  })*/
 };
 
   /////////////////////////////////////////////////////////////////////

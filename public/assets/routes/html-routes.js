@@ -15,7 +15,10 @@ module.exports = function(app) {
   // index route loads playlist.html
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../playlist.html"));
+    //res.json(req.body);
   });
+
+
 
   // login route loads login.html
   app.get("/login", function(req, res) {
@@ -26,3 +29,6 @@ module.exports = function(app) {
   });
 
 };
+
+
+

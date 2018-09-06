@@ -32,7 +32,7 @@
                             <a href="/"><i class="fa fa-home"></i>Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-list-ul"></i>My Lists</a>
+                            <a href="/api/playlists/:id"><i class="fas fa-list-ul"></i>My Lists</a>
                         </li>
                         <li>
                             <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
@@ -77,7 +77,7 @@
                                 <option value="rap/hip-hop">Rap/Hip-Hop</option>
                                 <option value="unknown">Unknown</option>
                             </select>
-                            <input type="submit" value="Listen" data-toggle="modal" data-target="#myModal" class="submitButton">
+                            <input type="submit" id="listenbtn" value="Listen" data-toggle="modal" data-target="#myModal" class="submitButton">
                         </form>
 
                         <!--container for generated playlist-->
@@ -97,6 +97,7 @@
                     </div>
                     <div class="test-pull">
                         <button id="songs1">AHHHHHH</button>
+                        <div id=displayPlaylist></div>
                     </div>
                     
                     <!-- Modal -->
@@ -111,7 +112,11 @@
                                     <div class="modal-body">
                                         <p id="mood"></p>
                                         <p id="energy"></p>
-                                        <p id="genre"></p>
+                                        <p id="genre">
+                                            <div id="player">
+
+                                            </div>
+                                        </p>
                                     </div>
                                     <div class="modal-body">
                                         <p id="playlist"></p>
@@ -128,12 +133,6 @@
         </div>
     </div>
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-    <!-- Load our React component. -->
-    <script src="delete_button.js"></script>
 </body>
 </html>

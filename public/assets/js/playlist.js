@@ -31,6 +31,7 @@ $(function() {
             energy: $("#myEnergy").val().trim(),
             genre: $("#myGenre").val().trim()
         };
+
         if (userInput.mood == 1) {
             $(".modal-body p#mood").html("Angry");
         };
@@ -143,3 +144,5 @@ $(function() {
     });
 
 });
+
+
