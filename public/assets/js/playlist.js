@@ -57,14 +57,15 @@ $(function() {
             $(".modal-body p").html(data.energy);
         });*/
     });
-    // close popup with escape button
+
+    /* close popup with escape button
     $(document).keydown(function(e) { 
         if (e.keyCode == 27) { 
             $("#myModal").fadeOut(300).modal("hide");
             //or
             window.close();
         }
-    });
+    });*/
 
     /////////////////////////
     // create the playlist

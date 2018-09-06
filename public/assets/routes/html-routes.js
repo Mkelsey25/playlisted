@@ -6,6 +6,7 @@
 
 // dependencies
 var path = require("path");
+var db = require("./../../../models");
 
 // Routes
 module.exports = function(app) {
@@ -14,7 +15,9 @@ module.exports = function(app) {
 
   // index route loads playlist.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../playlist.html"));
+    res.render("index", {
+      title: "Playlisted"
+    });
   });
 
   // login route loads login.html
