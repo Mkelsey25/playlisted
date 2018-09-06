@@ -1,6 +1,8 @@
 /////////////////////////////////////////////////////////
 // use dotenv except in prod (where it is not needed)
 /////////////////////////////////////////////////////////
+var mysql = require('mysql');
+
 require('dotenv').config({ silent: process.env.NODE_ENV === 'production' })  
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
