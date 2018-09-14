@@ -66,7 +66,7 @@ DB_DEV_PORT=3306
 
 ## Running tests
 
-Unit testing was done against all routes from end-to-end and functionally tested by teammates.
+Unit testing was done against all routes from end-to-end and functionally tested by team mates.
 
 ## Deployment
 
@@ -87,11 +87,11 @@ This is version 0.1
 ## Authors
 
 * **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize, AJAX calls (songs, users, playlists), Bcrypt and Handlebars*
-* **James Cowart** - *Front-End Design, Logo Creation, Handlebars.js, API Logic, Responsive Design, Unit Testing*
-* **Rebecca Wieberdink** - *Wireframe, MySQL, Sequelize, Unit Testing, Heroku, Spotify Authentication and API (Coming Soon)*
-* **Morgan Hamlin** - *Local Authentication and Sign-Up, Music Data, NodeMailer, Heroku, Passport.js (Coming Soon)*
-
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+N/A
