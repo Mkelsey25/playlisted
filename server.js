@@ -182,7 +182,6 @@ app.use(routes);
 // ***IMPORTANT***  use this for DEV while schema is in flux 
 // set force=true to override schema
 /////////////////////////////////////////////////////////////////
-/*
 db.sequelize
     .query('SET FOREIGN_KEY_CHECKS = 0', null, {raw: true})
     .then(function(results) {
@@ -196,15 +195,14 @@ db.sequelize
             });
     });
 });
-*/
 
 ///////////////////////////////
 // use this for QA and PROD
 ///////////////////////////////
- db.sequelize.sync({})
-     .then(function() {
-         app.listen(app.get('port'), function() {
-             console.log("App now listening at localhost: " + app.get('port'));
-         }).catch (function(error) { console.log(error); });
-     });
+// db.sequelize.sync({})
+//     .then(function() {
+//         app.listen(app.get('port'), function() {
+//             console.log("App now listening at localhost: " + app.get('port'));
+//         });  //.catch (function(error) { console.log(error); });
+//     });
 
