@@ -30,7 +30,13 @@ $(document).ready(function() {
 				url:'api/songs',
 				type:'GET',
 				success: function(data){
+					if(data.length === 0) {
+						console.log("NO DATA");
+						alert("Whoops! Looks like there's no music for this selection.");
+					}
+					
 					data=$(data).find("[data-mood='" + moodInput + "'][data-energy='" + energyInput + "']");
+					console.log(data);
 					$('#playlist').html($(data));
 				}
 			});
@@ -40,6 +46,7 @@ $(document).ready(function() {
 				type:'GET',
 				success: function(data){
 					data=$(data).find("[data-mood='" + moodInput + "'][data-energy='" + energyInput + "'][data-genre='" + genreInput + "']");
+					console.log(data);
 					$('#playlist').html($(data));
 				}
 			});
