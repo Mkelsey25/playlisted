@@ -11,7 +11,7 @@ MySQL is used as the backend to manage users, songs, and playlists leveraging th
 
 ## Getting Started
  
-### Prerequisites
+### Prequisites
 
 Node, NPM and a command line tool such as GitBash.
 
@@ -87,6 +87,9 @@ This is version 0.1
 ## Authors
 
 * **Jenni Coleman** - *Design, Express server, MVC, Routes, Sequelize, AJAX calls (songs, users, playlists), Bcrypt and Handlebars*
+* **James Cowart** - *Front-End Design, Logo Creation, Handlebars.js, API Logic, Responsive Design, Unit Testing*
+* **Rebecca Wieberdink** - *Wireframe, MySQL, Sequelize, Unit Testing, Heroku, Spotify Authentication and API (Coming Soon)*
+* **Morgan Hamlin** - *Local Authentication and Sign-Up, Music Data, NodeMailer, Heroku, Passport.js (Coming Soon)*
 
 ## License
 
